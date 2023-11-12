@@ -1,0 +1,54 @@
+header{
+    background-color: #2F2F2F;
+    width: 100%;
+    padding: 0 60px ;
+    // position: absolute;
+    z-index: 30;
+}
+.row{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    img{
+        cursor: pointer;
+    }
+}
+.nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    li{
+        // font-family: "Arian AMU";
+        font-weight: 600;
+        letter-spacing: 0.055em;
+        color: rgba(255, 255, 255, 1);
+        transition: all 200ms ease;
+        cursor: pointer;
+        &:hover{
+            color: var(--blueviolet);
+        }
+    }
+}
+.options{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    svg{
+        font-size: 23px;
+        color: white;
+    }
+    button{
+        padding: 6px 13px;
+        background-color: white;
+        border-radius: 30px;
+        border: none;
+        font-family: Arial;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.055em;
+    }
+}

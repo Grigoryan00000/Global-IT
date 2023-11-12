@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:wght@500&family=Inter:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans+Narrow&family=Pacifico&family=Poppins:wght@200&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:wght@500&family=Inter:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans+Narrow:wght@400;700&family=Pacifico&family=Poppins:wght@200&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:wght@500&family=Inter:wght@300&family=Open+Sans:ital,wght@1,300&family=Pacifico&family=Poppins:wght@200&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=EB+Garamond:wght@500&family=Inter:wght@300&family=Open+Sans:ital,wght@1,300&family=PT+Sans+Narrow&family=Pacifico&family=Poppins:wght@200&family=Roboto&display=swap");
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    font-family: "PT Sans Narrow", sans-serif;
+}
+:root{
+    --global-homePage-color: #1A181D;
+    --global-max-width: 1300px;
+    --blueviolet: #A35BFF;
+}
