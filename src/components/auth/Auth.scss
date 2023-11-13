@@ -1,0 +1,22 @@
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 500px;
+    min-height: 100vh;
+    background-color: #0E0A12;
+    &-text{
+        width: 495px;
+        height: 230.353px;
+        flex-shrink: 0;
+        >h1{
+            color: #EDEDED;
+            font-family: Arian AMU;
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150.49%;
+        }
+    }
+    
+}

@@ -5,6 +5,7 @@ const Container = ({ children }) => {
         style={{
           maxWidth: "var(--global-max-width)",
           margin: "auto",
+          // padding: "0 60px"
         }}
       >
         {children}
