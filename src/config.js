@@ -28,8 +28,7 @@ export const CONFIG = {
     home_slider_data : [
       {
         id: 1,
-        titleFirstPart: "Global IT",
-        titleSecondPart: " -ին Հասանելի բոլորին",
+        title: "Global IT-ին Հասանելի բոլորին",
         btn1: "Դասընթացներ",
         btn2: "Ծառայություններ",
         icon: <FiPhoneCall />,
@@ -37,9 +36,7 @@ export const CONFIG = {
       },
       {
         id: 2,
-        titleSecondPart:" ԾՐԱԳՐԱՎՈՐՈՒՄ ",
-        titleFirstPart: "Սովորի՛ր ",
-        titleThirdPart: " Փոխի՛ր Աշխարհը ",
+        title:" ԾՐԱԳՐԱՎՈՐՈՒՄ Սովորի՛ր Փոխի՛ր Աշխարհը ",
         btn1: "Դասընթացներ",
         btn2: "Ծառայություններ",
         icon: <FiPhoneCall />,
@@ -47,13 +44,35 @@ export const CONFIG = {
       },
       {
         id: 3,
-        titleFirstPart: "Սովորի՛ր ",
-        titleSecondPart:" ԴԻԶԱՅՆ ",
-        titleThirdPart: "Ստեղծի՛ր Նորը",
+        title: "Սովորի՛ր ԴԻԶԱՅՆ Ստեղծի՛ր Նորը",
         btn1: "Դասընթացներ",
         btn2: "Ծառայություններ",
         icon: <FiPhoneCall />,
         img: null,
       },
     ],
+
+
+    footerFirstListConfig:[
+      {
+        id: 1,
+        title: "Ֆակուլետներ",
+        text: null,
+      },
+      {
+        id: 2,
+        title:null,
+        text: "Վեբ ծրագրավորում"
+      },
+      {
+        id: 3,
+        title:null,
+        text: "Ծրագրավորում"
+      },
+      {
+        id: 4,
+        title:null,
+        text: "Մուլտիմեդիա"
+      },
+    ]
 }

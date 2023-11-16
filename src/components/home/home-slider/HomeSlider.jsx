@@ -1,46 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./HomeSlider.scss"
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { CONFIG } from '../../../config';
-import Slide from './slide/Slide';
+import { Typewriter } from 'react-simple-typewriter';
+import Container from "../../common/container/Container"
+
+import homeSliderImg1 from "../../../assets/home-slider/home-slider-img1.png"
 
 
 const HomeSlider = () => {
+  const homeTyper = CONFIG.home_slider_data;
+  const titlesArr= []
+  homeTyper.forEach(({title}) => {
+    titlesArr.push(title)
+  })
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    setPosition({ x: e.clientX, y: e.clientY });
+  };
   return (
     <div className='home-slider'>
-      <Swiper
-        modules={[Navigation, A11y, Autoplay]}
-        spaceBetween={50}
-        slidesPerView={1}
-        navigation
-        loop={true}
-        grabCursor
-        autoplay={{
-          delay: 5000,
-        }}
-        onSwiper={(swiper) => console.log(swiper)}
-      >
-        {CONFIG.home_slider_data.map(({ id, titleFirstPart,titleSecondPart,titleThirdPart, img, btn1, btn2, icon }) => {
-          return (
-            <SwiperSlide key={id}>
-              <Slide
-                id={id}
-                titleFirstPart={titleFirstPart}
-                titleSecondPart={titleSecondPart}
-                titleThirdPart={titleThirdPart}
-                img={img}
-                btn1={btn1}
-                btn2={btn2}
-                icon={icon}
+      <Container>
+        <div className="home-slider-title">
+          <h1>
+            <Typewriter
+                words={titlesArr}
+                loop={5}
+                cursor
+                cursorStyle='|'
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                // onLoopDone={handleDone}
+                // onType={handleType}
               />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+            </h1>
+        </div>
+        <div className="home-slider-rightPart" >
+          
+        </div>
+      </Container>
     </div>
   )
 }

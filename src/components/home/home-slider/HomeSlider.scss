@@ -1,64 +1,70 @@
-.home-slider{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
-    &-item{
-        min-height:100vh;
-        display: flex;
-        align-items: center;
-        &-title{
-            width: 700px;
-            h2{
-                // font-family: Arian AMU;
-                font-size: 50px;
-                font-weight: 700;
-                color: #fff;
-                line-height: 74px;
-                span{
-                    color: var(--blueviolet);
-                }
-            }
-            &-buttons{
-                display: flex;
-                gap: 40px;
-                margin-top: 100px;
-                margin-bottom: 50px;
-                button{
-                    // font-family: Arian AMU;
-                    width: 260px;
-                    padding: 20px 0;
-                    font-size: 19px;
-                    font-weight: 700;
-                    line-height: 27px;
-                    letter-spacing: 0.055em;
-                    background-color: var(--blueviolet);
-                    color: white;
-                    border: none;
-                    border-radius: 80px;
-                    cursor: pointer;
-                    &:last-child{
-                        border: 2px solid white;
-                        background-color: transparent;
-                    }
-                }
-            }
-            &-icon{
-                width: 75px;
-                height: 75px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                background-color: var(--blueviolet);
-                color: #fff;
-                border: 10px solid #6C40A5;
-                svg{
-                    font-size: 21px;
-                }
-            }
+// .home-slider{
+//     min-height: 100vh;
+//     display: flex;
+//     align-items: center;
+//     padding: 0 80px;
+//     &-item{
+//         min-height:100vh;
+//         display: flex;
+//         align-items: center;
+//         &-title{
+//             width: 700px;
+//             h2{
+//                 // font-family: Arian AMU;
+//                 font-size: 50px;
+//                 font-weight: 700;
+//                 color: #fff;
+//                 line-height: 74px;
+//                 span{
+//                     color: var(--blueviolet);
+//                 }
+//             }
+//             &-buttons{
+//                 display: flex;
+//                 gap: 40px;
+//                 margin-top: 100px;
+//                 margin-bottom: 50px;
+//                 button{
+//                     // font-family: Arian AMU;
+//                     width: 260px;
+//                     padding: 20px 0;
+//                     font-size: 19px;
+//                     font-weight: 700;
+//                     line-height: 27px;
+//                     letter-spacing: 0.055em;
+//                     background-color: var(--blueviolet);
+//                     color: white;
+//                     border: none;
+//                     border-radius: 80px;
+//                     cursor: pointer;
+//                     &:last-child{
+//                         border: 2px solid white;
+//                         background-color: transparent;
+//                     }
+//                 }
+//             }
+//             &-icon{
+//                 width: 75px;
+//                 height: 75px;
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 border-radius: 50%;
+//                 background-color: var(--blueviolet);
+//                 color: #fff;
+//                 border: 10px solid #6C40A5;
+//                 svg{
+//                     font-size: 21px;
+//                 }
+//             }
             
-        }
-    }
+//         }
+//     }
+    
+// }
+
+.home-slider{
     
 }
+
+
