@@ -1,7 +1,7 @@
 
 
 .home-faculties{
-    padding: 40px 80px ;
+    padding: 90px 80px 0 80px;
     width: 100%;
     margin: auto;
     &-title{
@@ -120,6 +120,8 @@
             }
             .home-faculties-items-item-bottom-item img{
                 display: block;
+                animation: appearItem 0.7s ease;
+                
             }
             .home-faculties-items-item-bottom button{
                 background: #894CD9;
@@ -132,5 +134,17 @@
 
         }
 
+    }
+}
+
+@keyframes appearItem {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    0%{
+        opacity: 0;
     }
 }
