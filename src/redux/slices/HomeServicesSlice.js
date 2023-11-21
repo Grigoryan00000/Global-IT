@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import homeServicesItemBottomImg from "../../assets/home-services/home-services-item-bottom-item-img.png"
+import homeServicesItemBottomImg from "../../assets/home/home-services/home-services-item-bottom-item-img.png"
 
 const initialState = {
     homeServices: [

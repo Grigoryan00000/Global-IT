@@ -1,7 +1,7 @@
-import facebookLogo from "../../assets/home-team/facebook-logo 2.png"
-import twitterLogo from "../../assets/home-team/twitter-logo 2.png"
-import instagramLogo from "../../assets/home-team/instagram-logo 2.png"
-import linkedinLogo from "../../assets/home-team/linkedin-logo 2.png"
+import facebookLogo from "../../assets/home/home-team/facebook-logo 2.png"
+import twitterLogo from "../../assets/home/home-team/twitter-logo 2.png"
+import instagramLogo from "../../assets/home/home-team/instagram-logo 2.png"
+import linkedinLogo from "../../assets/home/home-team/linkedin-logo 2.png"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {

@@ -1,9 +1,9 @@
 import Container from "../../common/container/Container"
 import "./HomeFaculties.scss"
-import homeFacultiesIcon1 from "../../../assets/home-faculties/home-faculties-item-icon1.png"
-import homeFacultiesIcon2 from "../../../assets/home-faculties/home-faculties-item-icon2.png"
-import homeFacultiesIcon3 from "../../../assets/home-faculties/home-faculties-item-icon3.png"
-import homeFacultiesitem from "../../../assets/home-faculties/home-faculties-item.png"
+import homeFacultiesIcon1 from "../../../assets/home/home-faculties/home-faculties-item-icon1.png"
+import homeFacultiesIcon2 from "../../../assets/home/home-faculties/home-faculties-item-icon2.png"
+import homeFacultiesIcon3 from "../../../assets/home/home-faculties/home-faculties-item-icon3.png"
+import homeFacultiesitem from "../../../assets/home/home-faculties/home-faculties-item.png"
 import { useDispatch, useSelector } from "react-redux"
 
 const HomeFaculties = () => {

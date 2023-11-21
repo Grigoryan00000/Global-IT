@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import homeTeamItemImg from "../../../assets/home-team/home-team-item-img.png"
+import homeTeamItemImg from "../../../assets/home/home-team/home-team-item-img.png"
 import "./HomeTeam.scss"
 import Container from "../../common/container/Container"
 

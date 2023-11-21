@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux"
 import "./HomeWorks.scss"
-import homeWorksImg1 from "../../../assets/home-works/home-works-img1.png"
-import homeWorksImg2 from "../../../assets/home-works/home-works-img2.png"
-import homeWorksImg3 from "../../../assets/home-works/home-works-img3.png"
+import homeWorksImg1 from "../../../assets/home/home-works/home-works-img1.png"
+import homeWorksImg2 from "../../../assets/home/home-works/home-works-img2.png"
+import homeWorksImg3 from "../../../assets/home/home-works/home-works-img3.png"
 import Container from "../../common/container/Container"
 
 const HomeWorks = () => {

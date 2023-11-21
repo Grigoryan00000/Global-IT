@@ -10,9 +10,18 @@
     margin: 0;
     box-sizing: border-box;
 }
+.container{
+    max-width: var(--global-max-width);
+    margin: auto;
+}
 body{
-    font-size: 16px;
     font-family: "PT Sans Narrow", sans-serif;
+}
+p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.055em;
 }
 :root{
     --global-homePage-color: #1A181D;
@@ -20,4 +29,13 @@ body{
     --blueviolet: #A35BFF;
     --white: #fff;
     --grey: #3E3E3E;
+    --layout: #16131B;
+}
+
+
+
+@media screen and (max-width: 1200px){
+    .container{
+        width: 100%;
+    }
 }

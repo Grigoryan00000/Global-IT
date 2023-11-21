@@ -1,8 +1,8 @@
-import HomeServicesItemImg from "../../../assets/home-services/home-services-item-img.png"
+import HomeServicesItemImg from "../../../assets/home/home-services/home-services-item-img.png"
 import Container from "../../common/container/Container"
 import "./HomeServices.scss"
-import homeServicesItemIcon from "../../../assets/home-services/home-services-item-icon.png"
-import homeServicesItemBottomItemImg from "../../../assets/home-services/home-services-item-bottom-item-img.png"
+import homeServicesItemIcon from "../../../assets/home/home-services/home-services-item-icon.png"
+import homeServicesItemBottomItemImg from "../../../assets/home/home-services/home-services-item-bottom-item-img.png"
 import { useSelector } from "react-redux"
 
 
