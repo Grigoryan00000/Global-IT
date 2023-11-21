@@ -20,7 +20,7 @@
 
             width: 405px;
             height: 600px;
-            background: url(../../../assets/home-services/home-services-item-fon.png) no-repeat, center/cover;
+            background: url(../../../assets/home/home-services/home-services-item-fon.png) no-repeat, center/cover;
             border: 3px solid var(--blueviolet);
             box-shadow: 1px 1px 15px black;
             border-radius: 20px;
@@ -64,6 +64,9 @@
                     box-shadow: 3px 3px 3px rgb(24, 24, 24);
                     cursor: pointer;
                     transition: all 200ms ease;
+                    &:hover{
+                        background: #894CD9;
+                    }
                 }
             }
             &-top{
@@ -107,7 +110,7 @@
                     border-radius: 5px;
                     h4{
                         // font-family: Arian AMU;
-                        font-size: 11px;
+                        font-size: 12px;
                         font-weight: 400;
                         line-height: 45px;
                         padding-left: 13px;
@@ -118,40 +121,23 @@
                         height: 100%;
                         animation: appearItem 0.4s ease;
                     }
-                }
-                &-button{
-                    text-align: center;
-                    padding: 10px 55px;
-                    // font-family: Arian AMU;
-                    font-size: 24px;
-                    font-weight: 700;
-                    letter-spacing: 0.055em;
-                    background-color: transparent;
-                    border: 2px solid var(--blueviolet);
-                    border-radius: 15px;
-                    margin-top: 50px;
-                    color: var(--white);
-                    box-shadow: 3px 3px 3px rgb(24, 24, 24);
-                    cursor: pointer;
+                    &:hover{
+                        // justify-content: flex-end;
+                        // gap: 54px;
+                        padding: 0;
+                        button{
+                            display: none;
+                        }
+                        img{
+                            display: block;
+                            animation: appearItem 0.7s ease;
+                        }
+                        
+                    }
                 }
                 
             }
-        }
-        &-item:hover{
-            .home-services-items-item-bottom-item img{
-                display: block;
-                animation: appearItem 0.7s ease;
-
-            }
-            .home-services-items-item-desc button{
-                background: #894CD9;
-            }
-            .home-services-items-item-bottom-item{
-                // justify-content: flex-end;
-                gap: 54px;
-                padding: 0;
-            }
-        }    
+        }  
     }
 
     @keyframes appearItem {
@@ -164,6 +150,24 @@
         0%{
             opacity: 0;
         }
+    }
+}
+
+
+@media screen and (max-width: 1100px){
+    .home-services-items{
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+}
+@media screen and (max-width: 600px){
+    .home-services-title{
+        font-size: 36px;
+    }
+    .home-services-items-item{
+        width: 350px;
+        // height: ;
     }
 }
 

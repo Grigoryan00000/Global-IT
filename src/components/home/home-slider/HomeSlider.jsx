@@ -7,7 +7,6 @@ import { CONFIG } from '../../../config';
 import { Typewriter } from 'react-simple-typewriter';
 import Container from "../../common/container/Container"
 
-import homeSliderImg1 from "../../../assets/home-slider/home-slider-img1.png"
 
 
 const HomeSlider = () => {
@@ -16,12 +15,6 @@ const HomeSlider = () => {
   homeTyper.forEach(({title}) => {
     titlesArr.push(title)
   })
-
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    setPosition({ x: e.clientX, y: e.clientY });
-  };
   return (
     <div className='home-slider'>
       <Container>

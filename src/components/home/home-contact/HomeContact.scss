@@ -1,0 +1,77 @@
+.home-contact{
+    padding: 90px 80px 90px 80px;
+    &-title{
+        text-align: center;
+        // font-family: Arian AMU;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--blueviolet);
+    }
+    &-item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 90px;
+        &-send{
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            input{
+                border-radius: 20px;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 27px;
+                letter-spacing: 0em;
+                text-align: left;
+                border: none;
+                outline: none;
+            }
+            &-topic{
+                width: 500px;
+                padding: 30px 25px;
+            }
+            &-desc{
+                margin: 20px 0;
+                width: 100%;
+                padding: 30px 25px 120px 25px;
+            }
+            button{
+                // font-family: Arian AMU;
+                width: 260px;
+                padding: 20px 0;
+                font-size: 19px;
+                font-weight: 700;
+                line-height: 27px;
+                letter-spacing: 0.055em;
+                color: white;
+                border: 2px solid white;
+                background-color: transparent;
+                border-radius: 80px;
+                cursor: pointer;
+                transition: all 200ms ease;
+                &:hover{
+                    background: var(--blueviolet);
+                    border: 2px solid var(--blueviolet);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .home-contact-item{
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+}
+@media screen and (max-width: 600px){
+    .home-contact-title{
+        font-size: 36px;
+    }
+    .home-contact-item-item{
+        width: 350px;
+        // height: ;
+    }
+}

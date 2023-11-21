@@ -1,5 +1,5 @@
 header{
-    background-color: #2F2F2F;
+    background-color: var(--layout);
     width: 100%;
     padding: 0 80px ;
     // position: absolute;
@@ -50,5 +50,36 @@ header{
         font-size: 14px;
         font-weight: 400;
         letter-spacing: 0.055em;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .nav{
+        font-size: 14px;
+    }  
+    .options{
+        svg{
+            font-size: 21px;
+        }
+        span{
+            img{
+                width: 23px;
+            }
+        }
+        button{
+        padding: 6px 10px;
+
+        }
+    } 
+}
+@media screen and (max-width: 1100px){
+    .nav{
+        display: none;
+    }
+    .options{
+        display: none;
     }
 }

@@ -6,6 +6,7 @@ import homeServicesReducer from "./slices/HomeServicesSlice"
 import homeTeamReducer from "./slices/HomeTeamSlice"
 import homeWorksReducer from "./slices/HomeWorksSlice"
 import homeFriendsReducer from "./slices/HomeFriendsSlice"
+import blogReducer from "./slices/BlogSlice"
 
 const store = configureStore({
     reducer: {
@@ -15,7 +16,9 @@ const store = configureStore({
         homeServices: homeServicesReducer,
         homeTeam: homeTeamReducer,
         homeWorks: homeWorksReducer,
-        homeFriends: homeFriendsReducer
+        homeFriends: homeFriendsReducer,
+        blog: blogReducer,
+
     }
 })
 

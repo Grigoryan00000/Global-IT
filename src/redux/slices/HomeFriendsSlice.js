@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import homeFriendsIcon1 from "../../assets/home-friends/homeFriendsIcon1.png"
-import homeFriendsIcon2 from "../../assets/home-friends/homeFriendsIcon2.png"
-import homeFriendsIcon3 from "../../assets/home-friends/homeFriendsIcon3.png"
-import homeFriendsIcon4 from "../../assets/home-friends/homeFriendsIcon4.png"
-import homeFriendsIcon5 from "../../assets/home-friends/homeFriendsIcon5.png"
+import homeFriendsIcon1 from "../../assets/home/home-friends/homeFriendsIcon1.png"
+import homeFriendsIcon2 from "../../assets/home/home-friends/homeFriendsIcon2.png"
+import homeFriendsIcon3 from "../../assets/home/home-friends/homeFriendsIcon3.png"
+import homeFriendsIcon4 from "../../assets/home/home-friends/homeFriendsIcon4.png"
+import homeFriendsIcon5 from "../../assets/home/home-friends/homeFriendsIcon5.png"
 import HomeFriends from "../../components/home/home-friends/HomeFriends";
 
 

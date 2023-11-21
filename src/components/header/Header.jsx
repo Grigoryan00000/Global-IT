@@ -5,8 +5,10 @@ import Container from "../common/container/Container"
 import "./Header.scss"
 import { GoSearch } from 'react-icons/go';
 import lang from "../../assets/header/Lang.png"
+import { useNavigate } from 'react-router'
 
 const Header = () => {
+    const navigate = useNavigate()
   return (
     <header>
         <Container>
@@ -19,6 +21,9 @@ const Header = () => {
                         return (
                             <li
                             key={id}
+                            onClick={() => {
+                                navigate("/blog")
+                            }}
                             >
                                 {title}
                             </li>

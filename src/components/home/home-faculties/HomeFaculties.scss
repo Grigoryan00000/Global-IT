@@ -19,11 +19,10 @@
         &-item{
             width: 405px;
             height: 600px;
-            background: url(../../../assets/home-faculties/home-faculties-item.png) no-repeat center/auto;
+            background: url(../../../assets/home/home-faculties/home-faculties-item.png) no-repeat center/auto;
             border: 3px solid var(--blueviolet);
             box-shadow: 1px 1px 15px black;
             border-radius: 20px;
-            cursor: pointer;
             &:nth-of-type(2) &-top div{
                 padding: 5px 0;
                 background-color: #88BC51;
@@ -72,6 +71,7 @@
                     margin-top: 20px;
                     padding: 0 20px;
                     border-radius: 5px;
+                    cursor: pointer;
                     h4{
                         // font-family: Arian AMU;
                         font-size: 13px;
@@ -92,6 +92,19 @@
                     img{
                         display: none;
                     }
+                    &:hover{
+                        justify-content: flex-end;
+                        gap: 54px;
+                        padding: 0;
+                        button{
+                            display: none;
+                        }
+                        img{
+                            display: block;
+                            animation: appearItem 0.7s ease;
+                        }
+                        
+                    }
                 }
                 &-button{
                     text-align: center;
@@ -108,30 +121,13 @@
                     box-shadow: 3px 3px 3px rgb(24, 24, 24);
                     cursor: pointer;
                     transition: all 300ms ease;
+                    &:hover{
+                        background: #894CD9;
+                    }
                 }
                 
             }
             
-        }
-        &-item:hover{
-            
-            .home-faculties-items-item-bottom-item button{
-                display: none;
-            }
-            .home-faculties-items-item-bottom-item img{
-                display: block;
-                animation: appearItem 0.7s ease;
-                
-            }
-            .home-faculties-items-item-bottom button{
-                background: #894CD9;
-            }
-            .home-faculties-items-item-bottom-item{
-                justify-content: flex-end;
-                gap: 54px;
-                padding: 0;
-            }
-
         }
 
     }
@@ -146,5 +142,23 @@
     }
     0%{
         opacity: 0;
+    }
+}
+
+
+@media screen and (max-width: 1100px){
+    .home-faculties-items{
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+}
+@media screen and (max-width: 600px){
+    .home-faculties-title{
+        font-size: 36px;
+    }
+    .home-faculties-items-item{
+        width: 350px;
+        // height: ;
     }
 }
