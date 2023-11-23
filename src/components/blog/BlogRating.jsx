@@ -10,9 +10,6 @@ const BlogRating = () => {
         value: 3,
         color: "blue",
         activeColor: "red",
-        onChange: newValue => {
-          console.log(`Example 3: new value is ${newValue}`);
-        }
       };
   return (
     <div className='blog-rating'>
@@ -22,4 +19,3 @@ const BlogRating = () => {
 }
 
 export default BlogRating
- 

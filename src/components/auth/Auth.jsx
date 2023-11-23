@@ -12,7 +12,7 @@ const Auth = () => {
 
   return (
     <>
-      <div className='auth' style={{display: closeReg||closeAuth?"none":"flex"}}>
+      <div className='auth' style={{ display: closeReg || closeAuth ? "none" : "flex" }}>
         <div className='auth-text'>
           <h1>Դարձի`ր ծրագրավորող</h1>
         </div>
@@ -20,9 +20,9 @@ const Auth = () => {
           <img src={authImg} alt="" />
         </div>
       </div>
-      <AuthWindow/>
+      <AuthWindow />
     </>
-    
+
   )
 }
 
