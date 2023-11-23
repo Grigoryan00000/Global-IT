@@ -6,7 +6,7 @@ header{
     z-index: 30;
 }
 .row{
-    height: 100px;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,6 +50,7 @@ header{
         font-size: 14px;
         font-weight: 400;
         letter-spacing: 0.055em;
+        cursor: pointer;
     }
 }
 
