@@ -2,8 +2,17 @@ import Container from '../common/container/Container'
 import footerLogo from "../../assets/footer/footer-logo.svg"
 import "./Footer.scss"
 import { CONFIG } from '../../config'
+import { useLocation } from 'react-router-dom';
+
 
 const Footer = () => {
+
+    const location = useLocation();
+
+  if (location.pathname === '/auth') {
+    return null;
+  }
+
   return (
     <footer>
         <Container>

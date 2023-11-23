@@ -6,9 +6,18 @@ import "./Header.scss"
 import { GoSearch } from 'react-icons/go';
 import lang from "../../assets/header/Lang.png"
 import { useNavigate } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCloseAuth, setCloseAuthWindow, setCloseReg, setShowReg } from '../../redux/slices/authSlice'
 
 const Header = () => {
+    
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const closeAuth = useSelector((state) => state.auth.closeAuth)
+    const closeAuthWindow = useSelector((state) => state.auth.closeAuthWindow)
+    const closeReg = useSelector((state) => state.auth.closeReg)
+
+
   return (
     <header>
         <Container>
@@ -35,7 +44,18 @@ const Header = () => {
                     <span>
                         <img src={lang}/>
                     </span>
-                    <button>Մուտք</button>
+                    <button onClick={() => {
+                        navigate("/auth")
+                        if(closeAuth){
+                            dispatch(setCloseAuth())
+                        }
+                        if(closeReg){
+                            dispatch(setCloseReg())
+                        }
+                        if(!closeAuthWindow){
+                            dispatch(setCloseAuthWindow())
+                        }
+                    }}>Մուտք</button>
                 </div>
             </div>
         </Container>
