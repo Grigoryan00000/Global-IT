@@ -3,6 +3,8 @@ import {FiPhoneCall} from "react-icons/fi";
 import { TiSocialInstagram } from "react-icons/ti";
 import { FaLinkedinIn } from "react-icons/fa";
 
+import blogItemSimilarTopic from "../src/assets/blog/blog-item/blog-item-similarTopic.png"
+
 
 export const CONFIG = {
   
@@ -130,6 +132,49 @@ export const CONFIG = {
       {
         id: 4,
         icon: <FaLinkedinIn />
+      },
+    ],
+
+    blog_item_bottom_similarTopic:[
+      {
+        id:1,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:2,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:3,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:4,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:5,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:6,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:7,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
+      },
+      {
+        id:8,
+        text: "Նմանատիպ փոստի վերնագիր",
+        img: blogItemSimilarTopic
       },
     ]
 }

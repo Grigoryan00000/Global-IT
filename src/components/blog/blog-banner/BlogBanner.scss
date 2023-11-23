@@ -1,0 +1,30 @@
+.blog-banner{
+    height: 500px;
+    display: flex;
+    padding: 0 80px;
+    // justify-content: center;
+    align-items: center;
+    &-description{
+        h1{
+            width: 600px;
+            font-family: Arial;
+            font-size: 37px;
+            font-weight: 700;
+            line-height: 50px;
+            color: var(--white);
+        }
+        p{
+            width: 700px;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.055em;
+            color: var(--white);
+            padding: 40px 0 35px 0;
+        }
+    }
+}
+.blog-banner .container{
+        width: var(--global-max-width);
+}

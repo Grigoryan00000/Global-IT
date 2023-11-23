@@ -48,6 +48,7 @@
             display: flex;
             align-items: center;
             box-shadow: 1px 2px 32px 0px #0000000D;
+            cursor: pointer;
             &:not(:first-child){
                 margin-top: 60px;
             }
