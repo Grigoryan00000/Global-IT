@@ -5,9 +5,9 @@ import Container from "../common/container/Container"
 import "./Header.scss"
 import { GoSearch } from 'react-icons/go';
 import lang from "../../assets/header/Lang.png"
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCloseAuth, setCloseAuthWindow, setCloseReg, setShowReg } from '../../redux/slices/authSlice'
+import { setCloseAuth, setCloseAuthWindow, setCloseReg } from '../../redux/slices/authSlice'
 
 const Header = () => {
     
@@ -17,13 +17,15 @@ const Header = () => {
     const closeAuthWindow = useSelector((state) => state.auth.closeAuthWindow)
     const closeReg = useSelector((state) => state.auth.closeReg)
 
+    const location = useLocation();
+    const path = location.pathname
 
   return (
-    <header>
+    <header style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"#16131B"}}>
         <Container>
             <div className="row">
                 <div className="logo">
-                    <img src={headerLogo}/>
+                    <img src={headerLogo} alt=""/>
                 </div>
                 <ul className='nav'>
                     {CONFIG.headerConfig.map(({id,title}) => {
@@ -31,7 +33,7 @@ const Header = () => {
                             <li
                             key={id}
                             onClick={() => {
-                                navigate("/blog")
+                                navigate("/service")
                             }}
                             >
                                 {title}
@@ -42,7 +44,7 @@ const Header = () => {
                 <div className="options">
                     <GoSearch />
                     <span>
-                        <img src={lang}/>
+                        <img src={lang} alt="language"/>
                     </span>
                     <button onClick={() => {
                         navigate("/auth")

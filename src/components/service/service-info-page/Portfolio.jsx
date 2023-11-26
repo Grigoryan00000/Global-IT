@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux"
-import "./HomeWorks.scss"
+import "../../home/home-works/HomeWorks.scss"
 
 import Container from "../../common/container/Container"
 
-const HomeWorks = () => {
+const Portfolio = () => {
     const homeWorks = useSelector((state) => state.homeWorks.homeWorks)
   return (
     <div className="home-works">
         <Container>
-            <h2 className="home-works-title">Մեր Աշխատանքները</h2>
+            <h2 className="home-works-title">ՊՈՐՏՖՈԼԻՈ</h2>
             <div className="home-works-items">
                 {homeWorks.map(({id,title,text,btn}) => {
                     return(
@@ -29,4 +29,4 @@ const HomeWorks = () => {
   )
 }
 
-export default HomeWorks
+export default Portfolio
