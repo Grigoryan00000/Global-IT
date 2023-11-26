@@ -11,7 +11,7 @@ const initialState = {
     closeAuthWindow: true
 }
 const AuthSlice = createSlice({
-    name: "specialMenu",
+    name: "Auth",
     initialState,
     reducers: {
         setActive: (state, {payload}) => {
@@ -26,15 +26,12 @@ const AuthSlice = createSlice({
         },
         setCloseAuth: (state, {payload}) => {
             state.closeAuth = !state.closeAuth
-            console.log(state.closeAuth);
         },
         setCloseReg: (state, {payload}) => {
             state.closeReg = !state.closeReg
-            console.log(state.closeReg);
         },
         setCloseAuthWindow: (state, {payload}) => {
             state.closeAuthWindow = !state.closeAuthWindow
-            console.log(state.closeAuthWindow);
         }
     }
 })

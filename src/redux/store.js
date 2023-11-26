@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import authReducer from "./slices/authSlice"
 import authItemReducer from "./slices/AuthItemSlice"
 import homeFacultiesReducer from "./slices/HomeFacultiesSlices"
@@ -7,6 +8,7 @@ import homeTeamReducer from "./slices/HomeTeamSlice"
 import homeWorksReducer from "./slices/HomeWorksSlice"
 import homeFriendsReducer from "./slices/HomeFriendsSlice"
 import blogReducer from "./slices/BlogSlice"
+import serviceReducer from "./slices/ServiceSlice"
 
 const store = configureStore({
     reducer: {
@@ -18,6 +20,7 @@ const store = configureStore({
         homeWorks: homeWorksReducer,
         homeFriends: homeFriendsReducer,
         blog: blogReducer,
+        service: serviceReducer
 
     }
 })

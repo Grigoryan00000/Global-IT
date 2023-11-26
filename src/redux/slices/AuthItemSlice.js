@@ -33,6 +33,7 @@ const AuthItemSlice = createSlice({
     reducers: {
         setActiveItem: (state, {payload}) => {
             state.authItemData.map((item) => {
+                console.log(state.authItemData);
                 if(item.id === payload.id){
                     state.activeItem = item.id
                     return item.active = true
@@ -41,7 +42,6 @@ const AuthItemSlice = createSlice({
                     return item.active = false
                 }
             })
-
         },
         
     }

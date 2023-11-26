@@ -1,0 +1,157 @@
+.service-info-page{
+    min-height: 100vh;
+    background: url("../../../assets/service/background.png"), #252525 0px 0px / 100% 100% no-repeat;
+    .service-info{
+        &-description{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 126px;
+            .text-side{
+                width: 760px;
+                color: #fff;
+                >h1{
+                    color: #98DAFF;
+                    margin-bottom: 96px;
+                    font-family: Arial;
+                    font-size: 42px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    letter-spacing: 2.4px;
+                }
+                > p{
+                    font-family: Arial;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 241.3%; /* 36.195px */
+                    letter-spacing: 0.825px;
+                }
+                
+                &-buttons{
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    gap: 82px;
+                    margin-top: 60px;
+                    > .button{
+                        padding: 18px 34px;
+                        border-radius: 15px;
+                        border: 2px solid #8F8F8F;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    > .button:last-child{
+                        background: linear-gradient(97deg, #A763DB 6.75%, #5A4EAF 111.48%);
+                        border: none;
+                        padding: 20px 36px;
+                    }
+                }
+            }
+            .icon-side{
+                width: 412px;
+                height: 412px;
+                position: relative;
+                > img{
+                    width: 412px;
+                    height: 412px;
+                }
+                .round{
+                    background-color: #1A181D;
+                    width: 280px;
+                    height: 280px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform:translate(-50%, -50%);
+                    > img{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 72px;
+                        height: 72px;
+                    }
+                }
+            }
+        }
+    }
+}
+.website-types{
+    h1{
+        color: var(--main-text-night, #FFF);
+        font-family: Arial;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 1.2px;
+        margin-bottom: 30px;
+        margin-top: 110px;
+    }
+    &-items{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+    }
+    &-item{
+        padding: 10px 30px;
+        border-radius: 10px;
+        border: 0.5px solid #FFF;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        > p{
+            color: #ECECEC;
+            font-family: Arial;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 134.8%; /* 20.22px */
+            letter-spacing: 0.825px;
+        }
+    }
+}
+
+.landing-site{
+    margin-top: 88px;
+    ul{
+        margin-left: 30px;
+        li{
+            color: #fff;
+            
+        }
+    }
+    h1{
+        color: #FFF;
+        font-family: Arial;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 134.8%; 
+        letter-spacing: 1.98px;
+        margin-bottom: 30px;
+    }
+    p {
+        color: #FFF;
+        font-family: Arial;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 134.8%; /* 20.22px */
+        letter-spacing: 0.825px;
+    }
+    .float{
+        padding: 30px;
+        padding-top: 0px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}

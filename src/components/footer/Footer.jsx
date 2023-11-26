@@ -7,14 +7,14 @@ import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
 
-    const location = useLocation();
-
-  if (location.pathname === '/auth') {
+    const location = useLocation().pathname;
+    
+  if (location === '/auth') {
     return null;
   }
 
   return (
-    <footer>
+    <footer style={{marginTop: location==="/service-info"?"100px":"0px"}}>
         <Container>
             <div className="footer-top">
                 <div className="footer-top-about">
