@@ -1,7 +1,7 @@
 import Container from '../common/container/Container'
 import "./Footer.scss"
 import { CONFIG } from '../../config'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -25,13 +25,17 @@ const Footer = () => {
 
 
   if (location.pathname === '/auth') {
+
+    // location = useLocation().pathname;
+    
+  if (location === '/auth') {
     return null;
   }
 
 
 
   return (
-    <footer>
+    <footer style={{marginTop: location==="/service-info"?"100px":"0px"}}>
         <Container>
             {footerData.map(({id, logo, text_hy, text_ru, text_en, fc, tw, ins, linked, address_hy, address_ru, addrees_en, phone, mail, back_text_hy, back_text_ru, back_text_en}) => {
                 return(
@@ -76,6 +80,7 @@ const Footer = () => {
         </Container>
     </footer>
   )
+}
 }
 
 export default Footer

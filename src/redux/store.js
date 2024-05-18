@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+
 import authReducer from "./slices/authSlice"
 import authItemReducer from "./slices/AuthItemSlice"
 import homeFacultiesReducer from "./slices/HomeFacultiesSlices"
@@ -10,6 +11,7 @@ import blogReducer from "./slices/BlogSlice"
 import facultetReducer from "./slices/FacultetSlice"
 import langReducer from "../redux/slices/LangSlice"
 
+import serviceReducer from "./slices/ServiceSlice"
 
 const store = configureStore({
     reducer: {
@@ -24,6 +26,7 @@ const store = configureStore({
         facultet: facultetReducer,
         lang: langReducer,
 
+        service: serviceReducer
 
     }
 })

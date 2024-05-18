@@ -3,12 +3,15 @@ import { CONFIG } from '../../config'
 import Container from "../common/container/Container"
 import "./Header.scss"
 import language from "../../assets/header/Lang.png"
-import { useNavigate } from 'react-router'
-import { useDispatch, useSelector } from 'react-redux'
 import { setCloseAuth, setCloseAuthWindow, setCloseReg, setShowReg } from '../../redux/slices/authSlice'
 import axios from 'axios'
 import { selectEn, selectHy, selectRu } from '../../redux/slices/LangSlice';
+import {  } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { GoSearch } from 'react-icons/go';
+// import lang from "../../assets/header/Lang.png"
 
 const Header = () => {
     
@@ -17,6 +20,8 @@ const Header = () => {
     const closeAuthWindow = useSelector((state) => state.auth.closeAuthWindow)
     const closeReg = useSelector((state) => state.auth.closeReg)
 
+    const location = useLocation();
+    const path = location.pathname
 
     const [headerData,setHeaderData] = useState([]);
 
@@ -56,7 +61,7 @@ const Header = () => {
     setLang(event.target.value)
   }
   return (
-    <header>
+    <header style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"#16131B"}}>
         <Container>
             {headerData.map(({id, logo, page1_hy, page1_ru, page1_en, page2_hy, page2_ru, page2_en, page3_hy, page3_ru, page3_en, page4_hy, page4_ru, page4_en, page5_hy, page5_ru, page5_en, login_hy, login_ru, login_en}) => {
                 return(
