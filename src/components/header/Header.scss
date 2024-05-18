@@ -1,8 +1,9 @@
 header{
     background-color: var(--layout);
     width: 100%;
-    padding: 0 80px ;
-    // position: absolute;
+    padding: 0 30px ;
+    position: fixed;
+    width: 100%;
     z-index: 30;
 }
 .row{
@@ -40,6 +41,7 @@ header{
     svg{
         font-size: 23px;
         color: white;
+        background: url(../../assets/header/Lang.png);
     }
     button{
         padding: 6px 13px;

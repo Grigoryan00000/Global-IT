@@ -7,4 +7,5 @@ export const ROUTER = {
     AUTH_PAGE_ROUTE: "/auth",
     BLOG_PAGE_ROUTE: "/blog",
     BLOG_ITEM_PAGE_ROUTE: "/blog-item",
+    FACULTET_PAGE_ROUTE: "/facultet",
 }

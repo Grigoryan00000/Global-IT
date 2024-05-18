@@ -48,14 +48,12 @@ footer{
             }
         }
         &-thirdList{
-            &-item{
-                p{
-                    // font-family: Arian AMU;
-                    font-weight: 400;
-                    line-height: 34px;
-                    letter-spacing: 0.055em;
-                    color: var(--white);
-                }
+            p{
+                // font-family: Arian AMU;
+                font-weight: 400;
+                line-height: 34px;
+                letter-spacing: 0.055em;
+                color: var(--white);
             }
         }
     }
@@ -66,7 +64,7 @@ footer{
             // width: 1000px;
             // margin: auto;
             // font-family: Arian AMU;
-            font-size: 19px;
+            font-size: 15px;
             font-weight: 400;
             line-height: 29px;
             color: var(--white);

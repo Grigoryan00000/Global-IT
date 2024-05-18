@@ -17,7 +17,7 @@
 body{
     font-family: "PT Sans Narrow", sans-serif;
 }
-p{
+p,span{
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
@@ -25,11 +25,13 @@ p{
 }
 :root{
     --global-homePage-color: #1A181D;
+    --global-facultetPage-color: #0B0315;
     --global-max-width: 1300px;
     --blueviolet: #A35BFF;
     --white: #fff;
     --grey: #3E3E3E;
     --layout: #16131B;
+    --light-red: #FF3535
 }
 
 
