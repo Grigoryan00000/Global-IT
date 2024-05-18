@@ -8,6 +8,9 @@ import homeTeamReducer from "./slices/HomeTeamSlice"
 import homeWorksReducer from "./slices/HomeWorksSlice"
 import homeFriendsReducer from "./slices/HomeFriendsSlice"
 import blogReducer from "./slices/BlogSlice"
+import facultetReducer from "./slices/FacultetSlice"
+import langReducer from "../redux/slices/LangSlice"
+
 import serviceReducer from "./slices/ServiceSlice"
 
 const store = configureStore({
@@ -20,6 +23,9 @@ const store = configureStore({
         homeWorks: homeWorksReducer,
         homeFriends: homeFriendsReducer,
         blog: blogReducer,
+        facultet: facultetReducer,
+        lang: langReducer,
+
         service: serviceReducer
 
     }

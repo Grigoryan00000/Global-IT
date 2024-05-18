@@ -8,6 +8,8 @@ import "./BlogItem.scss"
 import { createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit'
 import { CONFIG } from '../../../config'
 const BlogItem = () => {
+
+
   return (
     <>
         <BlogBanner 

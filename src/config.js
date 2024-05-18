@@ -5,6 +5,9 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 import blogItemSimilarTopic from "../src/assets/blog/blog-item/blog-item-similarTopic.png"
 
+import sliderImg1 from "../src/assets/home/home-slider/home-slider-img1.png"
+import sliderImg2 from "../src/assets/home/home-slider/home-slider-img2.png"
+import sliderImg3 from "../src/assets/home/home-slider/home-slider-img3.png"
 
 export const CONFIG = {
   
@@ -36,7 +39,7 @@ export const CONFIG = {
 
    //Home
 
-    home_slider_data : [
+    home_slider_title_data : [
       {
         id: 1,
         title: "Global IT-ին Հասանելի բոլորին",
@@ -60,6 +63,21 @@ export const CONFIG = {
         btn2: "Ծառայություններ",
         icon: <FiPhoneCall />,
         img: null,
+      },
+    ],
+
+    home_slider_img_data : [
+      {
+        id: 1,
+        img: sliderImg1
+      },
+      {
+        id: 2,
+        img: sliderImg2
+      },
+      {
+        id: 3,
+        img: sliderImg3
       },
     ],
 
