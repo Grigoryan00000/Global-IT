@@ -1,10 +1,10 @@
 .service-page{
     min-height: 100vh;
+    padding: 20px;
     background: url("../../assets/service/background.png"), rgb(25, 25, 25) 0px 0px / 100% 100% no-repeat;
     .service{
         h1{
             color: var(--main-text-night, #FFF);
-            font-size: 48px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
@@ -15,16 +15,18 @@
         &-items{
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 60px;
             > .service-item{
-                max-width: 30%;
+                width: 360px;
                 height: 548px;   
                 border-radius: 20px;
                 background: #071112;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-bottom: 100px;
+
+                
                 // padding-top: 300px;
                 > .for-img{
                     position: relative;
@@ -76,4 +78,28 @@
         }
     }
     
+}
+
+@media screen and (min-width: 1200px) {
+    h1{
+        color: black;
+        font-size: 48px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .service-items{
+        flex-wrap: wrap;
+    }
+    h1{
+        font-size: 36px;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    h1{
+        font-size: 24px;
+    }
+
 }
