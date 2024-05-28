@@ -1,5 +1,6 @@
 .home-services{
-    margin: 90px 80px 0 80px;
+    padding: 90px 20px 0px 20px;
+
     &-title{
         text-align: center;
         // font-family: Arian AMU;
@@ -170,14 +171,24 @@
     }
 }
 @media screen and (max-width: 600px){
+    .home-services{
+
+    }
     .home-services-title{
         font-size: 36px;
     }
 }
 @media screen and (max-width: 450px){
+    .home-services-title{
+        font-size: 30px;
+    }
     .home-services-items-item{
             height: auto;
             width: 330px;
+    }
+    .home-services-items-item:last-child{
+        background: none;
+        background-color: #272727;
     }
     .home-services-items-item-top{
         padding-top: 25px;
@@ -201,7 +212,16 @@
         padding: 9px 42px;
         font-size: 17px;
         margin-top: 25px;
-
+    }
+    .home-services-items-item-desc{
+        h3{            
+            font-size: 25px;
+        }
+        button{
+            width:  250px;
+            font-size: 17px;
+            margin-top: 0;
+        }
 
     }
     

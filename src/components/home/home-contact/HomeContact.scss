@@ -1,5 +1,5 @@
 .home-contact{
-    padding: 90px 80px 90px 80px;
+    padding: 90px 20px 90px 20px;
     &-title{
         text-align: center;
         // font-family: Arian AMU;
@@ -58,12 +58,18 @@
         }
     }
 }
+.home-contact-item-map{
+    width: 500px;
+}
 
 @media screen and (max-width: 1100px){
     .home-contact-item{
         justify-content: center;
         align-items: center;
         gap: 80px;
+    }
+    .home-contact-item-map{
+        width: 100%;
     }
 }
 @media screen and (max-width: 600px){
@@ -72,6 +78,25 @@
     }
     .home-contact-item-item{
         width: 350px;
+        // height: ;
+    }
+}
+@media screen and (max-width: 530px){
+    .home-contact-title{
+        font-size: 30px;
+    }
+    .home-contact-item-send{
+        button{
+            width: 220px;
+            padding: 15px;
+            font-size: 15px;
+        }
+        input{
+            font-size: 15px;
+        }
+    }
+    .home-contact-item-send-topic{
+        width: 100%;
         // height: ;
     }
 }

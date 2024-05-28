@@ -64,7 +64,7 @@ const Home = () => {
       <HomeWorks workData={workData}/>
       {/* <HomeAbout aboutData={aboutData} aboutItemData={aboutItemData}/> */}
       <HomeFriends friendData={friendData}/>
-      {/* <HomeContact /> */}
+      <HomeContact />
     </div>
   )
 }

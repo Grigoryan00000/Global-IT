@@ -1,5 +1,6 @@
 .home-works{
-    margin: 80px 80px 0 80px;
+    padding: 90px 20px 0px 20px;
+
     &-title{
         text-align: center;
         // font-family: Arian AMU;
@@ -67,10 +68,9 @@
 }
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1400px){
     .home-works-items{
         justify-content: center;
-        align-items: center;
         gap: 80px;
     }
 }
@@ -81,5 +81,14 @@
     .home-works-items-item{
         width: 350px;
         // height: ;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .home-works-title{
+        font-size: 30px;
+    }
+    .home-works-items-item{
+        height: 500px;
     }
 }

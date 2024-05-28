@@ -7,9 +7,14 @@ import AuthPage from "../pages/AuthPage";
 import FacultetPage from "../pages/FacultetPage";
 import ServicePage from "../pages/ServicePage";
 import ServiceInfoPage from "../pages/ServiceInfoPage";
+import React, { useState } from 'react'
+
 
 
 const AppRoutes = () => {
+  const [show, setShow] = useState(false)
+
+// console.log(show);
   return (
     <Routes>
       <Route path={ROUTER.HOME_PAGE_ROUTE} element={<HomePage/>} />
@@ -18,8 +23,8 @@ const AppRoutes = () => {
       <Route path={ROUTER.WORK_PAGE_ROUTE} element={""} />
       <Route path={ROUTER.CONTACT_PAGE_ROUTE} element={""} />
       <Route path={ROUTER.AUTH_PAGE_ROUTE} element={<AuthPage/>} />
-      <Route path={ROUTER.BLOG_PAGE_ROUTE} element={<BlogPage />} />
-      <Route path={ROUTER.BLOG_ITEM_PAGE_ROUTE} element={<BlogItemPage />} />
+      <Route path={ROUTER.BLOG_PAGE_ROUTE} element={<BlogPage show={show} setShow={setShow}/>} />
+      <Route path={ROUTER.BLOG_ITEM_PAGE_ROUTE} element={<BlogItemPage show={show}/>} />
       <Route path={ROUTER.FACULTET_PAGE_ROUTE} element={<FacultetPage />} />
       <Route path={ROUTER.SERVICE_INFO_PAGE_ROUTE} element={<ServiceInfoPage/>} />
     </Routes>
