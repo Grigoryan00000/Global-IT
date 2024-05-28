@@ -25,7 +25,7 @@ const HomeServices = ({serviceData, otherServiceData}) => {
                                 <img src={ser_img} alt="" />
                             </div>
                             <div className="home-services-items-item-desc" >
-                                <h3 style={{fontSize: langState ==="ru" || langState === "en" ? "35px" : "31px"}}>{langState === "hy"? ser_name_hy: langState === "ru" ? ser_name_ru : ser_name_en}</h3>
+                                <h3>{langState === "hy"? ser_name_hy: langState === "ru" ? ser_name_ru : ser_name_en}</h3>
                                 <button>{langState === "hy"? but_name_hy: langState === "ru" ? but_name_ru : but_name_en}</button>
                             </div>
                         </div>

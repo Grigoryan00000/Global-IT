@@ -36,9 +36,6 @@ const HomeSlider = ({sliderData}) => {
     })
   }
 
-
-
-
   return (
     <div className='home-slider'>
       <Swiper
@@ -50,7 +47,7 @@ const HomeSlider = ({sliderData}) => {
         loop={true}
         grabCursor
         autoplay={{
-          delay: 500000,
+          delay: 3000000,
         }}
       >
         {sliderData.map(({id, name, name_hy, name_ru, name_en, but_name1, but_name1_hy, but_name1_ru, but_name1_en, but_name2, but_name2_hy, but_name2_ru, but_name2_en, call_logo, img}) => {

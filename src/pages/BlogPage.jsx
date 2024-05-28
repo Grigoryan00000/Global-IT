@@ -1,11 +1,12 @@
 import Blog from '../components/blog/Blog'
 import Layout from '../layout/Layout'
 
-const BlogPage = () => {
+const BlogPage = ({show, setShow}) => {
+  console.log(show);
   return (
     <>
       <Layout>
-        <Blog />
+        <Blog show={show} setShow={setShow}/>
       </Layout>
     </>
   )

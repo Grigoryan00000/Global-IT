@@ -7,12 +7,31 @@ import BlogItemImg3 from "../../../assets/blog/blog-item/blog-item-img3.png"
 import "./BlogItem.scss"
 import { createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit'
 import { CONFIG } from '../../../config'
-const BlogItem = () => {
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+const BlogItem = ({show, setShow}) => {
+// console.log(show);
+  const [blogData, setBlogData] = useState([])
 
 
+
+  useEffect(() => {
+    async function getData() {
+        try {
+            const blogData = await axios.get("https://globalitacademy.am/GIAcademyApi/news/");
+            setBlogData(blogData.data);
+  
+        } catch (error) {
+            console.log("Error")
+        }
+    }
+    getData();
+  }, []);
   return (
     <>
         <BlogBanner 
+        blogData={blogData}
+        show={show}
         background={BlogItemBanner}
         title={"Այստեղ լինելու է վերնագիրը Որը ցանկալի է լինի միքիչ երկար"}
         description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ac fermentum, at nunc purus ullamcorper massa. Augue tincidunt pharetra sit tortor, pellentesque.Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ac fermentum, at nunc purus ullamcorper massa. Augue tincidunt pharetra sit tortor, pellentesque.Lorem ipsum   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ac fermentum, at nunc purus ullamcorper massa. Augue tincidunt pharetra sit tortor, pellentesque.Lorem ipsum"}
