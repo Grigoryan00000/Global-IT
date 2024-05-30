@@ -1,7 +1,10 @@
 .service-info-page{
+
     min-height: 100vh;
     background: url("../../../assets/service/background.png"), #252525 0px 0px / 100% 100% no-repeat;
     .service-info{
+    padding: 0 80px;
+
         &-description{
             display: flex;
             justify-content: center;
@@ -158,11 +161,11 @@
 
 @media screen and (min-width: 1350px) {
     .service-info-page{
-        padding: 0 80px;
+        // padding: 0 80px;
     }
     .service-info{
         &-description{
-            margin-top: 126px;
+            padding-top: 126px;
         }
     }
     .icon-side{
@@ -200,14 +203,14 @@
 }
 @media screen and (max-width: 1350px) {
     .service-info-page{
-        padding: 0;
+        // padding: 0;
     }
 
     .service-info{
         &-description{
             flex-direction: column-reverse;
             flex-wrap: wrap;
-            margin-top: 40px;
+            padding-top: 126px;
         }
     }
     .text-side{

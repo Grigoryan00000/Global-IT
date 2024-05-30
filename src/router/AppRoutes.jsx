@@ -11,8 +11,7 @@ import React, { useState } from 'react'
 
 
 
-const AppRoutes = () => {
-  const [show, setShow] = useState(false)
+const AppRoutes = ({show, setShow}) => {
 
 // console.log(show);
   return (
