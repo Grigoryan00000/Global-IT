@@ -35,15 +35,14 @@ const Blog = ({show, setShow}) => {
   }, []);
 
   function handleOpen(id){
-    setShow((prev) => !prev)
-    // blogData.map((item) => {
-    //   if(item.id == id){
-    //     setShow(true)
-    //     console.log(item.id);
-    //   }else{
-    //     setShow(false)
-    //   }
-    // })
+    blogData.map((item) => {
+      if(item.id == id){
+        setShow(true)
+        console.log(item.id);
+      }else{
+        setShow(false)
+      }
+    })
   }
   // console.log(show);
 
@@ -70,10 +69,10 @@ const Blog = ({show, setShow}) => {
                 <p>{langState === "hy"? news_text_hy: langState === "ru" ? news_text_ru : news_text_en}</p>
                 {/* <BlogRating /> */}
                 <button onClick={() => [
-                  // handleOpen(id),
-                  setShow(prev => !prev),
-                  console.log(show),
-                  console.log(id),
+                  handleOpen(id),
+                  // setShow(true),
+                  // console.log(show),
+                  // console.log(id),
                   navigate(`/blog-item`)
                 ]}>more</button>
               </div>

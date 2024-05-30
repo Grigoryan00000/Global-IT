@@ -10,7 +10,7 @@ const BlogBanner = ({blogData, show}) => {
     // style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundPosition: "center" }}   
     >
       
-      {/* {blogData.map(({news_img}) => {
+      {blogData.map(({news_img}) => {
         if(show){
           return(
              <img src={news_img} alt="" />
@@ -18,7 +18,7 @@ const BlogBanner = ({blogData, show}) => {
         }else{
           return ""
         }
-      })} */}
+      })}
         {/* <Container>
             <div className="blog-banner-description">
                 <h1>{title}</h1>
