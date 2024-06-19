@@ -8,6 +8,7 @@ import FacultetPage from "../pages/FacultetPage";
 import ServicePage from "../pages/ServicePage";
 import ServiceInfoPage from "../pages/ServiceInfoPage";
 import React, { useState } from 'react'
+import TreaningPage from "../pages/TreaningPage";
 
 
 
@@ -27,6 +28,7 @@ const AppRoutes = () => {
       <Route path={ROUTER.BLOG_ITEM_PAGE_ROUTE} element={<BlogItemPage show={show}/>} />
       <Route path={ROUTER.FACULTET_PAGE_ROUTE} element={<FacultetPage />} />
       <Route path={ROUTER.SERVICE_INFO_PAGE_ROUTE} element={<ServiceInfoPage/>} />
+      <Route path={ROUTER.TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
     </Routes>
   )
 }

@@ -1,0 +1,106 @@
+.training-program{
+    margin-top: 100px;
+    &-parts{
+        display: flex;
+        justify-content: space-between;
+        gap: 200px;
+    }
+    &-description{
+        &-item{
+            >h1{
+                color: #fff;
+                margin-bottom: 30px;
+                font-size: 24px;
+            }
+            >img{
+                float: left;
+                margin-right: 20px;
+            }
+            >p{
+                margin-bottom: 15px;
+                text-align: justify;
+                font-size: 14px;
+            }
+            .image{
+                width: 100%;
+            }
+            .button{
+                float: right;
+                color: #fff;
+                padding: 10px 30px;
+                background-color: #DE7B1F;
+                border-radius: 5px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+    &-title{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 50px;
+        > h1{
+            color: #fff;
+        }
+    }
+    &-button{
+        padding: 30px 0;
+        width: 600px;
+        color: #fff;
+        background-color: #3B3B3B;
+        margin-top: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        >p{
+            text-align: center;
+        }
+    }
+    &-stages{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-stage{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+            width: 600px;
+            padding: 10px 20px;
+            background-color: #3b3b3b;
+            color: #fff;
+            cursor: pointer;
+            p{
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+        &-classes{
+            margin-left: 100px;
+            >.class{
+                background-color: #3b3b3b;
+                border-radius: 5px;
+                width: 500px;
+                padding: 10px 20px;
+                color: #fff;
+                margin-bottom: 20px;
+                p{
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+        }
+        
+    }
+
+}
+
+.toggle-button {
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle-button.open {
+    transform: rotate(180deg);
+  }
+

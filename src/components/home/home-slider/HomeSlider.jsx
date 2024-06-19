@@ -36,6 +36,8 @@ const HomeSlider = ({sliderData}) => {
     })
   }
 
+
+
   return (
     <div className='home-slider'>
       <Swiper
