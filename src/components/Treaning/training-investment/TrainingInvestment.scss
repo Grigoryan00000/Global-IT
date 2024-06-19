@@ -1,0 +1,30 @@
+.training-investment-background{
+    margin-top: 70px;
+    width: 100%;
+    padding: 110px 0;
+    background-color: #A35BFF;
+
+    .training-investment{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        &-text-side{
+            width: 800px;
+            >h1{
+                 color: #fff;
+                 margin-bottom: 30px;
+            }
+        }
+        &-button{
+            >.button{
+                padding: 14px 60px;
+                border-radius: 5px;
+                border: 1px solid #fff;
+                box-shadow: 2px 2px 10px #000;
+                background-color: #353535;
+                cursor: pointer;
+            }
+        }
+    }
+}
