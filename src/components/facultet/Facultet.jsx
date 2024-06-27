@@ -69,8 +69,11 @@ const Facultet = () => {
                     handleFilterChange(id)
                   }
                 }} style={{backgroundColor: active === id ? "var(--light-red)" : "#2F2F2F"}}>
-                  <img src={fac_img} alt="" />
-                  <h4>{langState === "hy"? fac_name_hy: langState === "ru" ? fac_name_ru: fac_name_en}</h4>
+                  <div>
+
+                    <img src={fac_img} alt="" />
+                    <h4>{langState === "hy"? fac_name_hy: langState === "ru" ? fac_name_ru: fac_name_en}</h4>
+                  </div>
                 </div>
               )
             })}

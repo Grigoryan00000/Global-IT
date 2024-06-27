@@ -28,7 +28,7 @@ const ServiceItem = () => {
                 </div>   
                 <button onClick={() => {
                     dispatch(setShow(id))
-                    navigate("/service-info")
+                    navigate(`/service-info/${id}`)
                 }}>Դիմել</button>
             </div>
         )

@@ -38,7 +38,6 @@ export const DropDown = ({ options,setLang }) => {
         {selectedOption ? (
           <>
             <img src={selectedOption.image} alt={selectedOption.label} className="dropdown-header-image" style={{width: "30px"}}/>
-            {/* <span>{selectedOption.label}</span> */}
           </>
         ) : (
           <img src={img} alt="" style={{width: "30px"}} />
