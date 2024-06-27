@@ -4,13 +4,13 @@
         gap: 30px;
     }
     &-left-news{
-        margin: -80px 0 80px 0;
-        z-index: 999;
+        margin: 30px 0 30px 0;
+        // z-index: 10;
         width: 800px;
         padding: 35px;
         box-shadow: 0px 0px 15px 0px #0000001A;
         border-radius: 20px;
-        position: relative;
+        // position: relative;
         &-title{
             font-family: Arial;
             font-size: 30px;

@@ -14,10 +14,11 @@ const HomeContact = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, surname, phone, email, password, againPassword, value } = e.target;
     setData({
       ...data,
       [name]: value,
+      
     });
   };
 
@@ -50,7 +51,7 @@ const HomeContact = () => {
                      onChange={handleChange}
                       />
                     <input
-                    className='home-contact-item-send-topic'
+                    className='home-contact-item-send-desc'
                      type="text"
                      name="text"
                      value={data.text}
