@@ -9,12 +9,12 @@ import ServicePage from "../pages/ServicePage";
 import ServiceInfoPage from "../pages/ServiceInfoPage";
 import React, { useState } from 'react'
 import AuthWindowItem from "../components/auth/auth-window/auth-window-item/AuthWindowItem";
+import TreaningPage from "../pages/TreaningPage";
 
 
 
 const AppRoutes = ({show, setShow}) => {
 
-// console.log(show);
   return (
     <Routes>
       <Route path={ROUTER.HOME_PAGE_ROUTE} element={<HomePage/>} />
@@ -28,6 +28,7 @@ const AppRoutes = ({show, setShow}) => {
       <Route path={ROUTER.BLOG_ITEM_PAGE_ROUTE} element={<BlogItemPage show={show}/>} />
       <Route path={ROUTER.FACULTET_PAGE_ROUTE} element={<FacultetPage />} />
       <Route path={ROUTER.SERVICE_INFO_PAGE_ROUTE} element={<ServiceInfoPage/>} />
+      <Route path={ROUTER.TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
     </Routes>
   )
 }

@@ -10,4 +10,6 @@ export const ROUTER = {
     BLOG_ITEM_PAGE_ROUTE: "/blog-item/:id",
     FACULTET_PAGE_ROUTE: "/facultet",
     SERVICE_INFO_PAGE_ROUTE: "/service-info/:id"
+    SERVICE_INFO_PAGE_ROUTE: "/service-info",
+    TREANING_PAGE_ROUTE: "/training"
 }

@@ -1,0 +1,106 @@
+.training-description{
+    margin-top: 200px;
+    max-width: 100%;
+    height: 180px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    font-family: arial;
+    
+    >div{
+        height: 100%;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        > div{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+    }
+    &-lang{
+        display: flex;
+        gap: 60px;
+        flex-direction: row !important; 
+        justify-content: space-between;
+        &-left{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+            justify-content: space-around;
+            &-top{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+            &-bottom{
+                >p{
+                    text-align: left;
+                }
+            }
+        }
+        &-right{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+            justify-content: space-around;
+            &-top{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+            &-bottom{
+                display: flex;
+                gap: 10px;
+                
+            }
+        }
+    }
+    &-reg{
+        display: flex;
+        gap: 60px;
+        flex-direction: row !important; 
+        justify-content: space-between;
+        &-left{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+            justify-content: space-around;
+            span{
+                color: #A35BFF;
+                font-size: 40px;
+            }
+        }
+        &-right{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start !important;
+            justify-content: space-around;
+            &-bottom{
+                display: flex;
+                gap: 20px;
+                >div{
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 10px;
+                    border: solid 2px #A35BFF;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    
+    >.border{
+        border-left: 2px solid #ccc;
+    }
+    p{
+        color: #fff;
+    }
+}
