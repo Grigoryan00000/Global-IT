@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import logo from "../../../../assets/auth/logogit.png"
 import SignInUp from '../../sign-in-up/signInUp'
 
-const SuccessSignInUp = () => {
+const SuccessSignInUp = ({handleSubmit}) => {
 
     const data = useSelector((state) => state.authItem.authItemData)
 

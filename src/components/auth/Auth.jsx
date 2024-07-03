@@ -5,6 +5,8 @@ import "./Auth.scss"
 import AuthWindow from './auth-window/AuthWindow'
 import { useSelector } from 'react-redux'
 
+
+
 const Auth = () => {
 
   const closeAuth = useSelector((state) => state.auth.closeAuth)
