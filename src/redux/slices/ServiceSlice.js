@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk  } from "@reduxjs/toolkit";
+import axios from "axios";
 
 import bgi1 from "../../assets/service/bg-1.png"
 import bgi2 from "../../assets/service/bg-2.png"
@@ -10,71 +11,35 @@ import logo1 from "../../assets/service/border1.png"
 import logo2 from "../../assets/service/border2.png"
 import logo3 from "../../assets/service/border3.png"
 
+export const fetchData  = createAsyncThunk(
+    'service/fetchData ',
+    async () => {
+      const response = await axios.get('https://globalitacademy.am/GIAcademyApi/services_info/');
+      return response.data;
+    }
+  );
 
-const initialState = {
-    services: [
-        {
-            id: 1, 
-            title1: "Վեբ կայքերի",
-            title2: "Պատրաստում",
-            color: "#26E4E4",
-            color2: "#98DAFF",
-            bgi:bgi1,
-            icon: icon1,
-            show: true,
-            logo: logo1
-        },
-        {
-            id: 2,
-            title1: "Վեբ Մոբայլ հավելվածների",
-            title2: "Պատրաստում",
-            color: "#FF5942",
-            color2: "",
-            bgi: bgi2,
-            icon: icon2,
-            show: false,
-            logo: logo2
-
-        },
-        {
-            id: 3, 
-            title1: "Վեբ և գրաֆիկ",
-            title2: "Դիզայն",
-            color: "#A1FF8F",
-            color2: "",
-            bgi: bgi3,
-            icon: icon3,
-            show: false,
-            logo: logo3
-
-        }
-    ],
-    serviceTypes: [
-        {id: 1, title: "Օնլայն խանութ", active: false},
-        {id: 2, title: "Պրոմո կայք", active: false},
-        {id: 3, title: "Լրատվական կայք", active: false},
-        {id: 4, title: "Լենդինգ կայք", active: true},
-        {id: 5, title: "Այցեքարտ կայք", active: false},
-        {id: 6, title: "Անձնական կայք", active: false},
-        {id: 7, title: "Բիզնես կայք", active: false},
-        {id: 8, title: "Պորտալ կայք", active: false},
-        {id: 9, title: "Կատալոգ կայք", active: false}
-    ]
-}
 
 const ServiceSlice = createSlice({
-    name: "specialMenu",
-    initialState,
+    name: "service",
+    initialState : {
+        serviceTypes: [
+            {id: 1, title: "Օնլայն խանութ", active: false},
+            {id: 2, title: "Պրոմո կայք", active: false},
+            {id: 3, title: "Լրատվական կայք", active: false},
+            {id: 4, title: "Լենդինգ կայք", active: true},
+            {id: 5, title: "Այցեքարտ կայք", active: false},
+            {id: 6, title: "Անձնական կայք", active: false},
+            {id: 7, title: "Բիզնես կայք", active: false},
+            {id: 8, title: "Պորտալ կայք", active: false},
+            {id: 9, title: "Կատալոգ կայք", active: false}
+        ],
+        items: [],
+        status: "idle",
+        error: null,
+        activeItem: 1
+    }, 
     reducers: {
-        setShow: (state, {payload}) => {
-            state.services.map((item) => {
-                if(item.id === payload){
-                    return item.show = true
-                }else{
-                    return item.show = false
-                }
-            })
-        },
         changeActive: (state, {payload}) => {
             state.serviceTypes.map(item => {
                 if(item.id === payload){
@@ -84,10 +49,28 @@ const ServiceSlice = createSlice({
                 }
             }) 
             console.log();
+        },
+        changeActiveItem: (state, {payload}) => {
+            state.activeItem = payload
         }
         
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(fetchData.pending, (state) => {
+            state.status = 'loading'
+        })
+        .addCase(fetchData.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+            state.items = action.payload;
+          })
+        .addCase(fetchData.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message;
+        });
     }
+
 })
 
 export default ServiceSlice.reducer;
-export const {setShow,changeActive} = ServiceSlice.actions;
+export const {setShow,changeActive, changeActiveItem} = ServiceSlice.actions;

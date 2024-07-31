@@ -1,34 +1,85 @@
-// import React from 'react'
-// import { useSelector, useDispatch } from 'react-redux'
-// import { FaCheck } from "react-icons/fa";
-// import { changeActive } from '../../../../redux/slices/ServiceSlice';
-// import Container from '../../../common/container/Container';
+import { createSlice, createAsyncThunk  } from "@reduxjs/toolkit";
+import axios from "axios";
+
+import bgi1 from "../../assets/service/bg-1.png"
+import bgi2 from "../../assets/service/bg-2.png"
+import bgi3 from "../../assets/service/bg-3.png"
+import icon1 from "../../assets/service/icon1.png"
+import icon2 from "../../assets/service/icon2.png"
+import icon3 from "../../assets/service/icon-3.png"
+import logo1 from "../../assets/service/border1.png"
+import logo2 from "../../assets/service/border2.png"
+import logo3 from "../../assets/service/border3.png"
+
+export const fetchData  = createAsyncThunk(
+    'service/fetchData ',
+    async () => {
+      const response = await axios.get('https://globalitacademy.am/GIAcademyApi/services_info/');
+      return response.data;
+    }
+  );
 
 
-// const WebsiteTypes = () => {
+const ServiceSlice = createSlice({
+    name: "service",
+    initialState : {
+        serviceTypes: [
+            {id: 1, title: "Օնլայն խանութ", active: false},
+            {id: 2, title: "Պրոմո կայք", active: false},
+            {id: 3, title: "Լրատվական կայք", active: false},
+            {id: 4, title: "Լենդինգ կայք", active: true},
+            {id: 5, title: "Այցեքարտ կայք", active: false},
+            {id: 6, title: "Անձնական կայք", active: false},
+            {id: 7, title: "Բիզնես կայք", active: false},
+            {id: 8, title: "Պորտալ կայք", active: false},
+            {id: 9, title: "Կատալոգ կայք", active: false}
+        ],
+        items: [],
+        status: "idle",
+        error: null,
+        activeItem: 0
+    }, 
+    reducers: {
+        // setShow: (state, {payload}) => {
+        //     state.services.map((item) => {
+        //         if(item.id === payload){
+        //             return item.show = true
+        //         }else{
+        //             return item.show = false
+        //         }
+        //     })
+        // },
+        // changeActive: (state, {payload}) => {
+        //     state.serviceTypes.map(item => {
+        //         if(item.id === payload){
+        //             return item.active = true
+        //         } else {
+        //             return item.active = false
+        //         }
+        //     }) 
+        //     console.log();
+        // }
+        changeActiveItem: (state, {payload}) => {
+            state.activeItem = payload
+        }
+        
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(fetchData.pending, (state) => {
+            state.status = 'loading'
+        })
+        .addCase(fetchData.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+            state.items = action.payload;
+          })
+        .addCase(fetchData.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.error.message;
+        });
+    }
 
-//     const typesData = useSelector((state) => state.service.serviceTypes)
-//     const dispatch = useDispatch()
+})
 
-//   return (
-//     <div className='website-types'>
-//         <Container>
-//         <h1>Կայքի տեսակները</h1>
-//         <div className="website-types-items">
-//             {typesData.map(({id, title, active}) => {
-//                 return (
-//                     <div className='website-types-item' style={{backgroundColor: active?"#00A21A":"inherit"}} onClick={() => {
-//                         dispatch(changeActive(id))
-//                     }}>
-//                         <FaCheck style={{color: active?"#007C05":"#B1B2B1"}}/>
-//                         <p>{title}</p>
-//                     </div>    
-//                 )
-//             })}
-//         </div>
-//         </Container>
-//     </div>
-//   )
-// }
-
-// export default WebsiteTypes
+export default ServiceSlice.reducer;
+export const {setShow,changeActive, changeActiveItem} = ServiceSlice.actions;
