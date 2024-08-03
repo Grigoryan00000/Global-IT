@@ -10,6 +10,19 @@ import icon3 from "../../assets/service/icon-3.png"
 import logo1 from "../../assets/service/border1.png"
 import logo2 from "../../assets/service/border2.png"
 import logo3 from "../../assets/service/border3.png"
+import { useEffect, useState } from "react";
+
+
+async function logMovies() {
+    const response = await fetch("https://globalitacademy.am/GIAcademyApi/news/");
+    const movies = await response.json();
+    movies.forEach(element => {
+        arr.push(element)       
+    })
+  } 
+logMovies()
+
+const arr = []
 
 export const fetchData  = createAsyncThunk(
     'service/fetchData ',

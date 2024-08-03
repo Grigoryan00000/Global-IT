@@ -30,6 +30,9 @@ const ServiceItem = ({serviceData}) => {
                     dispatch(changeActiveItem(id))  
                     navigate("/service-info")
                 }}>{but_name_hy}</button>
+                    dispatch(setShow(id))
+                    navigate(`/service-info/${id}`)
+                }}>Դիմել</button>
             </div>
         )
     })

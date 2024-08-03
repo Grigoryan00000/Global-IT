@@ -7,11 +7,13 @@ import homeFacultiesitem from "../../../assets/home/home-faculties/home-facultie
 import homeFacultiesItemBottomImg from "../../../assets/home/home-faculties/home-services-item-bottom-item-img.png"
 
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router"
 
 const HomeFaculties = ({facultiesData}) => {
 
     const langState = useSelector((state) => state.lang.lang);
    const dispatch = useDispatch();
+   const navigate = useNavigate()
   return (
     <section className='home-faculties'>
         <Container>
@@ -52,7 +54,9 @@ const HomeFaculties = ({facultiesData}) => {
                                     <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
                                     <img src={homeFacultiesItemBottomImg} alt="" />
                                 </div>
-                                <button className="home-faculties-items-item-bottom-button">{langState==="hy"?but_name_hy:langState==="en"?but_name_en:but_name_ru}</button>
+                                <button className="home-faculties-items-item-bottom-button" onClick={() => {
+                                    navigate(`/facultet`)
+                                }}>{langState==="hy"?but_name_hy:langState==="en"?but_name_en:but_name_ru}</button>
                             </div>
                         </div>
                     )

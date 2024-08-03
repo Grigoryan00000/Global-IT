@@ -64,9 +64,17 @@
     }
     &-img{
         img{
-            width: 660px;
+            width: 570px;
         }
     }
+}
+
+.home-slider-img:nth-of-type(2) img{
+    margin-top: -50px;
+}
+
+.home-slider-img:first-child img{
+    margin-top: 100px;
 }
 
 

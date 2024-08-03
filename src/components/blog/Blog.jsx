@@ -12,8 +12,7 @@ import axios from 'axios'
 
 
 const Blog = ({show, setShow}) => {
-  // console.log(show);
-  // const blog = useSelector((state) => state.blog.blog)
+
   const navigate = useNavigate();
 
   const [blogData, setBlogData] = useState([])
@@ -70,10 +69,7 @@ const Blog = ({show, setShow}) => {
                 {/* <BlogRating /> */}
                 <button onClick={() => [
                   handleOpen(id),
-                  // setShow(true),
-                  // console.log(show),
-                  // console.log(id),
-                  navigate(`/blog-item`)
+                  navigate(`/blog-item/${id}`)
                 ]}>more</button>
               </div>
           </div>

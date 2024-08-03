@@ -4,12 +4,15 @@ import "./HomeServices.scss"
 import homeServicesItemIcon from "../../../assets/home/home-services/home-services-item-icon.png"
 import homeServicesItemBottomItemImg from "../../../assets/home/home-services/home-services-item-bottom-item-img.png"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router"
 
 
 
 const HomeServices = ({serviceData, otherServiceData}) => {
 
     const langState = useSelector((state) => state.lang.lang);
+
+    const navigate = useNavigate()
     
     
     
@@ -26,7 +29,9 @@ const HomeServices = ({serviceData, otherServiceData}) => {
                             </div>
                             <div className="home-services-items-item-desc" >
                                 <h3>{langState === "hy"? ser_name_hy: langState === "ru" ? ser_name_ru : ser_name_en}</h3>
-                                <button>{langState === "hy"? but_name_hy: langState === "ru" ? but_name_ru : but_name_en}</button>
+                                <button onClick={() => {
+                                    navigate(`/service`)
+                                }}>{langState === "hy"? but_name_hy: langState === "ru" ? but_name_ru : but_name_en}</button>
                             </div>
                         </div>
                     )
