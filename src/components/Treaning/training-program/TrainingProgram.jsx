@@ -5,9 +5,6 @@ import Container from '../../common/container/Container'
 import logo from "../../../assets/treaning/training_program/logo.png"
 import { IoIosArrowUp } from "react-icons/io";
 
-
-import axios from "axios"
-
 import "./TrainingProgram.scss"
 import { useSelector } from 'react-redux';
 

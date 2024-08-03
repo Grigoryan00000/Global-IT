@@ -25,7 +25,6 @@ const store = configureStore({
         blog: blogReducer,
         facultet: facultetReducer,
         lang: langReducer,
-
         service: serviceReducer
 
     }

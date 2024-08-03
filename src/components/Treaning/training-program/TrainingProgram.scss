@@ -104,3 +104,19 @@
     transform: rotate(180deg);
   }
 
+
+  @media screen and (max-width: 1250px) {
+    .training-program{
+        &-parts{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &-description{
+            width: 600px;
+        }
+        &-title{
+            display: flex;
+            justify-content: center;
+        }
+    }
+  }

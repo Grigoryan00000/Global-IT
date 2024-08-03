@@ -1,5 +1,5 @@
 .expectations{
-    background-color: #270B4F ;
+    padding: 100px 0;
     svg{
         display: block;
     }
@@ -16,6 +16,7 @@
     }
     &-items{
         display: flex;
+        flex-wrap: wrap;
         gap: 80px;
         
     }
@@ -34,6 +35,19 @@
         >p{
             font-size: 12px;
             font-weight: 100;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .expectations{
+        &-items{
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
         }
     }
 }

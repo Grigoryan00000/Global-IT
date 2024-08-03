@@ -1,44 +1,66 @@
-.training-stages{
+.training-stages {
     padding-bottom: 40px;
-    &-item{
-        width: 300px;
-        height: 370px;
-        padding: 20px;
-        background-color: #270B4F; /* Dark background similar to the image */
-        text-align: center;
-        color: white;
-        &-desc{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        &-stage{
-            position: absolute;
-            left: 20px;
-            top: 20px;
-        }
-        &-img{
-            margin-top: 30px;
-            height: 100px;
-        }
-        &-name{
-            margin-top: 10px;
-            font-family: arial;
-            font-size: 20px;
-            font-weight: 400;
-            color: #f9f9f9;
-        }
-        &-text{
-            color: #f9f9f9;
-            font-size: 12px;
-            font-weight: 300;
-            font-family: arial;
-            margin-top: 20px;
-            text-align: left;
-        }
+    display: flex;
+    justify-content: center;
+  
+    .swiper-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-}
-
-
-
+  
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    &-item {
+      width: 400px;
+      height: 370px;
+      padding: 20px;
+      background-color: #3C3C3C;
+      text-align: center;
+      color: white;
+      position: relative; /* To position the stage text */
+      margin: auto; /* To center the item within the slide */
+  
+      &-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      &-stage {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+      }
+  
+      &-img {
+        margin-top: 30px;
+        height: 100px;
+      }
+  
+      &-name {
+        margin-top: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #f9f9f9;
+      }
+  
+      &-text {
+        color: #f9f9f9;
+        font-size: 12px;
+        font-weight: 300;
+        font-family: Arial, sans-serif;
+        margin-top: 20px;
+        text-align: left;
+      }
+    }
+  }
+  
