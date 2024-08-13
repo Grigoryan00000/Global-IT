@@ -8,9 +8,8 @@ const ServiceInfoDescription = () => {
   const dispatch = useDispatch();
   const { activeItem, items, status, error } = useSelector((state) => state.service);
 
-  console.log('====================================');
   console.log(activeItem);
-  console.log('====================================');
+
 
   useEffect(() => {
     if (status === 'idle') {
