@@ -1,35 +1,38 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
-import { setShow } from '../../../redux/slices/ServiceSlice'
+import { changeActive, setShow } from '../../../redux/slices/ServiceSlice'
+import { changeActiveItem } from '../../../redux/slices/ServiceSlice'
 
 
 
 
-const ServiceItem = () => {
+const ServiceItem = ({serviceData}) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()  
-    const serviceData = useSelector((state) => state.service.services)
+
 
   return (
-    serviceData.map(({id, title1, title2, color, bgi, icon}) => {
+    serviceData.map(({id, back_img, logo, ser_name_hy, ser_mame_ru, ser_name_en, but_name_hy, but_name_ru, but_name_en }) => {
         return(
-            <div className='service-item' key={id} style={{color}}>
+            <div className='service-item' key={id} >
                 <div className='for-img'>
-                    <img src={bgi} alt="" />
-                    <div className='round' style={{border: `2px solid ${color}`}}>
-                        <img src={icon} alt="" />
+                    <img src={back_img} alt="" />
+                    <div className='round' style={{border: `2px solid `}}>
+                        <img src={logo} alt="" />
                     </div>
                 </div>
                 <div className='text-side'>
-                    <h2>{title1}</h2>
-                    <h2>{title2}</h2>
+                    <h2>{ser_name_hy}</h2>
                 </div>   
                 <button onClick={() => {
-                    dispatch(setShow(id))
+                    dispatch(changeActiveItem(id))  
+                    navigate("/service-info")
+                }}>{but_name_hy}</button>
+                    {/* dispatch(setShow(id))
                     navigate(`/service-info/${id}`)
-                }}>Դիմել</button>
+                }}>Դիմել</button> */}
             </div>
         )
     })

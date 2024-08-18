@@ -14,7 +14,7 @@
         text-align: center;
     }
     &-title{
-        width: 700px;
+        width: 100%;
         h2{
             font-size: 30px;
             letter-spacing: 4px;
@@ -22,7 +22,7 @@
         }
         p{
             margin: auto;
-            width: 500px;
+            width: 100%;
             
         }
     }
@@ -65,4 +65,31 @@
         }
     }
 
+}
+
+
+
+@media screen and (max-width: 1420px) {
+    .training-works{
+        &-projects{
+            flex-wrap: wrap;
+        }
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    .training-works{
+        &-projects{
+            flex-wrap: wrap;
+            &-item{
+                width: 320px;
+                height: 600px;
+                &-img{
+                    width: 280px;
+                    height: 440px;
+                }
+            }
+        }
+    }
+    
 }

@@ -1,46 +1,63 @@
-import React from 'react'
-import {useSelector} from "react-redux"
-import Container from '../../../common/container/Container'
-
-import "../ServiceInfo.scss"
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Container from '../../../common/container/Container';
+import { fetchData } from '../../../../redux/slices/ServiceSlice';
+import "../ServiceInfo.scss";
 
 const ServiceInfoDescription = () => {
-    
-    const serviceData = useSelector((state) => state.service.services)
+  const dispatch = useDispatch();
+  const { activeItem, items, status, error } = useSelector((state) => state.service);
 
-    return (
-      serviceData.map(({id, show, title1, title2, logo, icon, color, color2}) => {
-          if (show) {
-              return (
-                  <div className='service-info' key={id}>
-                      <Container>
-                      <div className="service-info-description">
-                          <div className="text-side">
-                              <h1 style={{color: color2?color2:color}}>{title1} {title2}</h1>
-                              <p>«Gloab IT» ըբգկերությունում առկան են երեք ֆակուլտետներ, վեբ ծրագրավորման, ծրագրավորման և մուլտիմեդիայի։ «ԳԼՈԲԱԼ ԻՏ» ՍՊԸ-ն հիմնադրվել է 2017թ.-ի հոկտեմբերի 19ին Գ. Քոսյանի կողմից: Մենք առաջարկում ենք ծրագրային տարատեսակ լուծումներ, որոնց նպատակն է մեծացնել ձեր բիզնեսի շահութաբերությունը և նպաստել աճին: Մեր ստեղծարար թիմը համատեղ ուժերով տալիս Է նորարարական լուծումներ, որոնք նպաստում են ձեր բիզնեսի թիրախային լսարանի ներգրավմանը:
-                              «ԳԼՈԲԱԼ ԻՏ» ՍՊԸ-ն հիմնադրվել է 2017թ.-ի հոկտեմբերի 19ին Գ. Քոսյանի կողմից: Մենք առաջարկում ենք ծրագրային տարատեսակ լուծումներ, որոնց նպատակն է մեծացնել ձեր բիզնեսի շահութաբերությունը և նպաստել աճին: Մեր ստեղծարար թիմը համատեղ ուժերով տալիս Է նորարարական լուծումներ, որոնք նպաստում են ձեր բիզնեսի թիրախային լսարանի ներգրավմանը:
-                              </p>
-                              <div className='text-side-buttons'>
-                                  <div className='button'>Հաշվել կայքի արժեքը</div>
-                                  <div className='button'>Հաշվել կայքի արժեքը</div>
-                              </div>
-                          </div>
-                          <div className='icon-side'>
-                              <img src={logo} alt="" />
-                              <div className="round" style={{border: `2px solid ${color}`}}>
-                                  <img src={icon} alt="" />
-                              </div>
-                          </div>
-                      </div>
-                      </Container>
+  console.log(activeItem);
+
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchData());
+    }
+  }, [status, dispatch]);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div>Error: {error}</div>;
+  }
+
+
+  return (
+    <div>
+      {status === 'succeeded' && items? (
+        items.map(({ id, show, name, text, but_name1, but_name2, logo}) => (
+            activeItem===id?
+           (
+            <div className='service-info' key={id}>
+              <Container>
+                <div className="service-info-description">
+                  <div className="text-side">
+                    <h1 style={{color: id===1?"#98DAFF":id===2?"#FF5942":"#A1FF8F"}}>{name}</h1>
+                    <p>{text}</p>
+                    <div className='text-side-buttons'>
+                      <div className='button'>{but_name1}</div>
+                      <div className='button'>{but_name2}</div>
+                    </div>
                   </div>
-  
-              )
-          }else{
-              return ""
-          }
-      })
-    )
-}
+                  <div className='icon-side'>
+                    <img src={logo} alt="" />
+                  </div>
+                </div>
+              </Container>
+            </div>
+          )
+          :
+          <></>
+        ))
+      ) : (
+        <div>No items available</div>
+      )}
+    </div>
+  );
+};
 
-export default ServiceInfoDescription
+export default ServiceInfoDescription;
