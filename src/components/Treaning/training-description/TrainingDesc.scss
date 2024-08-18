@@ -104,3 +104,8 @@
         color: #fff;
     }
 }
+@media screen and (max-width: 1250px){
+    .training-description{
+        display: none;
+    }
+}

@@ -10,10 +10,15 @@
         align-items: center;
         color: #fff;
         &-text-side{
-            width: 800px;
+            width: 100%;
             >h1{
                  color: #fff;
                  margin-bottom: 30px;
+            }
+            h2{
+                text-align: left;
+                margin-bottom: 30px;
+
             }
         }
         &-button{
@@ -26,5 +31,25 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .training-investment{
+        flex-direction: column;
+        h1{
+            text-align: center;
+        }
+        h2{
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+    }
+}
+@media screen and (max-width: 430px) {
+    .training-investment{
+        flex-direction: column;
+
     }
 }
