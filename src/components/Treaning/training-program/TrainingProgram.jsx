@@ -22,7 +22,7 @@ const TrainingProgram = ({programClassData, programData, programDescData}) => {
                 <h1>{langState==="hy"?"Ուսումնական ծրագիր":langState==="ru"?"Учебный план":"Syllabus"}</h1>
             </div>
             <div className="training-program-parts">
-                <div>
+                <div className='training-program-parts-first'>
 
                 {programData.map(({id, name_hy, name_ru, name_en}) => {
                     return (

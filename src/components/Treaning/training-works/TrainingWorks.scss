@@ -10,7 +10,7 @@ h2,p{
     justify-content: center;
     align-items: center;
     &-title{
-        width: 700px;
+        width: 100%;
         h2{
             font-size: 30px;
             letter-spacing: 4px;
@@ -18,7 +18,7 @@ h2,p{
         }
         p{
             margin: auto;
-            width: 500px;
+            width: 100%;
             
         }
     }
