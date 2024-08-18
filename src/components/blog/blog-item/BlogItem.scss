@@ -1,4 +1,6 @@
 .blog-item-bottom{
+    padding: 0 50px;
+
     .container{
         display: flex;
         gap: 30px;
@@ -63,6 +65,32 @@
                     width: 165px;
                 }
             }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1225px) {
+    .blog-item-bottom-similarTopic{
+        display: none;
+    }
+    .blog-item-bottom{
+        .container{
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 885px) {
+    .blog-item-bottom-left-news-bottomImg{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        img{
+            width: 100%;
+            height: auto;
         }
     }
 }

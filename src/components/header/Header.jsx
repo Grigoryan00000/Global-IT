@@ -72,17 +72,36 @@ const Header = () => {
     let options = document.querySelector(".options")
     nav.style.display= (nav.style.display === "block") ? "none" : "block"
     options.style.display= (options.style.display === "flex") ? "none" : "flex";
-    // let body = document.querySelector("body")
-    // body.style.filter = (body.style.filter === "blur(0px)") ? "blur(10px)" : "blur(0px)"
   }
 
   function changeLanguage(event){
     setLang(event.target.value)
   }
 
+  useEffect(() => {
+    // Adding the scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        // Removing listener
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
+
+const [isScrolled, setScrolled] = useState(false);
+
+// Handler when page is scrolled
+const handleScroll = () => {
+  if(window.pageYOffset > 0) {
+    setScrolled(true)
+  } else {
+    setScrolled(false)
+  }
+}
+
   
   return (
-    <header style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"#16131B"}}>
+    <header class={`header ${isScrolled && 'header-scrolled'}`}style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"rgba(0, 0, 0, 0.5)"}}>
         <Container>
             {headerData.map(({id, logo, page1_hy, page1_ru, page1_en, page2_hy, page2_ru, page2_en, page3_hy, page3_ru, page3_en, page4_hy, page4_ru, page4_en, page5_hy, page5_ru, page5_en, login_hy, login_ru, login_en}) => {
                 return(
@@ -107,7 +126,7 @@ const Header = () => {
                             </select> */}
                             <DropDown options={options} lang={lang} setLang={setLang} changeLanguage={changeLanguage}/>
 
-                            <button onClick={() => {
+                            {/* <button onClick={() => {
                                 navigate("/auth")
                                 if(closeAuth){
                                     dispatch(setCloseAuth())
@@ -118,7 +137,7 @@ const Header = () => {
                                 if(!closeAuthWindow){
                                     dispatch(setCloseAuthWindow())
                                 }
-                            }}>{langState==="hy"?login_hy:langState==="en"?login_en:login_ru}</button>
+                            }}>{langState==="hy"?login_hy:langState==="en"?login_en:login_ru}</button> */}
                         </div>
 
                         <div className="burger" onClick={() => {
