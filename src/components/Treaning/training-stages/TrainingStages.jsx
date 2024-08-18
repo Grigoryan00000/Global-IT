@@ -1,5 +1,5 @@
 import React from 'react'
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 import { A11y, Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import "swiper/css";

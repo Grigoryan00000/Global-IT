@@ -7,7 +7,6 @@ const BlogBanner = ({blogData, id, blogItemData}) => {
   return (
     <div className='blog-banner'>
         {blogData.map(item => {
-          console.log(id);
           if(id == item.id){
             return (
               <div className='blog-banner-description' >

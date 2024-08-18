@@ -44,6 +44,7 @@ const HomeContact = () => {
                     <button>{langState === "hy"? "Ուղարկել": langState === "ru" ? "Отправлять": "Send"}</button> */}
                     
                     <input
+                    placeholder='Թեմա'
                     className='home-contact-item-send-topic'
                      type="text"
                      name="name"
@@ -51,6 +52,7 @@ const HomeContact = () => {
                      onChange={handleChange}
                       />
                     <input
+                    placeholder='Նկարագրություն'
                     className='home-contact-item-send-desc'
                      type="text"
                      name="text"

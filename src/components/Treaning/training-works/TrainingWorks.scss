@@ -1,7 +1,7 @@
-h2,p{
-    color: #fff;
-    text-align: center;
-}
+// h2,p{
+//     color: #fff;
+//     text-align: center;
+// }
 
 .training-works{
     padding: 100px 0;
@@ -9,6 +9,10 @@ h2,p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    h2,p{
+        color: #fff;
+        text-align: center;
+    }
     &-title{
         width: 700px;
         h2{

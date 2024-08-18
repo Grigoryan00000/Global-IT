@@ -15,18 +15,20 @@
     align-items: center;
     justify-content: center;
     .container{
+        height: 500px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 24vh;
     }
     &-title{
-        width: 600px;
+        width: 705px;
+        height: auto;
         h1{
-            height: auto;
+            height: 165px;
             span{
                 // font-family: "Arian AMU";
-                font-size: 48px;
+                font-size: 46px;
                 font-weight: 700;
                 line-height: 80.29px;
                 text-align: left;
@@ -84,9 +86,10 @@
 @media screen and (max-width: 1435px) {
     .home-slider{
         &-title{
+            width: 650px;
             h1{
                 span{
-                    font-size: 34px;
+                    font-size: 40px;
                     line-height: 67px;
 
                 }
@@ -109,7 +112,7 @@
 }
 
 
-@media screen and (max-width: 1282px) {
+@media screen and (max-width: 1300px) {
     .home-slider{
         &-title{
             width: 470px;
@@ -197,7 +200,11 @@
 @media screen and (max-width: 1010px) {
     .home-slider{
         .container{
-            display: block;
+            // display: block;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            flex-direction: column-reverse;
         }
         &-title{
         width: 630px;
@@ -211,6 +218,7 @@
                 }
             }
             &-button{
+                justify-content: center;
                 button{
                     width: 245px;
                     height: 63px; 
@@ -231,7 +239,7 @@
 @media screen and (max-width: 768px) {
     .home-slider{
         .container{
-            display: block;
+            // display: block;
         }
         &-title{
         width: 550px;
@@ -265,7 +273,7 @@
 @media screen and (max-width: 683px) {
     .home-slider{
         .container{
-            display: block;
+            // display: block;
         }
         &-title{
         width: 500px;
@@ -298,7 +306,7 @@
 @media screen and (max-width: 600px) {
     .home-slider{
         .container{
-            display: block;
+            // display: block;
         }
         &-title{
         width: 100%;
@@ -332,7 +340,7 @@
     .home-slider{
         padding: 0 40px;
         .container{
-            display: block;
+            // display: block;
         }
         &-title{
         // width: 370px;
@@ -340,16 +348,17 @@
             h1{
                 height: 90px;
                 span{
-                    font-size: 21px;
-                    line-height: 30px;
+                    font-size: 25px;
+                    line-height: 40px;
 
                 }
             }
             &-button{
+                gap: 15px;
                 button{
-                    width: 140px;
-                    height: 34px; 
-                    font-size: 9px;
+                    width: 150px;
+                    height: 39px; 
+                    font-size: 12px;
                     margin: 30px 0 0 0;
                 }
             }

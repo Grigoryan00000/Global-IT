@@ -1,17 +1,17 @@
-.auth{
+.auth {
     display: flex;
     justify-content: center;
     align-items: center;
     // gap: 300px;
     // min-height: 90vh;
     height: 920px;
-    background-color: #0E0A12;
-    &-text{
+    background-color: #0e0a12;
+    &-text {
         width: 495px;
         height: 230.353px;
         flex-shrink: 0;
-        >h1{
-            color: #EDEDED;
+        > h1 {
+            color: #ededed;
             font-family: Arian AMU;
             font-size: 60px;
             font-style: normal;
@@ -19,64 +19,62 @@
             line-height: 150.49%;
         }
     }
-    
 }
 
-
-.auth-page{
+.auth-page {
     width: 100%;
     min-height: 100vh;
     background: #000;
     backdrop-filter: blur(25px);
 }
-.reg-form{
+.reg-form {
     width: 850px;
     min-height: 50vh;
     margin: auto;
     background-color: #fff;
     border-radius: 20px;
-    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 60px 110px;
     margin-top: 44px;
-    p{
+    p {
         color: #000;
     }
 
-    .success-sign-in-up{
+    .success-sign-in-up {
         display: flex;
         flex-direction: column;
         align-items: center;
-        >.logo{
+        > .logo {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            > img{
+            > img {
                 width: 30px;
                 height: 30px;
             }
-            > h1{
+            > h1 {
                 font-family: Montserrat;
                 font-size: 28px;
                 font-style: normal;
                 font-weight: 700;
                 line-height: normal;
             }
-            > h1:last-child{
+            > h1:last-child {
                 color: #442697;
             }
         }
-        >.text-side{
+        > .text-side {
             min-width: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
             padding: 44px;
-            > p{
+            > p {
                 color: #000;
                 font-family: Arian AMU;
                 font-size: 20px;
@@ -84,12 +82,12 @@
                 font-weight: 400;
                 line-height: normal;
             }
-            > p:last-child{
+            > p:last-child {
                 font-weight: 700;
             }
         }
     }
-    input{
+    input {
         border-radius: 100px;
         border: 0.5px solid #000;
         width: 100%;
@@ -103,75 +101,73 @@
         font-weight: 400;
         line-height: normal;
     }
-    
-    .form-section{
+
+    .form-section {
         padding: 34px 40px 56px;
         border-radius: 15px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.20) inset;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) inset;
         margin-bottom: 30px;
         text-align: center;
-        > h2{
+        > h2 {
             margin-bottom: 30px;
         }
-        > input:last-child{
+        > input:last-child {
             margin-bottom: 0px;
         }
     }
 }
 
-.sign-in-up{
+.sign-in-up {
     width: 300px;
     height: 55px;
     display: flex;
-    border: 0.5px solid rgba(0, 0, 0, 0.50);
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
     border-radius: 95px;
     margin-top: 32px;
     cursor: pointer;
-    >div{
+    > div {
         width: 150px;
         border-radius: 50px 0px 0px 50px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    >div:last-child{
+    > div:last-child {
         border-radius: 0px 50px 50px 0px;
     }
 }
 
-
-.send-reset{
+.send-reset {
     width: 520px;
     display: flex;
     gap: 20px;
-    >div{
+    > div {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px 0;
         cursor: pointer;
     }
-    > .send{
+    > .send {
         width: 70%;
         border-radius: 100px;
-        background: #704DD3;
+        background: #704dd3;
         color: #fff;
     }
-    >.reset{
+    > .reset {
         width: 30%;
         border-radius: 100px;
-        border: 1px solid #704DD3;
-        
+        border: 1px solid #704dd3;
     }
 }
 
-.select-option{
+.select-option {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     margin-bottom: 25px;
-    > .select{
+    > .select {
         width: 100%;
         height: 70px;
         padding: 0 20px;
@@ -182,7 +178,7 @@
         align-items: center;
         cursor: pointer;
     }
-    > .options{
+    > .options {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -190,7 +186,7 @@
         border-radius: 25px;
         border: 0.5px solid #000;
         padding: 26px 46px;
-        > div{
+        > div {
             color: #000;
             font-size: 16px;
             font-style: normal;

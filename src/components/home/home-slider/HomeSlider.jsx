@@ -13,12 +13,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 
 
 const HomeSlider = ({sliderData}) => {
   
   const langState = useSelector((state) => state.lang.lang);
+  const navigate = useNavigate()
 
   const homeTyper = sliderData;
   const titlesArr= []
@@ -69,8 +71,12 @@ const HomeSlider = ({sliderData}) => {
                       />
                     </h1>
                     <div className="home-slider-title-button">
-                      <button>{langState==="hy"?but_name1_hy:langState==="en"?but_name1_en:but_name1_ru}</button>
-                      <button>{langState==="hy"?but_name2_hy:langState==="en"?but_name2_en:but_name2_ru}</button>
+                      <button onClick={() => {
+                        navigate("/training")
+                      }}>{langState==="hy"?but_name1_hy:langState==="en"?but_name1_en:but_name1_ru}</button>
+                      <button onClick={() => {
+                        navigate("/service")
+                      }}>{langState==="hy"?but_name2_hy:langState==="en"?but_name2_en:but_name2_ru}</button>
                     </div>
                 </div>
                 <div className="home-slider-img" >
