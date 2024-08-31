@@ -42,12 +42,14 @@
                 height: 60px;
                 background: transparent;
                 font-family: Arial;
-                font-size: 16px;
-                font-weight: 700;
+                font-size: 14px;
                 line-height: 18.4px;
                 letter-spacing: 0.055em;
                 margin-top: 30px;
                 color: var(--white);
+                padding-left: 20px;
+
+                font-weight: 400;
             }
         }
         &-button{
@@ -74,4 +76,16 @@
     border: none;
     color: white;
     cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 615px){
+    .facultet-popup-item{
+        width: 100%;
+        padding: 30px 15px;
+    }
+    .facultet-popup-item-registr input{
+        width: 100%;
+    }
 }

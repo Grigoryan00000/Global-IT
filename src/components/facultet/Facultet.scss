@@ -270,6 +270,7 @@
 
         &-title{
             flex-direction: column;
+            text-align: center;
         }
     }
     
@@ -297,6 +298,15 @@
         }
     }
 }   
+@media screen and (max-width: 530px){
+    .facultet-title button{
+        padding: 13px 42px;
+        font-size: 11px;
+    }
+    .facultet-title-desc p p{
+        font-size: 15px;
+    }
+}
 
 
 
