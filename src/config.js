@@ -88,22 +88,30 @@ export const CONFIG = {
       {
         id: 1,
         title: "Ֆակուլետներ",
+        title_ru: "Факультеты",
+        title_en: "Faculties",
         text: null,
       },
       {
         id: 2,
         title:null,
+        text_ru: "Веб-программирование",
+        text_en: "Web programming",
         text: "Վեբ ծրագրավորում"
       },
       {
         id: 3,
         title:null,
+        text_ru: "Программирование",
+        text_en: "Programming",
         text: "Ծրագրավորում"
       },
       {
         id: 4,
         title:null,
-        text: "Մուլտիմեդիա"
+        text: "Մուլտիմեդիա",
+        text_ru: "Мультимедиа",
+        text_en: "Multimedia",
       },
     ],
 
@@ -111,14 +119,20 @@ export const CONFIG = {
       {
         id: 1,
         text: "Նախագծեր",
+        text_ru: "Проекты",
+        text_en: "Projects",
       },
       {
         id: 2,
-        text: "Աշխատանք"
+        text: "Աշխատանք",
+        text_ru: "Работа",
+        text_en: "Work",
       },
       {
         id: 3,
-        text: "Մեր մասին"
+        text: "Մեր մասին",
+        text_ru: "О нас",
+        text_en: "About us",
       },
     ],
 
@@ -126,6 +140,8 @@ export const CONFIG = {
       {
         id: 1,
         text1: "  ք. Երևան Հովսեփ Էմին 123",
+        text1_ru: "  в. Ереван Овсепа Эмина 123:",
+        text1_en: "  c. Yerevan Hovsep Emin 123:",
         text2: "  +374 98 960 959",
         text3: "  gitedu@bk.ru",
       }

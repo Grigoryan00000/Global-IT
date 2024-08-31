@@ -62,7 +62,10 @@
                     align-items: center;
                     margin-bottom: 52px;
                     padding: 0px 4px;
+                    height: 70px;
                     h2{
+                        color: var(--white);
+                        text-align: center;
                         line-height: 40px;
                     }
                 }
@@ -74,6 +77,8 @@
                     border: none;
                     color: #fff;
                     cursor: pointer;
+                    margin-top: 20px;
+                    letter-spacing: 1.5px;
                 }
             }
         }

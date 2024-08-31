@@ -11,10 +11,10 @@ export const FacultetPopup = ({show, setShow, facultetTitleImg}) => {
                   <h4>Անվճար խորhրդատվություն</h4>
               </div>
               <div className="facultet-popup-item-registr">
-                  <input type="text" />
-                  <input type="email" />
-                  <input type="phone" />
-                  <input type="text" />
+                  <input type="text" placeholder='Անուն Ազգանուն'/>
+                  <input type="email" placeholder='Email'/>
+                  <input type="phone" placeholder='+374'/>
+                  <input type="text" placeholder='Հարմար ժամեր'/>
               </div>
               <button className='facultet-popup-item-button'>Ուղարկել</button>
               <button className='close' onClick={() => {
