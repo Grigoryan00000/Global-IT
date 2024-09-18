@@ -24,7 +24,7 @@ const Home = () => {
   useEffect(() => {
       async function getData() {
           try {
-              const headerData = await axios.get("https://globalitacademy.am/GIAcademyApi/header/");
+              // const headerData = await axios.get("https://globalitacademy.am/GIAcademyApi/header/");
               const sliderData = await axios.get("https://globalitacademy.am/GIAcademyApi/slayder/");
               const serviceData = await axios.get("https://globalitacademy.am/GIAcademyApi/service/");
               const otherServiceData = await axios.get("https://globalitacademy.am/GIAcademyApi/other_service/");
@@ -34,6 +34,8 @@ const Home = () => {
               const workData = await axios.get("https://globalitacademy.am/GIAcademyApi/works/");
               const aboutData = await axios.get("https://globalitacademy.am/GIAcademyApi/aboutus/");
               const aboutItemData = await axios.get("https://globalitacademy.am/GIAcademyApi/aboutusitems/");
+              
+              console.log(serviceData);
               
               
               setSliderData(sliderData.data);
