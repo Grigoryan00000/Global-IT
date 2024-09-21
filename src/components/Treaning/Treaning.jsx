@@ -12,8 +12,13 @@ import TrainingCertificate from './training-certificate/TrainingCertificate'
 import TrainingInvestment from './training-investment/TrainingInvestment'
 import TrainingWorks from './training-works/TrainingWorks'
 import TrainingReg from './training-registration/TrainingReg'
+import { useLocation } from 'react-router'
 
 const Treaning = () => {
+    const location = useLocation();
+    let currentId = +location.pathname[location.pathname.length - 1]; // Current path
+    
+
 
     const [sliderData,setSliderData] = useState([]);
     const [expectationData, setExpectationData] = useState([])
@@ -58,14 +63,14 @@ const Treaning = () => {
 
   return (
     <div className='treaning'>
-        <TreaningSlider sliderData={sliderData}/>
-        <TrainingDesc/>
-        <TrainingExpect expectationData={expectationData}/>
+        <TreaningSlider sliderData={sliderData} currentId={currentId}/>
+        {/* <TrainingDesc currentId={currentId}/>
+        <TrainingExpect expectationData={expectationData} currentId={currentId}/>
         <TrainingStages stagesData={stagesData}/>
-        <TrainingProgram programData={programData} programClassData={programClassData} programDescData={programDescData}/>
-        <TrainingCertificate certificateData={certificateData}/>
+        <TrainingProgram programData={programData} currentId={currentId} programClassData={programClassData} programDescData={programDescData}/>
+        <TrainingCertificate certificateData={certificateData} currentId={currentId} />
         <TrainingInvestment investmentData={investmentData}/>
-        <TrainingWorks worksData={worksData} />
+        <TrainingWorks worksData={worksData} /> */}
     </div>
   )
 }

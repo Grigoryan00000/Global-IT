@@ -9,7 +9,7 @@ import homeFacultiesItemBottomImg from "../../../assets/home/home-faculties/home
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 
-const HomeFaculties = ({facultiesData}) => {
+const HomeFaculties = ({facultiesData, facultiesItemData}) => {
 
     const langState = useSelector((state) => state.lang.lang);
    const dispatch = useDispatch();
@@ -19,44 +19,33 @@ const HomeFaculties = ({facultiesData}) => {
         <Container>
             <h2 className="home-faculties-title">{langState==="hy"?"ՖԱԿՈՒԼՏԵՏՆԵՐ":langState==="en"?"FACULTIES":"ФАКУЛЬТЕТЫ"}</h2>
             <div className="home-faculties-items">
-                {facultiesData.map(({id,fac_img, fac_name_hy, fac_name_ru, fac_name_en, prod_name1_hy, prod_name1_ru, prod_name1_en, prod_name2_hy, prod_name2_ru, prod_name2_en, prod_name3_hy, prod_name3_ru, prod_name3_en, prod_name4_hy, prod_name4_ru, prod_name4_en, prod_name5_hy, prod_name5_ru, prod_name5_en, but_name_hy, but_name_ru, but_name_en}) => {
+                {facultiesData.map((item) => {
                     return(
-                        <div className="home-faculties-items-item" key={id}>
+                        
+                        <div className="home-faculties-items-item" key={item.id}>
                             <div className="home-faculties-items-item-top">
                                 <div>
-                                    <img src={fac_img}/>
+                                    <img src={item.fac_img}/>
                                 </div>
-                                <h3>{langState==="hy"?fac_name_hy:langState==="en"?fac_name_en:fac_name_ru}</h3>
+                                <h3>{langState==="hy"?item.fac_name_hy:langState==="en"?item.fac_name_en:item.fac_name_ru}</h3>
                             </div>
                             <div className="home-faculties-items-item-bottom">
-                                <div className="home-faculties-items-item-bottom-item">
-                                    <h4>{langState==="hy"?prod_name1_hy:langState==="en"?prod_name1_en:prod_name1_ru}</h4>
-                                    <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
-                                    <img src={homeFacultiesItemBottomImg} alt="" />
-                                </div>
-                                <div className="home-faculties-items-item-bottom-item">
-                                    <h4>{langState==="hy"?prod_name2_hy:langState==="en"?prod_name2_en:prod_name2_ru}</h4>
-                                    <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
-                                    <img src={homeFacultiesItemBottomImg} alt="" />
-                                </div>
-                                <div className="home-faculties-items-item-bottom-item">
-                                    <h4>{langState==="hy"?prod_name3_hy:langState==="en"?prod_name3_en:prod_name3_ru}</h4>
-                                    <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
-                                    <img src={homeFacultiesItemBottomImg} alt="" />
-                                </div>
-                                <div className="home-faculties-items-item-bottom-item">
-                                    <h4>{langState==="hy"?prod_name4_hy:langState==="en"?prod_name4_en:prod_name4_ru}</h4>
-                                    <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
-                                    <img src={homeFacultiesItemBottomImg} alt="" />
-                                </div>
-                                <div className="home-faculties-items-item-bottom-item">
-                                    <h4>{langState==="hy"?prod_name5_hy:langState==="en"?prod_name5_en:prod_name5_ru}</h4>
-                                    <button>{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
-                                    <img src={homeFacultiesItemBottomImg} alt="" />
-                                </div>
-                                <button className="home-faculties-items-item-bottom-button" onClick={() => {
-                                    navigate(`/facultet`)
-                                }}>{langState==="hy"?but_name_hy:langState==="en"?but_name_en:but_name_ru}</button>
+                                {facultiesItemData.map(({id,item_name_hy, item_name_ru,item_name_en, faculties}) => {
+                                    if(faculties === item.id){
+                                        return(
+                                            <div className="home-faculties-items-item-bottom-item" key={id} onClick={() => {
+                                                navigate(`training/${id}`)
+                                            }}>
+                                                <h4>{langState==="hy"?item_name_hy:langState==="en"?item_name_en:item_name_ru}</h4>
+                                                <button >{langState==="hy"?"Ընդունելություն":langState==="en"?"Reception":"Прием"}</button>
+                                                <img src={homeFacultiesItemBottomImg} alt="" />
+                                            </div>
+                                        )
+                                    }
+                                })}
+                            <button className="home-faculties-items-item-bottom-button" onClick={() => {
+                                navigate(`/facultet`)
+                            }}>{langState==="hy"?item.but_name_hy:langState==="en"?item.but_name_en:item.but_name_ru}</button>
                             </div>
                         </div>
                     )
