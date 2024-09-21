@@ -11,5 +11,6 @@ export const ROUTER = {
     FACULTET_PAGE_ROUTE: "/facultet",
     SERVICE_INFO_PAGE_ROUTE: "/service-info/:id",
     SERVICE_INFO_PAGE_ROUTE: "/service-info",
-    TREANING_PAGE_ROUTE: "/training"
+    TREANING_PAGE_ROUTE: "/training/:id",
+    ERROR_PAGE: "*"
 }

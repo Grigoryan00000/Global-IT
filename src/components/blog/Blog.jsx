@@ -73,7 +73,7 @@ const Blog = ({show, setShow}) => {
                 ]}>more</button>
               </div>
           </div>
-          )
+          )             
         })}
       </div>
 

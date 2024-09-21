@@ -13,6 +13,7 @@ const Home = () => {
 
   const [sliderData,setSliderData] = useState([]);
   const [facultiesData,setFacultiesData] = useState([]);
+  const [facultiesItemData,setFacultiesItemData] = useState([]);
   const [serviceData,setServiceData] = useState([]);
   const [otherServiceData,setOtherServiceData] = useState([]);
   const [teamData, setTeamData] = useState([]);
@@ -29,6 +30,7 @@ const Home = () => {
               const serviceData = await axios.get("https://globalitacademy.am/GIAcademyApi/service/");
               const otherServiceData = await axios.get("https://globalitacademy.am/GIAcademyApi/other_service/");
               const facultiesData = await axios.get("https://globalitacademy.am/GIAcademyApi/faculties/");
+              const facultiesItemData = await axios.get("https://globalitacademy.am/GIAcademyApi/faculties_Items/");
               const teamData = await axios.get("https://globalitacademy.am/GIAcademyApi/team/");
               const friendData = await axios.get("https://globalitacademy.am/GIAcademyApi/partners/");
               const workData = await axios.get("https://globalitacademy.am/GIAcademyApi/works/");
@@ -40,6 +42,7 @@ const Home = () => {
               
               setSliderData(sliderData.data);
               setFacultiesData(facultiesData.data);
+              setFacultiesItemData(facultiesItemData.data);
               setServiceData(serviceData.data);
               setOtherServiceData(otherServiceData.data);
               setTeamData(teamData.data);
@@ -59,8 +62,8 @@ const Home = () => {
 
   return (
     <div className='home' style={{backgroundColor: "var(--global-homePage-color)"}}>
-      <HomeSlider sliderData={sliderData}/>
-      <HomeFaculties facultiesData={facultiesData}/>
+      {/* <HomeSlider sliderData={sliderData}/> */}
+      <HomeFaculties facultiesData={facultiesData} facultiesItemData={facultiesItemData}/>
       <HomeServices serviceData={serviceData} otherServiceData={otherServiceData}/>
       <HomeTeam teamData={teamData}/>
       <HomeWorks workData={workData}/>

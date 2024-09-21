@@ -12,7 +12,7 @@ import "./TreaningSlider.scss"
 import { useSelector } from 'react-redux';
 import TrainingReg from '../training-registration/TrainingReg';
 
-const TreaningSlider = ({sliderData}) => {
+const TreaningSlider = ({sliderData, currentId}) => {
 
     const langState = useSelector((state) => state.lang.lang);
     const [open, setOpen] = useState(false)
@@ -54,35 +54,39 @@ const TreaningSlider = ({sliderData}) => {
           delay: 3000000,
         }}
       >
-        {sliderData.map(({id, name, name_hy, name_ru, name_en, but_name, but_name_hy, but_name_ru, but_name_en, text_en, text_ru, text_hy,img}) => {
-            return(
-              <SwiperSlide key={id}>
-                <Container>
-                <div className="treaning-slider-title">
-                  <h1>
-                    <Typewriter
-                        words={titlesArr}
-                        loop={5}
-                        cursor
-                        cursorStyle='|'
-                        typeSpeed={70}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                      />
-                    </h1>
-                    <p className='p'>{langState==="hy"?text_hy:langState==="ru"?text_ru:text_en}</p>
-                    <div className="treaning-slider-title-button">
-                      <button onClick={(() => {
-                        setOpen(true)
-                      })}>{langState==="hy"?but_name_hy:langState==="en"?but_name_en:but_name_ru}</button>
-                    </div>
-                </div>
-                <div className="treaning-slider-img" >
-                  <img src={img} alt="" />
-                </div>
-              </Container>
-              </SwiperSlide>
-            )
+        {sliderData.map(({id, faculties_Items, name, name_hy, name_ru, name_en, but_name, but_name_hy, but_name_ru, but_name_en, text_en, text_ru, text_hy,img}) => {
+            if(faculties_Items === currentId){
+              
+              return(
+                
+                <SwiperSlide key={id}>
+                  <Container>
+                  <div className="treaning-slider-title">
+                    <h1>
+                      <Typewriter
+                          words={titlesArr}
+                          loop={5}
+                          cursor
+                          cursorStyle='|'
+                          typeSpeed={70}
+                          deleteSpeed={50}
+                          delaySpeed={1000}
+                        />
+                      </h1>
+                      <p className='p'>{langState==="hy"?text_hy:langState==="ru"?text_ru:text_en}</p>
+                      <div className="treaning-slider-title-button">
+                        <button onClick={(() => {
+                          setOpen(true)
+                        })}>{langState==="hy"?but_name_hy:langState==="en"?but_name_en:but_name_ru}</button>
+                      </div>
+                  </div>
+                  <div className="treaning-slider-img" >
+                    <img src={img} alt="" />
+                  </div>
+                </Container>
+                </SwiperSlide>
+              )
+            }
         } )}
       </Swiper>
       <TrainingReg open={open} setOpen={setOpen}/>

@@ -29,6 +29,7 @@ const AppRoutes = ({show, setShow}) => {
       <Route path={ROUTER.FACULTET_PAGE_ROUTE} element={<FacultetPage />} />
       <Route path={ROUTER.SERVICE_INFO_PAGE_ROUTE} element={<ServiceInfoPage/>} />
       <Route path={ROUTER.TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
+      <Route path={ROUTER.ERROR_PAGE} element={<BlogPage />} />
     </Routes>
   )
 }
