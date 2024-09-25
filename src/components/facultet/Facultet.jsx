@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { FacultetPopup } from "./facultet-popup/FacultetPopup"
+import { useNavigate } from "react-router"
 
 const Facultet = () => {
   const [active, setActive] = useState(1);
@@ -16,6 +17,8 @@ const Facultet = () => {
   const [filter, setFilter] = useState(1);
 
   const[show, setShow] = useState(false)
+
+  const navigate = useNavigate()
 
 
 
@@ -83,7 +86,8 @@ const Facultet = () => {
             {filteredData.map(({id, back_img, logo, name_hy, name_ru, name_en, date_start_start, date_start_end, duration_hy, duration_ru, duration_en, online_logo, online_name, offline_logo, offline_name, individual_logo, individual_name_hy, individual_name_ru, individual_name_en, group_logo, group_name_hy, group_name_ru, group_name_en, but_name_hy, but_name_ru, but_name_en}) => {
               return(
               <div className="facultet-professions-items-item" key={id} onClick={() => {
-                setShow((prev) => !prev)
+                // setShow((prev) => !prev)
+                navigate(`training/${id}`)
               }}>
                 <img src={back_img} alt="" className="facultet-professions-items-item-backimg"/>
                 <img src={facultetProfessionItemBackimgHover} alt="" className="facultet-professions-items-item-backimg-hover"/>
@@ -109,7 +113,7 @@ const Facultet = () => {
               )
             })}
           </div>
-          <FacultetPopup show={show} setShow={setShow} facultetTitleImg={facultetTitleImg}/>
+          {/* <FacultetPopup show={show} setShow={setShow} facultetTitleImg={facultetTitleImg}/> */}
         </div>
       </Container>    
     </div>
