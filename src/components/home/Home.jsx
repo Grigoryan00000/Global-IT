@@ -37,7 +37,6 @@ const Home = () => {
               const aboutData = await axios.get("https://globalitacademy.am/GIAcademyApi/aboutus/");
               const aboutItemData = await axios.get("https://globalitacademy.am/GIAcademyApi/aboutusitems/");
               
-              console.log(serviceData);
               
               
               setSliderData(sliderData.data);
@@ -58,11 +57,13 @@ const Home = () => {
       getData();
   }, []);
 
-  console.log(otherServiceData);
+
+
 
   return (
     <div className='home' style={{backgroundColor: "var(--global-homePage-color)"}}>
-      {/* <HomeSlider sliderData={sliderData}/> */}
+      
+      <HomeSlider sliderData={sliderData}/>
       <HomeFaculties facultiesData={facultiesData} facultiesItemData={facultiesItemData}/>
       <HomeServices serviceData={serviceData} otherServiceData={otherServiceData}/>
       <HomeTeam teamData={teamData}/>
@@ -72,6 +73,7 @@ const Home = () => {
       <HomeContact />
     </div>
   )
+  
 }
 
 export default Home

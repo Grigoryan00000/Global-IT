@@ -1,16 +1,6 @@
 
-.swiper{
-    height: auto;
-    width: 650px;
-}
-.swiper-button-next::after,.swiper-button-prev::after{
-    display: none;
-}
-.swiper-pagination{
-    display: none;
-}
 .home-slider{
-    padding: 0 80px;
+    padding: 100px 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -66,9 +56,14 @@
         }
     }
     &-img{
-        img{
-            width: 570px;
-        }
+        animation: slider 15s linear infinite;
+        transition: all 3s;
+        min-width: 550px;
+        min-height: 550px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
     }
 }
 
@@ -82,6 +77,57 @@
 
 
 
+@keyframes slider {
+    0% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img1.png);
+      opacity: 0;
+    }
+    11.11%{
+        background-image: url(../../../assets/home/home-slider/home-slider-img1.png);
+        opacity: 1; 
+    }
+    22.22%{
+        background-image: url(../../../assets/home/home-slider/home-slider-img1.png);
+        opacity: 1;  
+    }
+    33.33% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img1.png);
+      opacity: 0;
+    }
+    33.34% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img2.png);
+      opacity: 0;
+    }
+    44.44%{
+        background-image: url(../../../assets/home/home-slider/home-slider-img2.png);
+      opacity: 1;
+    }
+    55.55% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img2.png);
+      opacity: 1;
+    }
+    66.66% {
+        background-image: url(../../../assets/home/home-slider/home-slider-img2.png);
+        opacity: 0;
+      }
+    66.67% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img3.png);
+      opacity: 0;
+    }
+    77.77%{
+        background-image: url(../../../assets/home/home-slider/home-slider-img3.png);
+      opacity: 1;
+    }
+    88.88%{
+        background-image: url(../../../assets/home/home-slider/home-slider-img3.png);
+      opacity: 1;
+    }
+    100% {
+      background-image: url(../../../assets/home/home-slider/home-slider-img3.png);
+      opacity: 0;
+
+    }
+  }
 
 
 @media screen and (max-width: 1435px) {

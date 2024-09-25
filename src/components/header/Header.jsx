@@ -111,8 +111,8 @@ const Header = () => {
                         </div>
                         <ul className='nav' style={{fontSize: langState === "en" || langState === "ru"? "20px" : "16px"}}>
                             <li onClick={() => navigate("/")}>{langState==="hy"?page1_hy:langState==="en"?page1_en:page1_ru}</li>
-                            <li onClick={() => navigate("/service")}>{langState==="hy"?page2_hy:langState==="en"?page2_en:page2_ru}</li>
-                            <li onClick={() => navigate("/training")}>{langState==="hy"?page3_hy:langState==="en"?page3_en:page3_ru}</li>
+                            <li onClick={() => navigate("/facultet")}>{langState==="hy"?page2_hy:langState==="en"?page2_en:page2_ru}</li>
+                            <li onClick={() => navigate("/service")}>{langState==="hy"?page3_hy:langState==="en"?page3_en:page3_ru}</li>
                             <li onClick={() => navigate("/blog")}>{langState==="hy"?page4_hy:langState==="en"?page4_en:page4_ru}</li>
                             <li>{langState==="hy"?page5_hy:langState==="en"?page5_en:page5_ru}</li>
                         </ul>

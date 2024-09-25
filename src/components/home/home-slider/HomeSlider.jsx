@@ -16,24 +16,45 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 const HomeSlider = ({ sliderData }) => {
+
+  debugger;
   const langState = useSelector((state) => state.lang.lang);
   const navigate = useNavigate();
 
-  const homeTyper = sliderData;
-  const titlesArr = [];
+  let homeTyper = sliderData;
+  
+  let titlesArr = [];
+  
   if (langState === "hy") {
     homeTyper.forEach(({ name_hy }) => {
+      
       titlesArr.push(name_hy);
+      console.log(titlesArr);
+      
+      
     });
   } else if (langState === "ru") {
     homeTyper.forEach(({ name_ru }) => {
+      // titlesArr=[]
       titlesArr.push(name_ru);
+      console.log(titlesArr);
+
+
     });
   } else {
     homeTyper.forEach(({ name_en }) => {
+      // titlesArr=[]
       titlesArr.push(name_en);
+      console.log(titlesArr);
+
+
     });
   }
+  console.log(titlesArr);
+  
+
+  
+  
 
   let a = [];
   let b = [];
@@ -45,9 +66,10 @@ const HomeSlider = ({ sliderData }) => {
   return (
     <div className="home-slider">
       <div className="home-slider-title">
-        <h1>
-          <Typewriter
+        {/* <h1> */}
+          {/* <Typewriter
             words={titlesArr}
+            log
             loop={5}
             cursor
             cursorStyle="|"
@@ -55,89 +77,13 @@ const HomeSlider = ({ sliderData }) => {
             deleteSpeed={50}
             delaySpeed={1000}
           />
-        </h1>
+        </h1> */}
         <button>{a}</button>
         <button>{b}</button>
       </div>
-      <Swiper
-        modules={[Navigation, Pagination, A11y, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        loop={true}
-        grabCursor
-        autoplay={{
-          delay: 5000,
-        }}
-      >
-        {sliderData.map(
-          ({
-            id,
-            img,
-            name,
-            name_hy,
-            name_ru,
-            name_en,
-            but_name1,
-            but_name1_hy,
-            but_name1_ru,
-            but_name1_en,
-            but_name2,
-            but_name2_hy,
-            but_name2_ru,
-            but_name2_en,
-            call_logo,
-          }) => {
-            return (
-              <SwiperSlide key={id}>
-                <Container>
-                  <div className="home-slider-title">
-                    {/* <h1>
-                      <Typewriter
-                        words={titlesArr}
-                        loop={5}
-                        cursor
-                        cursorStyle="|"
-                        typeSpeed={70}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                      />
-                    </h1>
-                    <div className="home-slider-title-button">
-                      <button
-                        onClick={() => {
-                          navigate("/training");
-                        }}
-                      >
-                        {langState === "hy"
-                          ? but_name1_hy
-                          : langState === "en"
-                            ? but_name1_en
-                            : but_name1_ru}
-                      </button>
-                      <button
-                        onClick={() => {
-                          navigate("/service");
-                        }}
-                      >
-                        {langState === "hy"
-                          ? but_name2_hy
-                          : langState === "en"
-                            ? but_name2_en
-                            : but_name2_ru}
-                      </button>
-                    </div> */}
-                  </div>
-                  <div className="home-slider-img">
-                    <img src={img} alt="" />
-                  </div>
-                </Container>
-              </SwiperSlide>
-            );
-          }
-        )}
-      </Swiper>
+      <div className="home-slider-img">
+
+      </div>
     </div>
   );
 };
