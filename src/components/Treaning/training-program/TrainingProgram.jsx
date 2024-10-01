@@ -12,7 +12,17 @@ const TrainingProgram = ({programClassData, programData, programDescData}) => {
 
     const langState = useSelector((state) => state.lang.lang)
     
-    const [openId, setOpenId] = useState(5)
+    const [openId, setOpenId] = useState(1)
+
+    const handleDownload = () => {
+        // Replace the path with the actual file path in the public folder
+        const link = document.createElement('a');
+        link.href = '/sample2.pdf'; // The file path, assuming it's in the public folder
+        link.setAttribute('download', 'sample2.pdf'); // Set the file name for download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link); // Clean up the DOM
+      };
 
   return (
     <div className='training-program'>
@@ -64,7 +74,7 @@ const TrainingProgram = ({programClassData, programData, programDescData}) => {
                     )
                 })}
                 <div className='training-program-button'>
-                <p>{langState==="hy"?"Տեսնել փուլի բոլոր թեմաները":langState==="ru"?"Посмотреть все темы":"See all round topics"}</p>
+                <p onClick={handleDownload}>{langState==="hy"?"Տեսնել փուլի բոլոր թեմաները":langState==="ru"?"Посмотреть все темы":"See all round topics"}</p>
             </div>
                 </div>
                 <div className="training-program-description">
