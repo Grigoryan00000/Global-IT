@@ -64,13 +64,13 @@ const Treaning = () => {
   return (
     <div className='treaning'>
         <TreaningSlider sliderData={sliderData} currentId={currentId}/>
-        {/* <TrainingDesc currentId={currentId}/>
+        <TrainingDesc currentId={currentId}/>
         <TrainingExpect expectationData={expectationData} currentId={currentId}/>
         <TrainingStages stagesData={stagesData}/>
         <TrainingProgram programData={programData} currentId={currentId} programClassData={programClassData} programDescData={programDescData}/>
         <TrainingCertificate certificateData={certificateData} currentId={currentId} />
         <TrainingInvestment investmentData={investmentData}/>
-        <TrainingWorks worksData={worksData} /> */}
+        <TrainingWorks worksData={worksData} />
     </div>
   )
 }

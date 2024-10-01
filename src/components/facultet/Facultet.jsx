@@ -57,9 +57,9 @@ const Facultet = () => {
         <div className="facultet-title">
             <img src={facultetTitleImg} alt="" />
             <div className="facultet-title-desc">
-              <p>Մենք կօգնենք ձեզ <p>ընտրել ձեր ապագա մասնագիտությունը</p></p>
+              <p>{langState === "hy"? "Մենք կօգնենք ձեզ": langState === "ru" ? "Мы поможем вам": "We will help you"}<p>ընտրել ձեր ապագա մասնագիտությունը</p></p>
             </div>
-            <button>Պատվիրել խորհրդատվություն</button>
+            <button>{langState === "hy"? "Պատվիրել խորհրդատվություն": langState === "ru" ? "Мы поможем вам": "We will help you"}</button>
         </div>
         <div className="facultet-professions">
           <div className="facultet-professions-left">
@@ -86,8 +86,7 @@ const Facultet = () => {
             {filteredData.map(({id, back_img, logo, name_hy, name_ru, name_en, date_start_start, date_start_end, duration_hy, duration_ru, duration_en, online_logo, online_name, offline_logo, offline_name, individual_logo, individual_name_hy, individual_name_ru, individual_name_en, group_logo, group_name_hy, group_name_ru, group_name_en, but_name_hy, but_name_ru, but_name_en}) => {
               return(
               <div className="facultet-professions-items-item" key={id} onClick={() => {
-                // setShow((prev) => !prev)
-                navigate(`training/${id}`)
+                navigate(`training/${name_en}`)
               }}>
                 <img src={back_img} alt="" className="facultet-professions-items-item-backimg"/>
                 <img src={facultetProfessionItemBackimgHover} alt="" className="facultet-professions-items-item-backimg-hover"/>

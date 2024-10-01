@@ -17,7 +17,6 @@ import { useNavigate } from "react-router";
 
 const HomeSlider = ({ sliderData }) => {
 
-  debugger;
   const langState = useSelector((state) => state.lang.lang);
   const navigate = useNavigate();
 
