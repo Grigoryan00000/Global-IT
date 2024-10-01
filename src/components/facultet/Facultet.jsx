@@ -19,6 +19,9 @@ const Facultet = () => {
   const[show, setShow] = useState(false)
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const currentId = useSelector((state) => state.homeFaculties.facultiesItemId)
 
 
 
@@ -84,8 +87,12 @@ const Facultet = () => {
 
           <div className="facultet-professions-items">
             {filteredData.map(({id, back_img, logo, name_hy, name_ru, name_en, date_start_start, date_start_end, duration_hy, duration_ru, duration_en, online_logo, online_name, offline_logo, offline_name, individual_logo, individual_name_hy, individual_name_ru, individual_name_en, group_logo, group_name_hy, group_name_ru, group_name_en, but_name_hy, but_name_ru, but_name_en}) => {
+
               return(
               <div className="facultet-professions-items-item" key={id} onClick={() => {
+                console.log('====================================');
+                console.log(id);
+                console.log('====================================');
                 navigate(`training/${name_en}`)
               }}>
                 <img src={back_img} alt="" className="facultet-professions-items-item-backimg"/>

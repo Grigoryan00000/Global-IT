@@ -12,7 +12,7 @@ import Container from '../../common/container/Container';
 
 import { useSelector } from 'react-redux/es/exports';
 
-const TrainingStages = ({ stagesData }) => {
+const TrainingStages = ({ stagesData, currentId }) => {
   const langState = useSelector((state) => state.lang.lang);
 
   return (
@@ -53,18 +53,23 @@ const TrainingStages = ({ stagesData }) => {
             delay: 2000,
           }}
         >
-          {stagesData.map(({ id, img, name_en, name_ru, name_hy, stage_name_en, stage_name_ru, stage_name_hy, text_en, text_ru, text_hy }) => (
-            <SwiperSlide key={id}>
-              <div className="training-stages-item">
-                <h3 className="training-stages-item-stage">{langState === "hy" ? stage_name_hy : langState === "ru" ? stage_name_ru : stage_name_en}</h3>
-                <div className='training-stages-item-desc'>
-                  <img src={img} alt={name_en} className="training-stages-item-img" />
-                  <h3 className='training-stages-item-name'>{langState === "hy" ? name_hy : langState === "ru" ? name_ru : name_en}</h3>
-                  <p className='training-stages-item-text'>{langState === "hy" ? text_hy : langState === "ru" ? text_ru : text_en}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
+          {stagesData.map(({ faculties_Items,id, img, name_en, name_ru, name_hy, stage_name_en, stage_name_ru, stage_name_hy, text_en, text_ru, text_hy }) => {
+            console.log(faculties_Items)
+            if(faculties_Items === currentId){
+              return (
+                <SwiperSlide key={id}>
+                  <div className="training-stages-item">
+                    <h3 className="training-stages-item-stage">{langState === "hy" ? stage_name_hy : langState === "ru" ? stage_name_ru : stage_name_en}</h3>
+                    <div className='training-stages-item-desc'>
+                      <img src={img} alt={name_en} className="training-stages-item-img" />
+                      <h3 className='training-stages-item-name'>{langState === "hy" ? name_hy : langState === "ru" ? name_ru : name_en}</h3>
+                      <p className='training-stages-item-text'>{langState === "hy" ? text_hy : langState === "ru" ? text_ru : text_en}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              )
+            }
+          })}
         </Swiper>
       </Container>
     </div>

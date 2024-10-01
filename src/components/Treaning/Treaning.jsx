@@ -16,7 +16,10 @@ import { useLocation } from 'react-router'
 
 const Treaning = () => {
     const location = useLocation();
-    let currentId = +location.pathname[location.pathname.length - 1]; // Current path
+    // let currentId = +location.pathname[location.pathname.length - 1]; // Current path // bayc ete erknish tiv exav id-n chi ashxati !!!!
+
+    const currentId = useSelector((state) => state.homeFaculties.facultiesItemId)
+
     
 
 
@@ -43,6 +46,7 @@ const Treaning = () => {
                 const worksData = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_students_work/");  
                 const programDescData = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_program_profile/");  
 
+
                 setSliderData(sliderData.data)
                 setExpectationData(expectationData.data)
                 setStagesData(stagesData.data)
@@ -64,13 +68,13 @@ const Treaning = () => {
   return (
     <div className='treaning'>
         <TreaningSlider sliderData={sliderData} currentId={currentId}/>
-        <TrainingDesc currentId={currentId}/>
-        <TrainingExpect expectationData={expectationData} currentId={currentId}/>
-        <TrainingStages stagesData={stagesData}/>
+        {/* <TrainingDesc currentId={currentId}/> */}
+        <TrainingExpect expectationData={expectationData} currentId={currentId}/>   
+        <TrainingStages stagesData={stagesData} currentId={currentId}/>
         <TrainingProgram programData={programData} currentId={currentId} programClassData={programClassData} programDescData={programDescData}/>
         <TrainingCertificate certificateData={certificateData} currentId={currentId} />
-        <TrainingInvestment investmentData={investmentData}/>
-        <TrainingWorks worksData={worksData} />
+        <TrainingInvestment investmentData={investmentData} currentId={currentId}/>
+        <TrainingWorks worksData={worksData} currentId={currentId}/> 
     </div>
   )
 }
