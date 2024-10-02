@@ -3,8 +3,9 @@ import Container from "../../common/container/Container"
 import "./HomeServices.scss"
 import homeServicesItemIcon from "../../../assets/home/home-services/home-services-item-icon.png"
 import homeServicesItemBottomItemImg from "../../../assets/home/home-services/home-services-item-bottom-item-img.png"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
+import { changeActiveItem } from "../../../redux/slices/ServiceSlice"
 
 
 
@@ -13,6 +14,7 @@ const HomeServices = ({serviceData, otherServiceData}) => {
     const langState = useSelector((state) => state.lang.lang);
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     
     
     
@@ -30,14 +32,15 @@ const HomeServices = ({serviceData, otherServiceData}) => {
                             <div className="home-services-items-item-desc" >
                                 <h3>{langState === "hy"? ser_name_hy: langState === "ru" ? ser_name_ru : ser_name_en}</h3>
                                 <button onClick={() => {
-                                    navigate(`/service`)
+                                    dispatch(changeActiveItem(id))  
+                                    navigate(`/service-info`)
                                 }}>{langState === "hy"? but_name_hy: langState === "ru" ? but_name_ru : but_name_en}</button>
                             </div>
                         </div>
                     )
                 })}
                 
-                <div className="home-services-items-item">
+                {/* <div className="home-services-items-item">
                     <div className="home-services-items-item-top">
                         <div>
                             <img src={homeServicesItemIcon}/>
@@ -54,7 +57,7 @@ const HomeServices = ({serviceData, otherServiceData}) => {
                             )
                         })}
                     </div>
-                </div>
+                </div> */}
             </div>
         </Container>
     </div>

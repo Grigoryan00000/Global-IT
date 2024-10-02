@@ -10,12 +10,15 @@ import ServiceInfoPage from "../pages/ServiceInfoPage";
 import React, { useEffect, useState } from 'react'
 import AuthWindowItem from "../components/auth/auth-window/auth-window-item/AuthWindowItem";
 import TreaningPage from "../pages/TreaningPage";
+import ScrollToTop from "../components/scroll-to-up/ScrollToUp";
 
 
 
 const AppRoutes = ({show, setShow}) => {
 
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path={ROUTER.HOME_PAGE_ROUTE} element={<HomePage/>} />
       <Route path={ROUTER.SERVICE_PAGE_ROUTE} element={<ServicePage/>} />
@@ -32,6 +35,7 @@ const AppRoutes = ({show, setShow}) => {
       <Route path={ROUTER.FACULTET_TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
       <Route path={ROUTER.ERROR_PAGE} element={<RedirectToHome />} />
     </Routes>
+    </>
   )
 }
 

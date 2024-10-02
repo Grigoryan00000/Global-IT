@@ -63,12 +63,12 @@ const Blog = ({show, setShow}) => {
           return(
             <div className="blog-items-item" key={id}>
               <img src={news_img} alt=""/>
-              <div className="blog-items-item-desc">
+              <div className="blog-items-item-desc" >
                 <h3>{langState === "hy"? news_name_hy: langState === "ru" ? news_name_ru : news_name_en}</h3>
                 <p>{langState === "hy"? news_text_hy: langState === "ru" ? news_text_ru : news_text_en}</p>
                 {/* <BlogRating /> */}
-                <button onClick={() => [
-                  handleOpen(id),
+                <button className='blog-items-item-btn' onClick={() => [
+                  // handleOpen(id),
                   navigate(`/blog-item/${id}`)
                 ]}>more</button>
               </div>
