@@ -91,7 +91,7 @@ const Facultet = () => {
 
               return(
               <div className="facultet-professions-items-item" key={id} onClick={() => {
-                dispatch(setFacultiesItemId(id)); // Ensure dispatch is completed
+                dispatch(setFacultiesItemId(id));
                 navigate(`training/${name_en}`)
               }}>
                 <img src={back_img} alt="" className="facultet-professions-items-item-backimg"/>

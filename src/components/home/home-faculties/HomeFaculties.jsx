@@ -38,9 +38,9 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                         return(
                                             <div className="home-faculties-items-item-bottom-item" 
                                                 key={id} 
-                                                onClick={async () => {
-                                                    dispatch(setFacultiesItemId(id)); // Ensure dispatch is completed
-                                                    navigate(`training/${item_name_en}`);   // Navigate after dispatch
+                                                onClick={() => {
+                                                    dispatch(setFacultiesItemId(id));
+                                                    navigate(`training/${item_name_en}`);
                                                 }}>
                                                 <h4>{langState === "hy" ? item_name_hy : langState === "en" ? item_name_en : item_name_ru}</h4>
                                                 <button>{langState === "hy" ? "Ընդունելություն" : langState === "en" ? "Reception" : "Прием"}</button>
