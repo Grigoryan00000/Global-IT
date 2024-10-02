@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { FacultetPopup } from "./facultet-popup/FacultetPopup"
 import { useNavigate } from "react-router"
+import { setFacultiesItemId } from "../../redux/slices/HomeFacultiesSlices"
 
 const Facultet = () => {
   const [active, setActive] = useState(1);
@@ -90,9 +91,7 @@ const Facultet = () => {
 
               return(
               <div className="facultet-professions-items-item" key={id} onClick={() => {
-                console.log('====================================');
-                console.log(id);
-                console.log('====================================');
+                dispatch(setFacultiesItemId(id)); // Ensure dispatch is completed
                 navigate(`training/${name_en}`)
               }}>
                 <img src={back_img} alt="" className="facultet-professions-items-item-backimg"/>

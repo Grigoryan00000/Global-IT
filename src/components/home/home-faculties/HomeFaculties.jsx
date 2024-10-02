@@ -39,12 +39,8 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                             <div className="home-faculties-items-item-bottom-item" 
                                                 key={id} 
                                                 onClick={async () => {
-                                                    try {
-                                                    await dispatch(setFacultiesItemId(id)); // Ensure dispatch is completed
+                                                    dispatch(setFacultiesItemId(id)); // Ensure dispatch is completed
                                                     navigate(`training/${item_name_en}`);   // Navigate after dispatch
-                                                    } catch (error) {
-                                                    console.error("Navigation error:", error);
-                                                    }
                                                 }}>
                                                 <h4>{langState === "hy" ? item_name_hy : langState === "en" ? item_name_en : item_name_ru}</h4>
                                                 <button>{langState === "hy" ? "Ընդունելություն" : langState === "en" ? "Reception" : "Прием"}</button>
