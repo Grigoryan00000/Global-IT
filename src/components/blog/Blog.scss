@@ -49,12 +49,26 @@
             display: flex;
             align-items: center;
             box-shadow: 1px 2px 32px 0px #0000000D;
-            cursor: pointer;
+
             &:not(:first-child){
                 margin-top: 60px;
             }
             img{
                 width:500px;
+            }
+            &-btn{
+                padding: 8px 20px;
+                border: solid 2px #151515;
+                background-color: transparent;
+                color: #151515;
+                border-radius: 10px;
+                transition: all 300ms;
+                cursor: pointer;
+                &:hover{
+                    background-color: #7834E7;
+                    border: solid 2px #7834E7;
+                    color: white;
+                }
             }
             &-desc{
                 padding-left: 30px;

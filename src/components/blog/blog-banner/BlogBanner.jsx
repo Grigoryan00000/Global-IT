@@ -9,7 +9,7 @@ const BlogBanner = ({blogData, id, blogItemData}) => {
         {blogData.map(item => {
           if(id == item.id){
             return (
-              <div className='blog-banner-description' >
+              <div className='blog-banner-description' key={item.id} >
                 <Container>
                   {/* {blogItemData.map(item => {
                     if(id == item.id){

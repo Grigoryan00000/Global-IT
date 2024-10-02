@@ -3,7 +3,8 @@ import footerLogo from "../../assets/footer/img.png"
 import "./Footer.scss"
 import { CONFIG } from '../../config'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFacultiesId } from '../../redux/slices/FacultetSlice';
 
 
 const Footer = () => {
@@ -11,6 +12,7 @@ const Footer = () => {
 
     const location = useLocation().pathname;
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
   let d = new Date();
   let year = d.getFullYear();
@@ -34,7 +36,10 @@ const Footer = () => {
                         return(
                             <div className="footer-top-firstList-item" key={id}>
                                 <h4>{langState==="hy"?title:langState==="en"?title_en:title_ru}</h4>
-                                <p>{langState==="hy"?text:langState==="en"?text_en:text_ru}</p>
+                                <p onClick={()=> {
+                                    dispatch(setFacultiesId(id))
+                                    navigate("/facultet")
+                                }}>{langState==="hy"?text:langState==="en"?text_en:text_ru}</p>
                             </div> 
                         )
                     })}
@@ -61,7 +66,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>{langState === "hy"? `Copyright ©{year} Բոլոր հեղինակային իրավունքները պաշտպանված են:<br /> 
+                <p>{langState === "hy"? `Copyright ©${year} Բոլոր հեղինակային իրավունքները պաշտպանված են: 
                 Կայքը պատրաստված է "ԳԼՈԲԱԼ ԻՏ" (ՍՊԸ)-ի կողմից, որը հանդիսանում է ընկերության Պաշտոնական կայքէջը: Կայքից նույթ տեղադրելիս հղումը globalitc.am-ին պարտադիր է:`:langState ==="ru" ? `© 2024. Все права защищены.
                 Сайт создан компанией «ГЛОБАЛ ИТ» (ООО), которая является официальным сайтом компании. Ссылка на globalitc.am обязательна при размещении материала с сайта.`: `Copyright ©2024 All rights reserved.
                 The website is made by "GLOBAL IT" (LLC), which is the official website of the company. A link to globalitc.am is mandatory when posting an item from the site.`}</p>

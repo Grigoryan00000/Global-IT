@@ -87,27 +87,20 @@ export const CONFIG = {
     footerFirstListConfig:[
       {
         id: 1,
-        title: "Ֆակուլետներ",
-        title_ru: "Факультеты",
-        title_en: "Faculties",
-        text: null,
-      },
-      {
-        id: 2,
         title:null,
         text_ru: "Веб-программирование",
         text_en: "Web programming",
         text: "Վեբ ծրագրավորում"
       },
       {
-        id: 3,
+        id: 2,
         title:null,
         text_ru: "Программирование",
         text_en: "Programming",
         text: "Ծրագրավորում"
       },
       {
-        id: 4,
+        id: 3,
         title:null,
         text: "Մուլտիմեդիա",
         text_ru: "Мультимедиа",

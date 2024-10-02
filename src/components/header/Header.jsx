@@ -107,7 +107,9 @@ const Header = () => {
                 return(
                     <div className="row" key={id}>
                         <div className="logo">
-                            <img src={logo}/>
+                            <img src={logo} onClick={() => {
+                                navigate("/")
+                            }}/>
                         </div>
                         <ul className='nav' style={{fontSize: langState === "en" || langState === "ru"? "20px" : "16px"}}>
                             <li onClick={() => navigate("/")}>{langState==="hy"?page1_hy:langState==="en"?page1_en:page1_ru}</li>

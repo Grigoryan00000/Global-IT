@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import { useEffect, useState } from "react"
 import { setFacultiesItemId } from "../../../redux/slices/HomeFacultiesSlices"
+import { setFacultiesId } from "../../../redux/slices/FacultetSlice"
 
 const HomeFaculties = ({facultiesData, facultiesItemData}) => {
 
@@ -51,6 +52,7 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                     }
                                 })}
                             <button className="home-faculties-items-item-bottom-button" onClick={() => {
+                                dispatch(setFacultiesId(item.id))
                                 navigate(`/facultet`)
                             }}>{langState==="hy"?item.but_name_hy:langState==="en"?item.but_name_en:item.but_name_ru}</button>
                             </div>
