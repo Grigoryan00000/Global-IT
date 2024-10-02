@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 import { ROUTER } from "./router";
 import HomePage from "../pages/HomePage"
 import BlogPage from "../pages/BlogPage";
@@ -10,15 +10,12 @@ import ServiceInfoPage from "../pages/ServiceInfoPage";
 import React, { useEffect, useState } from 'react'
 import AuthWindowItem from "../components/auth/auth-window/auth-window-item/AuthWindowItem";
 import TreaningPage from "../pages/TreaningPage";
-import axios from "axios";
 
 
 
 const AppRoutes = ({show, setShow}) => {
 
-
   return (
-
     <Routes>
       <Route path={ROUTER.HOME_PAGE_ROUTE} element={<HomePage/>} />
       <Route path={ROUTER.SERVICE_PAGE_ROUTE} element={<ServicePage/>} />
@@ -32,11 +29,20 @@ const AppRoutes = ({show, setShow}) => {
       <Route path={ROUTER.FACULTET_PAGE_ROUTE} element={<FacultetPage />} />
       <Route path={ROUTER.SERVICE_INFO_PAGE_ROUTE} element={<ServiceInfoPage/>} />
       <Route path={ROUTER.TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
-      <Route path={ROUTER.TREANING_FACULTET_PAGE_ROUTE} element={<TreaningPage/>} />
-      <Route path={ROUTER.ERROR_PAGE} element={<BlogPage />} />
+      <Route path={ROUTER.FACULTET_TREANING_PAGE_ROUTE} element={<TreaningPage/>} />
+      <Route path={ROUTER.ERROR_PAGE} element={<RedirectToHome />} />
     </Routes>
-    
   )
 }
+
+const RedirectToHome = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/');
+  }, [navigate]);
+
+  return null;
+};
 
 export default AppRoutes;
