@@ -10,7 +10,7 @@
     color: #fff; 
     padding: 20px 60px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    backdrop-filter: blur(14px); 
+    backdrop-filter: blur(6px); 
     position: fixed;
     z-index: 100;
     .block{
@@ -27,6 +27,8 @@
     }
     > .table{
         display: flex;
+        justify-content: space-between;
+        border-radius: 20px;
 
         
         >div{
@@ -38,6 +40,7 @@
             margin-bottom: 10px;
             transition: 0.5s ease;
             cursor: pointer;
+            border-radius: transparent;
             > p{
                 font-size: 14px;
                 margin-left: 4px;

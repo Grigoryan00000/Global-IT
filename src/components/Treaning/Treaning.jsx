@@ -32,6 +32,9 @@ const Treaning = () => {
     const [investmentData, setInvestmentData] = useState([])
     const [worksData, setWorksData] = useState([])
     const [programDescData, setProgramDescdata] = useState([])
+    const [priceLang, setPriceLang] = useState([])
+    const [priceType, setPriceType] = useState([])
+    const [priceConnect, setPriceConnect] = useState([])
 
     useEffect(() => {
         async function getData() {
@@ -45,8 +48,13 @@ const Treaning = () => {
                 const investmentData = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_investmen/");  
                 const worksData = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_students_work/");  
                 const programDescData = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_program_profile/");  
+                const priceLang = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_prices_language/");  
+                const priceType = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_prices_type/");  
+                const priceConnect = await axios.get("https://globalitacademy.am/GIAcademyApi/treaning_prices_connection/");  
 
-
+                setPriceLang(priceLang.data)
+                setPriceType(priceType.data)
+                setPriceConnect(priceConnect.data)
                 setSliderData(sliderData.data)
                 setExpectationData(expectationData.data)
                 setStagesData(stagesData.data)
@@ -65,9 +73,11 @@ const Treaning = () => {
     }, []);  
 
 
+
+
   return (
     <div className='treaning'>
-        <TreaningSlider sliderData={sliderData} currentId={currentId}/>
+        <TreaningSlider sliderData={sliderData} currentId={currentId} priceLang={priceLang} priceType={priceType} priceConnect={priceConnect}/>
         {/* <TrainingDesc currentId={currentId}/> */}
         <TrainingExpect expectationData={expectationData} currentId={currentId}/>   
         <TrainingStages stagesData={stagesData} currentId={currentId}/>
