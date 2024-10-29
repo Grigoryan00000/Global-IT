@@ -19,6 +19,9 @@ const Treaning = () => {
     // let currentId = +location.pathname[location.pathname.length - 1]; // Current path // bayc ete erknish tiv exav id-n chi ashxati !!!!
 
     const currentId = useSelector((state) => state.homeFaculties.facultiesItemId)
+    console.log('====================================');
+    console.log(currentId);
+    console.log('====================================');
 
     
 
@@ -71,6 +74,9 @@ const Treaning = () => {
         }
         getData();
     }, []);  
+
+
+    
 
 
 
