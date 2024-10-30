@@ -151,6 +151,68 @@
         float: right;
     }
 }
+.service-form{
+    width: 1100px;
+    height: 600px;
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: #36363691;
+    color: #fff; 
+    padding: 20px 60px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 100;
+    font-size: 12px;
+    font-weight: 200;
+    .conatiner{
+        max-width: 900px;
+    }
+    &-type{
+        display: flex;
+        gap: 40px;
+        p{
+            font-size: 14px;
+            font-weight: 200;
+        }
+    }
+    &-budjet{
+        display: flex;
+        gap: 40px;
+        &-items{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+
+    .close-window{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+    .close-reg{
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        position: relative;
+        >p{
+            position: absolute;
+            top: 44%;
+            left: 54%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            line-height: 0;
+        }
+    }
+}
 
 
 

@@ -17,15 +17,14 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
             name,
             email,
             phone,
-            groupType, // Убедитесь, что здесь используется правильное имя
+            groupType,
             language,
-            sessionType  // Убедитесь, что здесь используется правильное имя
+            sessionType 
         };
 
         try {
             await axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData);
             setMessage('դիմումը ուղղարկված է!'); // Сообщение об успехе
-            // Сброс полей формы
             setName('');
             setEmail('');
             setPhone('');

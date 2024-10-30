@@ -4,10 +4,9 @@ import ServiceInfoDescription from './service-info-description/ServiceInfoDescri
 import WebsiteTypes from './website-types/WebsiteTypes'
 
 import "./ServiceInfo.scss"
-import LandingSite from './website-types/landing-site/LandingSite'
 import HomeWorks from '../../home/home-works/HomeWorks'
-import Portfolio from './Portfolio'
 const ServiceInfo = () => {
+
 
   
 
@@ -16,7 +15,8 @@ const ServiceInfo = () => {
         <ServiceInfoDescription/>
         <WebsiteTypes/>
         {/* <LandingSite/> */}
-        <Portfolio/>
+        <HomeWorks/>
+        
     </>
     )
 }

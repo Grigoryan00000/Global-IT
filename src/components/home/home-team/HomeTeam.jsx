@@ -27,9 +27,6 @@ const HomeTeam = ({teamData}) => {
                                     }}></img>
                                 </a>
                                 {/* <Link href={fc_link}/> */}
-                                <a href={tw_link}>
-                                    <img src={tw}></img>
-                                </a>
                                 <a href={ins_link}>
                                     <img src={ins}></img>
                                 </a>
