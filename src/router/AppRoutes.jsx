@@ -7,7 +7,7 @@ import AuthPage from "../pages/AuthPage";
 import FacultetPage from "../pages/FacultetPage";
 import ServicePage from "../pages/ServicePage";
 import ServiceInfoPage from "../pages/ServiceInfoPage";
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import AuthWindowItem from "../components/auth/auth-window/auth-window-item/AuthWindowItem";
 import TreaningPage from "../pages/TreaningPage";
 import ScrollToTop from "../components/scroll-to-up/ScrollToUp";

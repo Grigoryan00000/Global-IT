@@ -1,7 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
-import { changeActive, setShow } from '../../../redux/slices/ServiceSlice'
 import { changeActiveItem } from '../../../redux/slices/ServiceSlice'
 
 
