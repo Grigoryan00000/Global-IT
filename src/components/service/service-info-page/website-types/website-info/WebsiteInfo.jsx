@@ -9,21 +9,21 @@ const WebsiteInfo = ({activeSiteType}) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(status === "idle") {
+        if(status.websiteInfo === "idle") {
             dispatch(fetchWebsiteInfo())
         }
-    }, [status, dispatch])
-    if(status === 'pending'){
+    }, [status.websiteInfo, dispatch])
+    if(status.websiteInfo === 'pending'){
         return <div>loading...</div>
     }
-    if (status === 'failed') {
+    if (status.websiteInfo === 'failed') {
         return <div>error: {error} </div>
     }
 
   return (
     <div className='website-info'>
         <Container>
-            {status==="succeeded" && websiteInfo ?(
+            {status.websiteInfo==="succeeded" && websiteInfo ?(
 
                 websiteInfo.map(({id, name_hy, text_hy, img1, site_type}) => {
                     if(activeSiteType === site_type){

@@ -47,19 +47,25 @@ const ServiceSlice = createSlice({
         items: [],
         websiteTypes: [],
         websiteInfo: [],
-        serviceFormBudjet: [],
         serviceFormSiteTypes: [], 
-        status: "idle",
+        serviceFormBudjet: [],
+        status: {
+            items: "idle",
+            websiteInfo: "idle",
+            websiteTypes: 'idle',
+            serviceFormSiteTypes: "idle",
+            serviceFormBudjet: "idle",
+        },
         error: null,
         activeItem: 1,
-        activeItemName: ""
+        activeItemName: "web kayqeri patrastum"
     }, 
     reducers: {
         changeActiveItem: (state, {payload}) => {
             state.activeItem = payload
         },
         changeActiveItemName: (state, {payload}) => {
-            state.activeItem = payload
+            state.activeItemName = payload
         }
         
     },
@@ -68,71 +74,71 @@ const ServiceSlice = createSlice({
         // items
         builder
         .addCase(fetchServiceInfoDescription.pending, (state) => {
-            state.status = 'loading'
+            state.status.items = 'loading'
         })
         .addCase(fetchServiceInfoDescription.fulfilled, (state, action) => {
-            state.status = 'succeeded';
+            state.status.items = 'succeeded';
             state.items = action.payload;
           })
         .addCase(fetchServiceInfoDescription.rejected, (state, action) => {
-            state.status = 'failed';
+            state.status.items = 'failed';
             state.error = action.error.message;
         });
 
         // websiteTypes
         builder
         .addCase(fetchWebsiteTypes.pending, (state) => {
-            state.status = 'loading'
+            state.status.websiteTypes = 'loading'
         })
         .addCase(fetchWebsiteTypes.fulfilled, (state, action) => {
-            state.status = "succeeded"
+            state.status.websiteTypes = "succeeded"
             state.websiteTypes = action.payload
         })
         .addCase(fetchWebsiteTypes.rejected, (state, action) => {
-            state.status = "failed"
+            state.status.websiteTypes = "failed"
             state.error = action.error.message
         })
 
         //websiteInfo
         builder
         .addCase(fetchWebsiteInfo.pending, (state) => {
-            state.status = "loading"
+            state.status.websiteInfo = "loading"
         })
         .addCase(fetchWebsiteInfo.fulfilled, (state, action) => {
-            state.status = "succeeded"
+            state.status.websiteInfo = "succeeded"
             state.websiteInfo = action.payload
         })
         .addCase(fetchWebsiteInfo.rejected, (state, action) => {
-            state.status = "failed"
+            state.status.websiteInfo = "failed"
             state.error = action.error.message
         })
 
 
         builder
         .addCase(fetchServiceFormSiteTypesData.pending, (state) => {
-            state.status = "loading"
+            state.status.serviceFormSiteTypes = "loading"
         })
         .addCase(fetchServiceFormSiteTypesData.fulfilled, (state, action) => {
-            state.status = "succeeded"
+            state.status.serviceFormSiteTypes = "succeeded"
             state.serviceFormSiteTypes = action.payload
         })
         .addCase(fetchServiceFormSiteTypesData.rejected, (state, action) => {
-            state.status = "failed"
+            state.status.serviceFormSiteTypes = "failed"
             state.error = action.error.message
         })
 
-        // budjet
+        // serviceFormBudjet
 
         builder
         .addCase(fetchServiceFormBudjet.pending, (state) => {
-            state.status = "loading"
+            state.status.serviceFormBudjet = "loading"
         })
         .addCase(fetchServiceFormBudjet.fulfilled, (state, action) => {
-            state.status = "succeeded"
+            state.status.serviceFormBudjet = "succeeded"
             state.serviceFormBudjet = action.payload
         })
         .addCase(fetchServiceFormBudjet.rejected, (state, action) => {
-            state.status = "failed"
+            state.status.serviceFormBudjet = "failed"
             state.error = action.error.message
         })
     }

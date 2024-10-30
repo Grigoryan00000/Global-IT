@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaCheck } from "react-icons/fa";
-import { changeActive } from '../../../../redux/slices/ServiceSlice';
 import { fetchWebsiteTypes } from '../../../../redux/slices/ServiceSlice';
 
 import Container from '../../../common/container/Container';
@@ -16,16 +15,16 @@ const WebsiteTypes = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (status === 'idle') {
+        if (status.websiteTypes === 'idle') {
           dispatch(fetchWebsiteTypes());
         }
-      }, [status, dispatch]);
+      }, [status.websiteTypes, dispatch]);
     
-      if (status === 'loading') {
+      if (status.websiteTypes === 'loading') {
         return <div>Loading...</div>;
       }
     
-      if (status === 'failed') {
+      if (status.websiteTypes === 'failed') {
         return <div>Error: {error}</div>;
       }
     
@@ -36,7 +35,7 @@ const WebsiteTypes = () => {
         <Container>
         <h1>Կայքի տեսակները</h1>
         <div className="website-types-items">
-            {status === 'succeeded' && websiteTypes? (
+            {status.websiteTypes === 'succeeded' && websiteTypes? (
                 websiteTypes.map(({id, name_hy, name_en, name_ru}) => {
                     return (
                         <div className='website-types-item' key={id} style={{backgroundColor: id===activeSiteType?"#00A21A":"inherit"}} onClick={() => {

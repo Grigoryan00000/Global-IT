@@ -11,6 +11,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
   const dispatch = useDispatch();
   const { serviceFormSiteTypes, serviceFormBudjet, status, error, activeItemName } =
     useSelector((state) => state.service);
+    
   const [checkedSiteType, setCheckedSiteType] = useState("Օնլայն Խանութ");
   const [checkedbudget, setCheckedbudget] = useState("");
 
@@ -34,7 +35,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
         serviceType: activeItemName,
         siteType: checkedSiteType,
         budget: checkedbudget,
-    };
+    };    
 
     try {
         await axios.post("https://globalitacademy.am/GIAcademyApi/service_request/", requestData);
@@ -52,28 +53,28 @@ const ServiceForm = ({ open, setOpen, logo }) => {
 };
 
   useEffect(() => {
-    if (status === "idle") {
+    if (status.serviceFormSiteTypes === "idle") {
       dispatch(fetchServiceFormSiteTypesData());
+    }
+    if (status.serviceFormBudjet === "idle"){
       dispatch(fetchServiceFormBudjet());
     }
   }, [status, dispatch]);
 
-  if (status === "loading") {
+  if (status.serviceFormSiteTypes === "loading" || status.serviceFormBudjet === "loading") {
     return <div>Loading...</div>;
   }
 
-  if (status === "failed") {
+  if (status.serviceFormSiteTypes === "failed" || status.serviceFormBudjet === "failed") {
     return <div>Error: {error}</div>;
   }
-
-  console.log(serviceFormBudjet);
 
   return (
     <div className="service-form" style={{ display: open ? "block" : "none" }}>
       <div className="container">
         <div className="service-form-type">
           <p className="service-form-type-name">Կայքի տեսակը`</p>
-          {status === "succeeded" && serviceFormSiteTypes ? (
+          {status.serviceFormSiteTypes === "succeeded" && serviceFormSiteTypes ? (
             <select
               onChange={(e) => {
                 setCheckedSiteType(e.target.value);
@@ -94,7 +95,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
         <div className="service-form-budjet">
           <p>Բյուջե`</p>
           <div className="serivce-form-budjet-items">
-            {status === "succeeded" && serviceFormBudjet ? (
+            {status.serviceFormBudjet === "succeeded" && serviceFormBudjet ? (
               serviceFormBudjet.map(({ id, budget_hy }) => {
                 return (
                   <button className="serivce-form-budjet-items-item" key={id} onClick={() => {
