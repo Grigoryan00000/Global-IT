@@ -20,12 +20,12 @@ const HomeSlider = ({ sliderData }) => {
   const langState = useSelector((state) => state.lang.lang);
   const navigate = useNavigate();
 
-  let homeTyper = sliderData;
+  // let homeTyper = sliderData;
   
   let titlesArr = [];
   
   if (langState === "hy") {
-    homeTyper.forEach(({ name_hy }) => {
+    sliderData.forEach(({ name_hy }) => {
       
       titlesArr.push(name_hy);
       console.log(titlesArr);
@@ -33,7 +33,7 @@ const HomeSlider = ({ sliderData }) => {
       
     });
   } else if (langState === "ru") {
-    homeTyper.forEach(({ name_ru }) => {
+    sliderData.forEach(({ name_ru }) => {
       // titlesArr=[]
       titlesArr.push(name_ru);
       console.log(titlesArr);
@@ -41,7 +41,7 @@ const HomeSlider = ({ sliderData }) => {
 
     });
   } else {
-    homeTyper.forEach(({ name_en }) => {
+    sliderData.forEach(({ name_en }) => {
       // titlesArr=[]
       titlesArr.push(name_en);
       console.log(titlesArr);
@@ -57,7 +57,7 @@ const HomeSlider = ({ sliderData }) => {
 
   let a = [];
   let b = [];
-  homeTyper.forEach(({ but_name1_hy, but_name2_hy }) => {
+  sliderData.forEach(({ but_name1_hy, but_name2_hy }) => {
     a.push(but_name1_hy);
     b.push(but_name2_hy)
   });
@@ -65,8 +65,8 @@ const HomeSlider = ({ sliderData }) => {
   return (
     <div className="home-slider">
       <div className="home-slider-title">
-        {/* <h1> */}
-          {/* <Typewriter
+        <h1>
+          <Typewriter
             words={titlesArr}
             log
             loop={5}
@@ -76,9 +76,15 @@ const HomeSlider = ({ sliderData }) => {
             deleteSpeed={50}
             delaySpeed={1000}
           />
-        </h1> */}
-        <button>{a}</button>
-        <button>{b}</button>
+        </h1>
+        <div className="home-slider-title-button">
+            <button onClick={() => {
+              navigate("/facultet")
+            }}>{a}</button>
+            <button onClick={() => {
+              navigate("/service")
+            }}>{b}</button>
+        </div>
       </div>
       <div className="home-slider-img">
 

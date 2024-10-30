@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
-import { changeActiveItem } from '../../../redux/slices/ServiceSlice'
+import { changeActiveItem, changeActiveItemName } from '../../../redux/slices/ServiceSlice'
 
 
 
@@ -26,7 +26,8 @@ const ServiceItem = ({serviceData}) => {
                     <h2>{ser_name_hy}</h2>
                 </div>   
                 <button onClick={() => {
-                    dispatch(changeActiveItem(id))  
+                    dispatch(changeActiveItem(id)) 
+                    dispatch(changeActiveItemName(ser_name_hy))
                     navigate("/service-info")
                 }}>{but_name_hy}</button>
                     {/* dispatch(setShow(id))
