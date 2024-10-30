@@ -9,8 +9,7 @@ export const ROUTER = {
     BLOG_PAGE_ROUTE: "/blog",
     BLOG_ITEM_PAGE_ROUTE: "/blog-item/:id",
     FACULTET_PAGE_ROUTE: "/facultet",
-    SERVICE_INFO_PAGE_ROUTE: "/service-info/:id", // ?
-    SERVICE_INFO_PAGE_ROUTE: "/service-info", // ?
+    SERVICE_INFO_PAGE_ROUTE: "/service-info", 
     TREANING_PAGE_ROUTE: "/training/:id",
     FACULTET_TREANING_PAGE_ROUTE: "facultet/training/:id",
     ERROR_PAGE: "*"

@@ -1,33 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaCheck } from "react-icons/fa";
 import { changeActive } from '../../../../redux/slices/ServiceSlice';
+import { fetchWebsiteTypes } from '../../../../redux/slices/ServiceSlice';
+
 import Container from '../../../common/container/Container';
+import WebsiteInfo from './website-info/WebsiteInfo';
 
 
 const WebsiteTypes = () => {
 
-    const typesData = useSelector((state) => state.service.serviceTypes)
+    const { websiteTypes, status, error } = useSelector((state) => state.service);
+    const [activeSiteType, setActiveSiteType] = useState(4)
+
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        if (status === 'idle') {
+          dispatch(fetchWebsiteTypes());
+        }
+      }, [status, dispatch]);
+    
+      if (status === 'loading') {
+        return <div>Loading...</div>;
+      }
+    
+      if (status === 'failed') {
+        return <div>Error: {error}</div>;
+      }
+    
+
   return (
+    <>
     <div className='website-types'>
         <Container>
         <h1>Կայքի տեսակները</h1>
         <div className="website-types-items">
-            {typesData.map(({id, title, active}) => {
-                return (
-                    <div className='website-types-item' style={{backgroundColor: active?"#00A21A":"inherit"}} onClick={() => {
-                        dispatch(changeActive(id))
-                    }}>
-                        <FaCheck style={{color: active?"#007C05":"#B1B2B1"}}/>
-                        <p>{title}</p>
-                    </div>    
-                )
-            })}
+            {status === 'succeeded' && websiteTypes? (
+                websiteTypes.map(({id, name_hy, name_en, name_ru}) => {
+                    return (
+                        <div className='website-types-item' key={id} style={{backgroundColor: id===activeSiteType?"#00A21A":"inherit"}} onClick={() => {
+                            setActiveSiteType(id)
+                        }}>
+                            <FaCheck style={{color: id===activeSiteType?"#007C05":"#B1B2B1"}}/>
+                            <p>{name_hy}</p>
+                        </div>    
+                    )})
+            ) : (
+                <div>no availible</div>
+            )}
         </div>
         </Container>
     </div>
+    <WebsiteInfo activeSiteType={activeSiteType}/>
+    </>
+
   )
 }
 

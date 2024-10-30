@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Container from '../../../common/container/Container';
-import { fetchData } from '../../../../redux/slices/ServiceSlice';
+import { fetchServiceInfoDescription } from '../../../../redux/slices/ServiceSlice';
 import "../ServiceInfo.scss";
 
 const ServiceInfoDescription = () => {
@@ -13,7 +13,7 @@ const ServiceInfoDescription = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchData());
+      dispatch(fetchServiceInfoDescription());
     }
   }, [status, dispatch]);
 
@@ -39,8 +39,7 @@ const ServiceInfoDescription = () => {
                     <h1 style={{color: id===1?"#98DAFF":id===2?"#FF5942":"#A1FF8F"}}>{name}</h1>
                     <p>{text}</p>
                     <div className='text-side-buttons'>
-                      <div className='button'>{but_name1}</div>
-                      <div className='button'>{but_name2}</div>
+                      <button className='button'>{but_name1}</button>
                     </div>
                   </div>
                   <div className='icon-side'>

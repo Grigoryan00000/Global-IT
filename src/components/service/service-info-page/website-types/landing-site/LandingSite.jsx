@@ -13,9 +13,6 @@ const LandingSite = () => {
 
     const location = useLocation();
 
-  if (location.pathname === '/auth') {
-    return null;
-  }
   return (
     <div className='landing-site'>
         <Container>

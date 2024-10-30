@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
-import homeFacultiesItemBottomImg from "../../assets/home/home-faculties/home-services-item-bottom-item-img.png"
+// HomeFacultiesSlice.js
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    facultiesItemId: 0
-}
-
+    facultiesItemId: JSON.parse(localStorage.getItem('facultiesItemId')) || 1
+};
 
 const HomeFacultiesSlice = createSlice({
     name: "homeFaculties",
     initialState,
     reducers: {
-        setFacultiesItemId: (state, {payload}) => {
-            state.facultiesItemId = payload
+        setFacultiesItemId: (state, { payload }) => {
+            state.facultiesItemId = payload;
+            localStorage.setItem('facultiesItemId', JSON.stringify(payload)); // Save to localStorage
         }
     }
-})
+});
 
 export const { setFacultiesItemId } = HomeFacultiesSlice.actions;
 export default HomeFacultiesSlice.reducer;

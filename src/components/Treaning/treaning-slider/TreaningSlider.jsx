@@ -5,18 +5,21 @@ import "./TreaningSlider.scss"
 import { useSelector } from 'react-redux';
 import TrainingReg from '../training-registration/TrainingReg';
 
-const TreaningSlider = ({sliderData, currentId}) => {
+
+const TreaningSlider = ({sliderData, currentId, priceLang, priceType, priceConnect}) => {
 
     const langState = useSelector((state) => state.lang.lang);
     const [open, setOpen] = useState(false)
+    const [openForm, setOpenForm] = useState(false)
+
 
     useEffect(() => {
-      if (open) {
+      if (open || openForm) {
           document.body.style.overflow = 'hidden';
       } else {
           document.body.style.overflow = 'auto';
       }
-  }, [open]);
+  }, [open, openForm]);
 
 
   return (
@@ -47,7 +50,8 @@ const TreaningSlider = ({sliderData, currentId}) => {
         })}
 
 
-      <TrainingReg open={open} setOpen={setOpen}/>
+      <TrainingReg open={open} setOpen={setOpen} openForm={openForm} setOpenForm={setOpenForm} priceLang={priceLang} priceType={priceType} priceConnect={priceConnect}/>
+
     </div>
   )
 }

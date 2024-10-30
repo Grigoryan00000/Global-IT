@@ -9,11 +9,13 @@ import HomeWorks from '../../home/home-works/HomeWorks'
 import Portfolio from './Portfolio'
 const ServiceInfo = () => {
 
+  
+
   return (
     <>
         <ServiceInfoDescription/>
         <WebsiteTypes/>
-        <LandingSite/>
+        {/* <LandingSite/> */}
         <Portfolio/>
     </>
     )

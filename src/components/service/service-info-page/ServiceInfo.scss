@@ -7,7 +7,7 @@
 
         &-description{
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             gap: 40px;
             padding: 140px 0 0 0 ;
@@ -34,12 +34,14 @@
                     font-weight: 400;
                     line-height: 241.3%; /* 36.195px */
                     letter-spacing: 0.825px;
+                    
                 }
                 
                 &-buttons{
                     > .button{
                         border-radius: 15px;
                         border: 2px solid #8F8F8F;
+                        background-color: transparent;
                         color: #fff;
                         cursor: pointer;
                         transition: 1s;
@@ -120,16 +122,9 @@
     }
 }
 
-.landing-site{
+.website-info{
     margin-top: 88px;
     padding: 0 10px;
-    ul{
-        margin-left: 30px;
-        li{
-            color: #fff;
-            
-        }
-    }
     h1{
         color: #FFF;
         font-family: Arial;
@@ -143,20 +138,17 @@
     p {
         color: #FFF;
         font-family: Arial;
-        font-size: 15px;
+        font-size: 18px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         line-height: 134.8%; /* 20.22px */
-        letter-spacing: 0.825px;
+        letter-spacing: 2px;
+        word-spacing: 6px;
     }
     .float{
         padding: 30px;
         padding-top: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
+        float: right;
     }
 }
 
