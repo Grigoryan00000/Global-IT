@@ -15,5 +15,6 @@ const FacultetSlice = createSlice({
 })
 
 
+
 export const {setFacultiesId} = FacultetSlice.actions;
 export default FacultetSlice.reducer;

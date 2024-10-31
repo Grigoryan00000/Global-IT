@@ -31,86 +31,43 @@ const TrainingReg = ({open, setOpen, priceLang, priceType, priceConnect, openFor
 
     <div className='training-registration' style={{display: open?"block":"none"}}>
         <p>Դասընթացների անցկացման տարբերակները</p>
-        <div className='table'>
-            {priceType.map(({teraning_price, treaning_name_hy, treaning_name_ru, treaning_name_en, id }, index) => {
-                // Check if it's the first or last item
-                const isFirstItem = index === 0;
-                const isLastItem = index === priceType.length - 1;
-
-                return (
-                    <div 
-                        key={id} 
-                        className='block' 
-                        style={{
-                            backgroundColor: id === checkType ? "#A35BFF" : "transparent",
-                            borderRadius: isFirstItem ? "16px 0 0 16px" : isLastItem ? "0 16px 16px 0" : "0"
-                        }}
-                        onClick={() => {
-                            setCheckType(id);
-                            setTypePrice(teraning_price);
-                            setGroupType(treaning_name_hy);
-                        }}
-                    >
-                        <img src={doneImg} alt='doneImg' />
-                        <p>{treaning_name_hy}</p>
-                    </div>
-                );
-            })}
-
+        <div className='training-registration-group-alone table'>
+            <div className="training-registration-group-alone-item left block" style={{borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px"}}>
+                <img src={doneImg} alt="" />
+                <p>Խմբային դասընթացներ</p>
+            </div>
+            <div className="training-registration-group-alone-item rigth block">
+                <img src={doneImg} alt="" />
+                <p>Անհատական դասընթացներ</p>
+            </div>
         </div>
-        <div className='table'>
-            {priceConnect.map(({teraning_price, treaning_name_hy, treaning_name_ru, treaning_name_en, id }, index) => {
-                // Check if it's the first or last item
-                const isFirstItem = index === 0;
-                const isLastItem = index === priceConnect.length - 1;
-
-                return (
-                    <div 
-                        key={id} 
-                        className='block' 
-                        style={{
-                            backgroundColor: id === checkConnect ? "#A35BFF" : "transparent",
-                            borderRadius: isFirstItem ? "16px 0 0 16px" : isLastItem ? "0 16px 16px 0" : "0"
-                        }}
-                        onClick={() => {
-                            setCheckConnect(id);
-                            setConnectPrice(teraning_price);
-                            setSessionType(treaning_name_hy);
-                        }}
-                    >
-                        <img src={doneImg} alt='doneImg' />
-                        <p>{treaning_name_hy}</p>
-                    </div>
-                );
-            })}
-
+        <div className="training-registration-method table">
+            <div className="training-registration-method-item left block">
+                <img src={doneImg} alt="" />
+                <p>Վիդեո դասեր</p>
+            </div>
+            <div className="training-registration-method-item block">
+                <img src={doneImg} alt="" />
+                <p>Ուղիղ միացմամբ</p>
+            </div>
+            <div className="training-registration-method-item rigth block">
+                <img src={doneImg} alt="" />
+                <p>Դասասենյակում</p>
+            </div>
         </div>
-        <div className='table'>
-            {priceLang.map(({teraning_price, treaning_name_hy, treaning_name_ru, treaning_name_en, id }, index) => {
-                // Check if it's the first or last item
-                const isFirstItem = index === 0;
-                const isLastItem = index === priceLang.length - 1;
-
-                return (
-                    <div 
-                        key={id} 
-                        className='block' 
-                        style={{
-                            backgroundColor: id === checkLang ? "#A35BFF" : "transparent",
-                            borderRadius: isFirstItem ? "16px 0 0 16px" : isLastItem ? "0 16px 16px 0" : "0"
-                        }}
-                        onClick={() => {
-                            setCheckLang(id);
-                            setLangPrice(teraning_price);
-                            setLanguage(treaning_name_hy);
-                        }}
-                    >
-                        <img src={doneImg} alt='doneImg' />
-                        <p>{treaning_name_hy}</p>
-                    </div>
-                );
-            })}
-
+        <div className="training-registration-lang table">
+            <div className="training-registration-lang-item left block">
+                <img src={doneImg} alt="" />
+                <p>Հայերեն</p>
+            </div>
+            <div className="training-registration-lang-item block">
+                <img src={doneImg} alt="" />
+                <p>Ռուսերեն</p>
+            </div>
+            <div className="training-registration-lang-item rigth block">
+                <img src={doneImg} alt="" />
+                <p>Անգլերեն</p>
+            </div>
         </div>
         <p>Դասընթացի արժեքը կազմում է`</p>
         <div>
