@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../../ServiceInfo.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchServiceFormBudjet,
   fetchServiceFormSiteTypesData,
 } from "../../../../../redux/slices/ServiceSlice";
+
 import axios from "axios";
+
+import { GoTriangleDown } from "react-icons/go";
+import { GoTriangleUp } from "react-icons/go";
+
 
 const ServiceForm = ({ open, setOpen, logo }) => {
   const dispatch = useDispatch();
@@ -17,9 +22,14 @@ const ServiceForm = ({ open, setOpen, logo }) => {
     activeItemName,
   } = useSelector((state) => state.service);
 
-  const [checkedSiteType, setCheckedSiteType] = useState("Օնլայն Խանութ");
   const [checkedbudget, setCheckedbudget] = useState("");
   const [active, setActive] = useState(null);
+
+  const [openSelect, setOpenSelect] = useState(false)
+  const [activeSelect, setActiveSelect] = useState("")
+
+  const selectRef = useRef(null);
+
 
 
   const [name, setName] = useState("");
@@ -39,9 +49,15 @@ const ServiceForm = ({ open, setOpen, logo }) => {
       phone,
       description: desc,
       serviceType: activeItemName,
-      siteType: checkedSiteType,
+      siteType: activeSelect,
       budget: checkedbudget,
     };
+
+    if (!name || !email || !phone || !activeItemName || !activeSelect || !checkedbudget ) {
+      setMessage("lracreq bolor dashtery")
+      setLoading(false)
+      return
+    }
 
     try {
       await axios.post(
@@ -94,20 +110,27 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           <p className="service-form-type-name">Կայքի տեսակը`</p>
           {status.serviceFormSiteTypes === "succeeded" &&
           serviceFormSiteTypes ? (
-            <select
-              onChange={(e) => {
-                setCheckedSiteType(e.target.value);
-              }}
+            <div
+              onClick={() => setOpenSelect(!openSelect)}
               className="service-form-type-select box"
+              ref={selectRef}
             >
-              {serviceFormSiteTypes.map(({ id, site_type_hy }) => {
-                return (
-                  <option key={id} value={site_type_hy}>
-                    {site_type_hy}
-                  </option>
-                );
-              })}
-            </select>
+              {activeSelect || "Ընտրեք Կայքի Տեսակը"}    {openSelect?<GoTriangleUp style={{fontSize:"20px"}}/>:<GoTriangleDown style={{fontSize:"20px"}}/>}
+              <div className={`options-list ${openSelect ? "open" : ""}`}>
+                {serviceFormSiteTypes.map(({ id, site_type_hy }) => (
+                  <div
+                    className="option"
+                    key={id}
+                    onClick={() => {
+                      setActiveSelect(site_type_hy);
+                      setOpenSelect(false);
+                    }}
+                  >
+                    {site_type_hy }
+                  </div>
+                ))}
+              </div>
+            </div>
           ) : (
             <div>not available</div>
           )}
@@ -142,6 +165,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           <form onSubmit={sendForm}>
             <input
               type="text"
+              value={name}
               placeholder="name"
               onChange={(e) => {
                 setName(e.target.value);
@@ -149,6 +173,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             />
             <input
               type="email"
+              value={email}
               placeholder="email"
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -156,14 +181,16 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             />
             <input
               type="text"
+              value={phone}
               placeholder="phone"
               onChange={(e) => {
                 setPhone(e.target.value);
               }}
             />
-            <input
+            <textarea
               type="text"
-              className="textare"
+              value={desc}
+              className="textarea"
               placeholder="description"
               onChange={(e) => {
                 setDesc(e.target.value);
