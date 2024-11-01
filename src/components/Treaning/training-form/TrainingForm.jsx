@@ -22,6 +22,9 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
             phone,
             groupType,
             language,
+            sessionType 
+        };
+
             sessionType ,
             treaningType
         };

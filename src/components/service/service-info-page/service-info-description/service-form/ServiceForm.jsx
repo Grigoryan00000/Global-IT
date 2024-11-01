@@ -9,76 +9,96 @@ import axios from "axios";
 
 const ServiceForm = ({ open, setOpen, logo }) => {
   const dispatch = useDispatch();
-  const { serviceFormSiteTypes, serviceFormBudjet, status, error, activeItemName } =
-    useSelector((state) => state.service);
-    
+  const {
+    serviceFormSiteTypes,
+    serviceFormBudjet,
+    status,
+    error,
+    activeItemName,
+  } = useSelector((state) => state.service);
+
   const [checkedSiteType, setCheckedSiteType] = useState("Օնլայն Խանութ");
   const [checkedbudget, setCheckedbudget] = useState("");
+  const [active, setActive] = useState(null);
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phone, setPhone] = useState("")
-  const [desc, setDesc] = useState("")
-  const [loading, setLoading] = useState("")
-  const [message, setMessage] = useState("")
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [desc, setDesc] = useState("");
+  const [loading, setLoading] = useState("");
+  const [message, setMessage] = useState("");
 
   const sendForm = async (e) => {
     e.preventDefault(); // Предотвращает перезагрузку страницы
     setLoading(true); // Устанавливает состояние загрузки
 
     const requestData = {
-        name,
-        email,
-        phone,
-        description: desc, 
-        serviceType: activeItemName,
-        siteType: checkedSiteType,
-        budget: checkedbudget,
-    };    
+      name,
+      email,
+      phone,
+      description: desc,
+      serviceType: activeItemName,
+      siteType: checkedSiteType,
+      budget: checkedbudget,
+    };
 
     try {
-        await axios.post("https://globalitacademy.am/GIAcademyApi/service_request/", requestData);
-        setMessage('դիմումը ուղղարկված է!'); // Сообщение об успехе
-        setName('');
-        setEmail('');
-        setPhone('');
-        setDesc('');
+      await axios.post(
+        "https://globalitacademy.am/GIAcademyApi/service_request/",
+        requestData
+      );
+      setMessage("դիմումը ուղղարկված է!"); // Сообщение об успехе
+      setName("");
+      setEmail("");
+      setPhone("");
+      setDesc("");
     } catch (error) {
-        setMessage('խնդիր, դիմումն ուղղարկելիս. խնդրում ենք կրկին փորձեք.');
-        console.error(error);
+      setMessage("խնդիր, դիմումն ուղղարկելիս. խնդրում ենք կրկին փորձեք.");
+      console.error(error);
     } finally {
-        setLoading(false); // Сбрасывает состояние загрузки
+      setLoading(false); // Сбрасывает состояние загрузки
     }
-};
+  };
 
   useEffect(() => {
     if (status.serviceFormSiteTypes === "idle") {
       dispatch(fetchServiceFormSiteTypesData());
     }
-    if (status.serviceFormBudjet === "idle"){
+    if (status.serviceFormBudjet === "idle") {
       dispatch(fetchServiceFormBudjet());
     }
   }, [status, dispatch]);
 
-  if (status.serviceFormSiteTypes === "loading" || status.serviceFormBudjet === "loading") {
+  if (
+    status.serviceFormSiteTypes === "loading" ||
+    status.serviceFormBudjet === "loading"
+  ) {
     return <div>Loading...</div>;
   }
 
-  if (status.serviceFormSiteTypes === "failed" || status.serviceFormBudjet === "failed") {
+  if (
+    status.serviceFormSiteTypes === "failed" ||
+    status.serviceFormBudjet === "failed"
+  ) {
     return <div>Error: {error}</div>;
   }
 
   return (
     <div className="service-form" style={{ display: open ? "block" : "none" }}>
+      <h2>
+        Պատվիրել <span>Վեբ Կայք</span>
+      </h2>
       <div className="container">
         <div className="service-form-type">
           <p className="service-form-type-name">Կայքի տեսակը`</p>
-          {status.serviceFormSiteTypes === "succeeded" && serviceFormSiteTypes ? (
+          {status.serviceFormSiteTypes === "succeeded" &&
+          serviceFormSiteTypes ? (
             <select
               onChange={(e) => {
                 setCheckedSiteType(e.target.value);
               }}
+              className="service-form-type-select box"
             >
               {serviceFormSiteTypes.map(({ id, site_type_hy }) => {
                 return (
@@ -98,9 +118,15 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             {status.serviceFormBudjet === "succeeded" && serviceFormBudjet ? (
               serviceFormBudjet.map(({ id, budget_hy }) => {
                 return (
-                  <button className="serivce-form-budjet-items-item" key={id} onClick={() => {
-                    setCheckedbudget(budget_hy)
-                  }}>
+                  <button
+                    className="serivce-form-budjet-items-item box"
+                    key={id}
+                    onClick={() => {
+                      setCheckedbudget(budget_hy);
+                      setActive(id)
+                    }}
+                    style={{background: active === id ? "#A35BFF" : "transparent"}}
+                  >
                     <span>{budget_hy}</span>
                   </button>
                 );
@@ -110,25 +136,47 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             )}
           </div>
         </div>
-        <img src={logo} alt="" />
-        <form onSubmit={sendForm}>
-            <input type="text" placeholder="name" onChange={(e) => {
-                setName(e.target.value)
-            }}/>
-            <input type="email" placeholder="email" onChange={(e) => {
-                setEmail(e.target.value)
-            }}/>
-            <input type="text" placeholder="phone" onChange={(e) => {
-                setPhone(e.target.value)
-            }}/>
-            <input type="text" className="textare" placeholder="description" onChange={(e) => {
-                setDesc(e.target.value)
-            }}/>
+        {/* <img src={logo} alt="" /> */}
+        <div className="send-form">
+          <p>Կոնտակտային տվյալներ`</p>
+          <form onSubmit={sendForm}>
+            <input
+              type="text"
+              placeholder="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <input
+              type="email"
+              placeholder="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="phone"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              className="textare"
+              placeholder="description"
+              onChange={(e) => {
+                setDesc(e.target.value);
+              }}
+            />
             <button type="submit" disabled={loading}>
-                {loading ? 'Отправка...' : 'Отправить'}
+              {loading ? "Отправка..." : "Отправить"}
             </button>
-        </form> 
-        {message && <p className='message'>{message}</p>} {/* Отображает сообщение об успехе/ошибке */}
+          </form>
+          {/* Отображает сообщение об успехе/ошибке */}
+          <img src={logo} alt="" />
+        </div>
+          {message && <p style={{textAlign: "center"}} className="message">{message}</p>}{" "}
       </div>
 
       <div
