@@ -8,6 +8,7 @@ import HomeFriends from './home-friends/HomeFriends';
 import HomeContact from './home-contact/HomeContact';
 import axios from 'axios';
 import { HomeAbout } from './home-about/HomeAbout';
+import Loading from '../loading/Loading';
 
 const Home = () => {
   const [sliderData, setSliderData] = useState([]);
@@ -73,7 +74,7 @@ const Home = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Loading message, replace with a spinner if needed
+    return <Loading/>; // Loading message, replace with a spinner if needed
   }
 
   if (error) {

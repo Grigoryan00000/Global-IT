@@ -1,15 +1,10 @@
 import Container from "../../common/container/Container"
 import "./HomeFaculties.scss"
-import homeFacultiesIcon1 from "../../../assets/home/home-faculties/home-faculties-item-icon1.png"
-import homeFacultiesIcon2 from "../../../assets/home/home-faculties/home-faculties-item-icon2.png"
-import homeFacultiesIcon3 from "../../../assets/home/home-faculties/home-faculties-item-icon3.png"
-import homeFacultiesitem from "../../../assets/home/home-faculties/home-faculties-item.png"
 import homeFacultiesItemBottomImg from "../../../assets/home/home-faculties/home-services-item-bottom-item-img.png"
 
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
-import { useEffect, useState } from "react"
-import { setFacultiesItemId } from "../../../redux/slices/HomeFacultiesSlices"
+import { setFacultiesItemId, setFacultiesItemName } from "../../../redux/slices/HomeFacultiesSlices"
 import { setFacultiesId } from "../../../redux/slices/FacultetSlice"
 
 const HomeFaculties = ({facultiesData, facultiesItemData}) => {
@@ -29,7 +24,7 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                         <div className="home-faculties-items-item" key={item.id}>
                             <div className="home-faculties-items-item-top">
                                 <div>
-                                    <img src={item.fac_img}/>
+                                    <img src={item.fac_img} alt="facultet"/>
                                 </div>
                                 <h3>{langState==="hy"?item.fac_name_hy:langState==="en"?item.fac_name_en:item.fac_name_ru}</h3>
                             </div>
@@ -41,6 +36,7 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                                 key={id} 
                                                 onClick={() => {
                                                     dispatch(setFacultiesItemId(id));
+                                                    dispatch(setFacultiesItemName(item_name_hy));
                                                     navigate(`training/${item_name_en}`);
                                                 }}>
                                                 <h4>{langState === "hy" ? item_name_hy : langState === "en" ? item_name_en : item_name_ru}</h4>
@@ -49,6 +45,8 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                             </div>
 
                                         )
+                                    } else {
+                                       return <div></div>
                                     }
                                 })}
                             <button className="home-faculties-items-item-bottom-button" onClick={() => {
