@@ -14,9 +14,7 @@ const ServiceInfo = () => {
     <>
         <ServiceInfoDescription/>
         <WebsiteTypes/>
-        {/* <LandingSite/> */}
         <HomeWorks/>
-        
     </>
     )
 }

@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Container from '../../../common/container/Container';
-import { fetchServiceInfoDescription } from '../../../../redux/slices/ServiceSlice';
+import { fetchServiceInfoDescription, fetchWebsiteTypes } from '../../../../redux/slices/ServiceSlice';
 import "../ServiceInfo.scss";
 import ServiceForm from './service-form/ServiceForm';
 
 const ServiceInfoDescription = () => {
   const dispatch = useDispatch();
-  const { activeItem, items, status, error } = useSelector((state) => state.service);
-  const [open, setOpen] = useState(false)
-  const [logo, setLogo] = useState("")
-
-
-
+  const { activeItem, items, websiteTypes, status, error } = useSelector((state) => state.service);
+  console.log(activeItem);
+  
+  const [open, setOpen] = useState(false);
+  const [logo, setLogo] = useState("");
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (status.items === 'idle') {
       dispatch(fetchServiceInfoDescription());
     }
-  }, [status, dispatch]);
+    if (status.websiteTypes === 'idle') {
+      dispatch(fetchWebsiteTypes());
+    }
+  }, [status.items, status.websiteTypes, dispatch]);
 
-  if (status === 'loading') {
-    return <div>Loading...</div>;
+  if (status.items === 'loading' || status.websiteTypes === 'loading') {
+    return <div>Загрузка...</div>;
   }
 
-  if (status === 'failed') {
-    return <div>Error: {error}</div>;
-  }  
-
+  if (status.items === 'failed' || status.websiteTypes === 'failed') {
+    return <div>Ошибка: {error}</div>;
+  }
 
   return (
     <div>
-      {status === 'succeeded' && items ? (
-        items.map(({ id, show, name, text, but_name1, but_name2, logo }) =>
+      {status.items === 'succeeded' && items ? (
+        items.map(({ id, show, name, text, but_name1, logo: itemLogo }) =>
           activeItem === id ? (
             <div className="service-info" key={id}>
               <Container>
@@ -45,7 +46,7 @@ const ServiceInfoDescription = () => {
                         className="button"
                         onClick={() => {
                           setOpen(true);
-                          setLogo(logo);
+                          setLogo(itemLogo);
                         }}
                       >
                         {but_name1}
@@ -53,22 +54,19 @@ const ServiceInfoDescription = () => {
                     </div>
                   </div>
                   <div className="icon-side">
-                    <img src={logo} alt="" />
+                    <img src={itemLogo} alt="" />
                   </div>
                 </div>
               </Container>
             </div>
-          ) : (
-            <React.Fragment key={id}></React.Fragment>
-          )
+          ) : null
         )
       ) : (
-        <div>No items available</div>
+        <div>Нет доступных данных</div>
       )}
       <ServiceForm open={open} setOpen={setOpen} logo={logo} />
     </div>
   );
-  
 };
 
 export default ServiceInfoDescription;
