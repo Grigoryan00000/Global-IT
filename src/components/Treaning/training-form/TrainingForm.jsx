@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TrainingForm.scss';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType }) => {
     const [name, setName] = useState('');
@@ -8,6 +9,8 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState(''); // Для отображения сообщений об успехе или ошибке
     const [loading, setLoading] = useState(false); // Для управления состоянием загрузки
+    
+    const treaningType = useSelector((state) => state.homeFaculties.facultiesItemName)
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Предотвращает перезагрузку страницы
@@ -21,6 +24,13 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
             language,
             sessionType 
         };
+
+            sessionType ,
+            treaningType
+        };
+
+        console.log(requestData);
+        
 
         try {
             await axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData);

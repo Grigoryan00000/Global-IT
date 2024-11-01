@@ -1,39 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import Container from '../../../common/container/Container';
-import { fetchServiceInfoDescription, fetchWebsiteTypes } from '../../../../redux/slices/ServiceSlice';
 import "../ServiceInfo.scss";
 import ServiceForm from './service-form/ServiceForm';
 
-const ServiceInfoDescription = () => {
-  const dispatch = useDispatch();
-  const { activeItem, items, websiteTypes, status, error } = useSelector((state) => state.service);
-  console.log(activeItem);
+const ServiceInfoDescription = ({items, activeItem}) => {
+
   
   const [open, setOpen] = useState(false);
   const [logo, setLogo] = useState("");
 
-  useEffect(() => {
-    if (status.items === 'idle') {
-      dispatch(fetchServiceInfoDescription());
-    }
-    if (status.websiteTypes === 'idle') {
-      dispatch(fetchWebsiteTypes());
-    }
-  }, [status.items, status.websiteTypes, dispatch]);
+  console.log(logo);
+  
 
-  if (status.items === 'loading' || status.websiteTypes === 'loading') {
-    return <div>Загрузка...</div>;
-  }
-
-  if (status.items === 'failed' || status.websiteTypes === 'failed') {
-    return <div>Ошибка: {error}</div>;
-  }
 
   return (
     <div>
-      {status.items === 'succeeded' && items ? (
-        items.map(({ id, show, name, text, but_name1, logo: itemLogo }) =>
+      { items ? (
+        items.map(({ id, name, text, but_name1, logo }) =>
           activeItem === id ? (
             <div className="service-info" key={id}>
               <Container>
@@ -46,7 +29,7 @@ const ServiceInfoDescription = () => {
                         className="button"
                         onClick={() => {
                           setOpen(true);
-                          setLogo(itemLogo);
+                          setLogo(logo);
                         }}
                       >
                         {but_name1}
@@ -54,7 +37,7 @@ const ServiceInfoDescription = () => {
                     </div>
                   </div>
                   <div className="icon-side">
-                    <img src={itemLogo} alt="" />
+                    <img src={logo} alt="" />
                   </div>
                 </div>
               </Container>
