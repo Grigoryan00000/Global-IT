@@ -1,0 +1,33 @@
+/* LoadingPage.css */
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1A181D;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ddd;
+    border-top-color: var(--blueviolet);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  

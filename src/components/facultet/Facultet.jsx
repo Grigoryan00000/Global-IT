@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
-import { setFacultiesItemId } from "../../redux/slices/HomeFacultiesSlices"
+import { setFacultiesItemId, setFacultiesItemName } from "../../redux/slices/HomeFacultiesSlices"
 import { setFacultiesId } from "../../redux/slices/FacultetSlice"
 
 const Facultet = () => {
@@ -135,8 +135,9 @@ const Facultet = () => {
                     key={id}
                     onClick={() => {
                       dispatch(setFacultiesItemId(id));
+                      dispatch(setFacultiesItemName(name_hy));
                       navigate(`training/${name_en}`);
-                    }}
+                    }}  
                   >
                     <img
                       src={back_img}
