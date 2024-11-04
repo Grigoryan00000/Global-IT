@@ -7,14 +7,15 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [message, setMessage] = useState(''); // Для отображения сообщений об успехе или ошибке
-    const [loading, setLoading] = useState(false); // Для управления состоянием загрузки
+    const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
     
-    const treaningType = useSelector((state) => state.homeFaculties.facultiesItemName)
+    const treaningType = useSelector((state) => state.homeFaculties.facultiesItemName);
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Предотвращает перезагрузку страницы
-        setLoading(true); // Устанавливает состояние загрузки
+        e.preventDefault();
+        setLoading(true);
+        setMessage(''); // Clear previous message
 
         const requestData = {
             name,
@@ -22,41 +23,50 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
             phone,
             groupType,
             language,
-            sessionType 
-        };
-
-            sessionType ,
+            sessionType,
             treaningType
         };
 
-        console.log(requestData);
-        
-
         try {
-            await axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData);
-            setMessage('դիմումը ուղղարկված է!'); // Сообщение об успехе
+            const response = await axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData);
+            setMessage('The request has been successfully sent!');
             setName('');
             setEmail('');
             setPhone('');
         } catch (error) {
-            setMessage('խնդիր, դիմումն ուղղարկելիս. խնդրում ենք կրկին փորձեք.');
+            if (error.response) {
+                // Server responded with a status other than 200 range
+                if (error.response.status === 400) {
+                    setMessage('Invalid data provided. Please check the form fields and try again.');
+                } else if (error.response.status === 500) {
+                    setMessage('Server error. Please try again later.');
+                } else {
+                    setMessage(`Unexpected error: ${error.response.status}. Please try again.`);
+                }
+            } else if (error.request) {
+                // No response was received from the server
+                setMessage('Network error. Please check your internet connection and try again.');
+            } else {
+                // Something else went wrong in setting up the request
+                setMessage(`An error occurred: ${error.message}`);
+            }
             console.error(error);
         } finally {
-            setLoading(false); // Сбрасывает состояние загрузки
+            setLoading(false);
         }
     };
 
     return (
         <div className='training-form' style={{ display: openForm ? "block" : "none" }}>
-            <h1>contact us</h1>
+            <h1>Contact Us</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Имя:
+                    Name:
                     <input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Ваше имя"
+                        placeholder="Your name"
                         required
                     />
                 </label>
@@ -66,28 +76,28 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Ваш email"
+                        placeholder="Your email"
                         required
                     />
                 </label>
                 <label>
-                    Телефон:
+                    Phone:
                     <input
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Ваш телефон"
+                        placeholder="Your phone"
                         required
                     />
                 </label>
                 <div className='btn'>
                     <button type="submit" disabled={loading}>
-                        {loading ? 'Отправка...' : 'Отправить'}
+                        {loading ? 'Sending...' : 'Send'}
                     </button>
                 </div>
             </form>
 
-            {message && <p className='message'>{message}</p>} {/* Отображает сообщение об успехе/ошибке */}
+            {message && <p className='message'>{message}</p>}
 
             <div className='close-window' onClick={() => setOpenForm(false)}>
                 <div className="close-reg">

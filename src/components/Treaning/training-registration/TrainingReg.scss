@@ -1,8 +1,11 @@
 .training-registration {
     background-color: rgba(54, 54, 54, 0.85);
     width: 700px;
-    height: 682px;
-    position: absolute;
+    height: auto;
+    // position: absolute;
+    max-width: 100%;
+    overflow-y: auto; /* Enable vertical scrolling for the whole container if needed */
+    max-height: 90vh; /* Adjust max height to fit the viewport */
     top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -13,6 +16,8 @@
     backdrop-filter: blur(6px); 
     position: fixed;
     z-index: 100;
+    padding: 20px;
+
     .block{
         padding: 0 10px;
     }
@@ -113,7 +118,47 @@
 
 @media screen and (max-width: 800px) {
     .training-registration{
-        width: 500px;
-        height: 560px;
+        overflow-y: scroll;
+        // width: 500px;
     }
 }
+@media (max-width: 768px) {
+    .table {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .price {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .block {
+      padding: 10px;
+      min-width: unset;
+      font-size: 0.9rem;
+    }
+  
+    .button {
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .training-registration {
+      padding: 10px;
+    }
+  
+    .price {
+      font-size: 1rem;
+    }
+  
+    .block {
+      font-size: 0.8rem;
+    }
+  
+    .button {
+      font-size: 0.9rem;
+    }
+  }

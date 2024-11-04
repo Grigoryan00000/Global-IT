@@ -142,21 +142,21 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           <form onSubmit={sendForm}>
             <input
               type="text"
-              placeholder="name"
+              placeholder="Անուն Ազգանուն"
               onChange={(e) => {
                 setName(e.target.value);
               }}
             />
             <input
               type="email"
-              placeholder="email"
+              placeholder="Էլ-փոստ"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             />
             <input
               type="text"
-              placeholder="phone"
+              placeholder="Հեռ․ համար"
               onChange={(e) => {
                 setPhone(e.target.value);
               }}
@@ -164,13 +164,13 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             <input
               type="text"
               className="textare"
-              placeholder="description"
+              placeholder="Նկարագրություն"
               onChange={(e) => {
                 setDesc(e.target.value);
               }}
             />
             <button type="submit" disabled={loading}>
-              {loading ? "Отправка..." : "Отправить"}
+              {loading ? "ուղարկվում է..." : "Ուղարկել հայտ"}
             </button>
           </form>
           {/* Отображает сообщение об успехе/ошибке */}
