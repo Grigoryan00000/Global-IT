@@ -6,11 +6,12 @@ import {
   fetchServiceFormSiteTypesData,
 } from "../../../../../redux/slices/ServiceSlice";
 
+import Loading from "../../../../loading/Loading"
+
 import axios from "axios";
-
-import { GoTriangleDown } from "react-icons/go";
-import { GoTriangleUp } from "react-icons/go";
-
+import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ServiceForm = ({ open, setOpen, logo }) => {
   const dispatch = useDispatch();
@@ -20,28 +21,32 @@ const ServiceForm = ({ open, setOpen, logo }) => {
     status,
     error,
     activeItemName,
+    activeItem
   } = useSelector((state) => state.service);
+  const langState = useSelector((state) => state.lang.lang)
 
   const [checkedbudget, setCheckedbudget] = useState("");
   const [active, setActive] = useState(null);
-
-  const [openSelect, setOpenSelect] = useState(false)
-  const [activeSelect, setActiveSelect] = useState("")
-
+  const [openSelect, setOpenSelect] = useState(false);
+  const [activeSelect, setActiveSelect] = useState("");
   const selectRef = useRef(null);
-
-
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [desc, setDesc] = useState("");
-  const [loading, setLoading] = useState("");
-  const [message, setMessage] = useState("");
+
+  const title_hy = activeItem===1?"Web կայք":activeItem===2?"Մոբայլ հավելված":"Վեբ և Գրաֆիկ Դիզայն"
+  const title_ru = activeItem===1?"Веб сайт":activeItem===2?"Mobile приложения":"Веб и графический дизайн"
+  const title_en = activeItem===1?"Web site":activeItem===2?"Mobile application":"Web and Graphic Design"
 
   const sendForm = async (e) => {
-    e.preventDefault(); // Предотвращает перезагрузку страницы
-    setLoading(true); // Устанавливает состояние загрузки
+    e.preventDefault();
+
+    if (!name || !email || !phone || !activeItemName || !activeSelect || !checkedbudget) {
+      toast.error(langState==="hy"?"Լրացրեք բոլոր դաշտերը":langState==="ru"?"Заполните все поля":"Fill in all fields");
+      return;
+    }
 
     const requestData = {
       name,
@@ -53,28 +58,27 @@ const ServiceForm = ({ open, setOpen, logo }) => {
       budget: checkedbudget,
     };
 
-    if (!name || !email || !phone || !activeItemName || !activeSelect || !checkedbudget ) {
-      setMessage("lracreq bolor dashtery")
-      setLoading(false)
-      return
-    }
-
-    try {
-      await axios.post(
-        "https://globalitacademy.am/GIAcademyApi/service_request/",
-        requestData
-      );
-      setMessage("դիմումը ուղղարկված է!"); // Сообщение об успехе
+    // Using toast.promise for pending, success, and error states
+    toast.promise(
+      axios.post("https://globalitacademy.am/GIAcademyApi/service_request/", requestData),
+      {
+        pending: langState==="hy"?"Դիմումը ուղարկվում է...":langState==="ru"?"Заявка отправляется...":"Request sending...",
+        success: langState==="hy"?"Դիմումը ուղղարկված է!":langState==="ru"?"Заявка отправлено!":"Request sent!",
+        error: langState==="hy"?"Խնդիր, դիմումն ուղղարկելիս. Խնդրում ենք կրկին փորձեք.":langState==="ru"?"Ошибка при отправлении заявки. Пожалуйста, попробуйте еще раз.":"Error sending request. Please try again."
+      }
+    )
+    .then(() => {
       setName("");
       setEmail("");
       setPhone("");
       setDesc("");
-    } catch (error) {
-      setMessage("խնդիր, դիմումն ուղղարկելիս. խնդրում ենք կրկին փորձեք.");
+      setCheckedbudget("")
+      setActiveSelect("")
+      setActive(null)
+    })
+    .catch((error) => {
       console.error(error);
-    } finally {
-      setLoading(false); // Сбрасывает состояние загрузки
-    }
+    });
   };
 
   useEffect(() => {
@@ -86,49 +90,46 @@ const ServiceForm = ({ open, setOpen, logo }) => {
     }
   }, [status, dispatch]);
 
-  if (
-    status.serviceFormSiteTypes === "loading" ||
-    status.serviceFormBudjet === "loading"
-  ) {
-    return <div>Loading...</div>;
+  if (status.serviceFormSiteTypes === "loading" || status.serviceFormBudjet === "loading") {
+    return <Loading/>;
   }
 
-  if (
-    status.serviceFormSiteTypes === "failed" ||
-    status.serviceFormBudjet === "failed"
-  ) {
+  if (status.serviceFormSiteTypes === "failed" || status.serviceFormBudjet === "failed") {
     return <div>Error: {error}</div>;
   }
 
   return (
     <div className="service-form" style={{ display: open ? "block" : "none" }}>
       <h2>
-        Պատվիրել <span>Վեբ Կայք</span>
+        {langState==="hy"?"Պատվիրել ":langState==="ru"?"Заказать ":"Order "} <span className={activeItem===1?"span-blue":activeItem===2?"span-orange":"span-green"}>{langState==="hy"?title_hy:langState==="ru"?title_ru:title_en}</span>
       </h2>
       <div className="container">
         <div className="service-form-type">
-          <p className="service-form-type-name">Կայքի տեսակը`</p>
-          {status.serviceFormSiteTypes === "succeeded" &&
-          serviceFormSiteTypes ? (
+          <p className="service-form-type-name"> {langState==="hy"?"տեսակը":langState==="ru"?"Тип":"Type:"}</p>
+          {status.serviceFormSiteTypes === "succeeded" && serviceFormSiteTypes ? (
             <div
               onClick={() => setOpenSelect(!openSelect)}
               className="service-form-type-select box"
               ref={selectRef}
             >
-              {activeSelect || "Ընտրեք Կայքի Տեսակը"}    {openSelect?<GoTriangleUp style={{fontSize:"20px"}}/>:<GoTriangleDown style={{fontSize:"20px"}}/>}
+              <p>{activeSelect || langState==="hy"?"Ընտրեք Տեսակը՝":langState==="ru"?"Выберите тип:":"Select type:"}{" "}</p>
+              {openSelect ? <GoTriangleUp style={{ fontSize: "20px" }} /> : <GoTriangleDown style={{ fontSize: "20px" }} />}
               <div className={`options-list ${openSelect ? "open" : ""}`}>
-                {serviceFormSiteTypes.map(({ id, site_type_hy }) => (
-                  <div
-                    className="option"
-                    key={id}
-                    onClick={() => {
-                      setActiveSelect(site_type_hy);
-                      setOpenSelect(false);
-                    }}
-                  >
-                    {site_type_hy }
-                  </div>
+              {serviceFormSiteTypes.map(({ id, site_type_hy, site_type_ru, site_type_en, services_items }) => (
+                  services_items === activeItem ? (
+                    <div
+                      className="option"
+                      key={id}
+                      onClick={() => {
+                        setActiveSelect(site_type_hy);
+                        setOpenSelect(false);
+                      }}
+                    >
+                      {langState==="hy"?site_type_hy:langState==="ru"?site_type_ru:site_type_en}
+                    </div>
+                  ) : null
                 ))}
+
               </div>
             </div>
           ) : (
@@ -136,76 +137,62 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           )}
         </div>
         <div className="service-form-budjet">
-          <p>Բյուջե`</p>
+          <p>{langState==="hy"?"Բյուջե`":langState==="ru"?"Бюджет:":"Budget:"}</p>
           <div className="serivce-form-budjet-items">
             {status.serviceFormBudjet === "succeeded" && serviceFormBudjet ? (
-              serviceFormBudjet.map(({ id, budget_hy }) => {
-                return (
-                  <button
-                    className="serivce-form-budjet-items-item box"
-                    key={id}
-                    onClick={() => {
-                      setCheckedbudget(budget_hy);
-                      setActive(id)
-                    }}
-                    style={{background: active === id ? "#A35BFF" : "transparent"}}
-                  >
-                    <span>{budget_hy}</span>
-                  </button>
-                );
-              })
+              serviceFormBudjet.map(({ id, budget_hy, budget_ru, budget_en}) => (
+                <button
+                  className="serivce-form-budjet-items-item box"
+                  key={id}
+                  onClick={() => {
+                    setCheckedbudget(budget_hy);
+                    setActive(id);
+                  }}
+                  style={{ background: active === id ? "#A35BFF" : "transparent" }}
+                >
+                  <span>{langState==="hy"?budget_hy:langState==="ru"?budget_ru:budget_en}</span>
+                </button>
+              ))
             ) : (
               <div>not available</div>
             )}
           </div>
         </div>
-        {/* <img src={logo} alt="" /> */}
         <div className="send-form">
-          <p>Կոնտակտային տվյալներ`</p>
+          <p>{langState==="hy"?"Կոնտակտային տվյալներ`":langState==="ru"?"Контактная информация:":"Contact information:"}</p>
           <form onSubmit={sendForm}>
             <input
               type="text"
               value={name}
-              placeholder="name"
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
+              placeholder={langState==="hy"?"Անուն":langState==="ru"?"Имя":"Name"}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               type="email"
               value={email}
-              placeholder="email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              placeholder={langState==="hy"?"Էլ․ փոստ":langState==="ru"?"Эл. почта":"Email"}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
               value={phone}
-              placeholder="phone"
-              onChange={(e) => {
-                setPhone(e.target.value);
-              }}
+              placeholder={langState==="hy"?"Հեռախոսահամար":langState==="ru"?"Номер телефона":"Phone number"}
+              onChange={(e) => setPhone(e.target.value)}
             />
             <textarea
               type="text"
               value={desc}
               className="textarea"
-              placeholder="description"
-              onChange={(e) => {
-                setDesc(e.target.value);
-              }}
+              placeholder={langState==="hy"?"Նկարագրություն":langState==="ru"?"Описание":"Description"}
+              onChange={(e) => setDesc(e.target.value)}
             />
-            <button type="submit" disabled={loading}>
-              {loading ? "Отправка..." : "Отправить"}
+            <button type="submit">
+              {langState==="hy"?"Ուղղարկել":langState==="ru"?"Отправить":"Send"}
             </button>
           </form>
-          {/* Отображает сообщение об успехе/ошибке */}
           <img src={logo} alt="" />
         </div>
-          {message && <p style={{textAlign: "center"}} className="message">{message}</p>}{" "}
       </div>
-
       <div
         className="close-window"
         onClick={() => {
@@ -216,6 +203,11 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           <p>x</p>
         </div>
       </div>
+      {/* Toast container to display notifications */}
+      <ToastContainer 
+        theme="dark"
+        autoClose={3000} // Close after 5 seconds
+      />
     </div>
   );
 };
