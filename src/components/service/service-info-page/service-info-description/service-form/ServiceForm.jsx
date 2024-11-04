@@ -168,6 +168,24 @@ const ServiceForm = ({ open, setOpen, logo }) => {
           <form onSubmit={sendForm}>
             <input
               type="text"
+              placeholder="Անուն Ազգանուն"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <input
+              type="email"
+              placeholder="Էլ-փոստ"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Հեռ․ համար"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
               value={name}
               placeholder={langState==="hy"?"Անուն":langState==="ru"?"Имя":"Name"}
               onChange={(e) => setName(e.target.value)}
@@ -186,6 +204,14 @@ const ServiceForm = ({ open, setOpen, logo }) => {
             />
             <textarea
               type="text"
+              className="textare"
+              placeholder="Նկարագրություն"
+              onChange={(e) => {
+                setDesc(e.target.value);
+              }}
+            />
+            <button type="submit" disabled={loading}>
+              {loading ? "ուղարկվում է..." : "Ուղարկել հայտ"}
               value={desc}
               className="textarea"
               placeholder={langState==="hy"?"Նկարագրություն":langState==="ru"?"Описание":"Description"}
