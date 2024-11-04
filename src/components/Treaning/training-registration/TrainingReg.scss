@@ -14,7 +14,7 @@
     position: fixed;
     z-index: 100;
     .block{
-        padding: 0 10px;
+        padding: 0 0;
     }
     >h1{
         color: #fff;
@@ -24,6 +24,7 @@
     p{
         font-weight: 300;
         margin: 20px 0;
+        
     }
     > .table{
         display: flex;
@@ -54,7 +55,13 @@
     .price{
         display: flex;
         justify-content: space-between;
-        >p{
+        >div{
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+        }
+        p{
             margin: 0;
             font-size: 48px;
             font-weight: 700;
@@ -76,7 +83,7 @@
     .button{
         width: 260px;
         margin: auto;
-        background-color: #A35BFF;
+        background: linear-gradient(45deg, #A663DB, #6751B7);
         padding: 10px 40px;
         margin-top: 20px;
         border-radius: 8px;

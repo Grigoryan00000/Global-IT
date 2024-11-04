@@ -159,12 +159,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    background-color: #36363691;
+    background-color: #363636f9;
     color: #fff; 
     padding: 20px 60px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
+
     position: fixed;
     z-index: 100;
     font-size: 12px;
@@ -186,9 +185,16 @@
             line-height: 48.53px;
             letter-spacing: 0.055em;
             text-align: left;
-            color: #98DAFF;
-
         }
+        .span-blue {
+            color: #98DAFF;
+          }
+        .span-orange {
+            color: #FF5942;
+          }
+        .span-green {
+            color: #A1FF8F;
+          }
     }
     .conatiner{
         max-width: 900px;
@@ -315,12 +321,12 @@
             
             }
             ::placeholder {
-                color: #FFFFFF;
+                color: #ccc;
                 opacity: 1; /* Firefox */
               }
               
               ::-ms-input-placeholder { /* Edge 12-18 */
-                color: #FFFFFF;
+                color: #ccc;
               }
             button{
                 background: linear-gradient(92.88deg, #A663DB 9.74%, #6751B7 99.48%);
