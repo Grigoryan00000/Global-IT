@@ -1,23 +1,22 @@
 .training-form{
     background-color: rgba(54, 54, 54, 0.85);
     width: 700px;
-    height: 660px;
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
     color: #fff; 
-    padding: 20px 60px; 
+    padding: 60px 60px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    backdrop-filter: blur(4px); 
+    backdrop-filter: blur(8px); 
     position: fixed;
     z-index: 100;
-    >h1{
+    >h2{
         text-align: center;
         color: #fff;
         font-weight: bold;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
     p{
         text-align: center;
@@ -26,16 +25,16 @@
     }
     input {
         border: none;
-        background-color: transparent;
-        border: 2px solid; /* Border thickness */
-        border-radius: 20px; /* Optional: Adds rounded corners */
-        border-image: linear-gradient(90deg, var(--blueviolet), #0073e6) 1;
+        background-color: #484848;
+        border-radius: 10px; /* Optional: Adds rounded corners */
         outline: none;
         color: white;
         padding: 16px;
         width: 100%;
         margin-bottom: 40px;
-
+    }
+    input::placeholder{
+        color: #ccc;
     }
     .btn{
         width: 100%;
@@ -47,7 +46,7 @@
         border: none;
         border-radius: 10px;
         color: #fff;
-        background: linear-gradient(45deg, var(--blueviolet), #0073e6);
+        background: linear-gradient(45deg, #A663DB, #6751B7);
         padding: 16px 80px;
         cursor: pointer;
     }

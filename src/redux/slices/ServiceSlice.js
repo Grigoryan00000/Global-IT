@@ -58,7 +58,7 @@ const ServiceSlice = createSlice({
         },
         error: null,
         activeItem: 1,
-        activeItemName: "web kayqeri patrastum"
+        activeItemName: ""
     }, 
     reducers: {
         changeActiveItem: (state, {payload}) => {
