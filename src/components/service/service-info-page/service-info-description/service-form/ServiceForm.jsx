@@ -31,6 +31,10 @@ const ServiceForm = ({ open, setOpen, logo }) => {
   const [activeSelect, setActiveSelect] = useState("");
   const selectRef = useRef(null);
 
+  console.log('====================================');
+  console.log(activeSelect);
+  console.log('====================================');
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -99,6 +103,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
   }
 
   return (
+    <>
     <div className="service-form" style={{ display: open ? "block" : "none" }}>
       <h2>
         {langState==="hy"?"Պատվիրել ":langState==="ru"?"Заказать ":"Order "} <span className={activeItem===1?"span-blue":activeItem===2?"span-orange":"span-green"}>{langState==="hy"?title_hy:langState==="ru"?title_ru:title_en}</span>
@@ -112,7 +117,7 @@ const ServiceForm = ({ open, setOpen, logo }) => {
               className="service-form-type-select box"
               ref={selectRef}
             >
-              <p>{activeSelect || langState==="hy"?"Ընտրեք Տեսակը՝":langState==="ru"?"Выберите тип:":"Select type:"}{" "}</p>
+              <p>{activeSelect?activeSelect:langState==="hy"?"Ընտրեք Տեսակը՝":langState==="ru"?"Выберите тип:":"Select type:"}{" "}</p>
               {openSelect ? <GoTriangleUp style={{ fontSize: "20px" }} /> : <GoTriangleDown style={{ fontSize: "20px" }} />}
               <div className={`options-list ${openSelect ? "open" : ""}`}>
               {serviceFormSiteTypes.map(({ id, site_type_hy, site_type_ru, site_type_en, services_items }) => (
@@ -230,11 +235,12 @@ const ServiceForm = ({ open, setOpen, logo }) => {
         </div>
       </div>
       {/* Toast container to display notifications */}
-      <ToastContainer 
-        theme="dark"
-        autoClose={3000} // Close after 5 seconds
-      />
     </div>
+    <ToastContainer 
+      theme="dark"
+      autoClose={3000} // Close after 5 seconds
+    />
+    </>
   );
 };
 
