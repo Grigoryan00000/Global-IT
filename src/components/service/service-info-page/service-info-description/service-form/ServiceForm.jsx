@@ -252,6 +252,9 @@ const ServiceForm = ({ open, setOpen, logo }) => {
   console.log("====================================");
   console.log(activeSelect);
   console.log("====================================");
+  console.log('====================================');
+  console.log(activeSelect);
+  console.log('====================================');
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -478,6 +481,26 @@ const ServiceForm = ({ open, setOpen, logo }) => {
                   ({ id, budget_hy, budget_ru, budget_en }) => (
                     <button
                       className="serivce-form-budjet-items-item box"
+    <div className="service-form" style={{ display: open ? "block" : "none" }}>
+      <h2>
+        {langState==="hy"?"Պատվիրել ":langState==="ru"?"Заказать ":"Order "} <span className={activeItem===1?"span-blue":activeItem===2?"span-orange":"span-green"}>{langState==="hy"?title_hy:langState==="ru"?title_ru:title_en}</span>
+      </h2>
+      <div className="container">
+        <div className="service-form-type">
+          <p className="service-form-type-name"> {langState==="hy"?"տեսակը":langState==="ru"?"Тип":"Type:"}</p>
+          {status.serviceFormSiteTypes === "succeeded" && serviceFormSiteTypes ? (
+            <div
+              onClick={() => setOpenSelect(!openSelect)}
+              className="service-form-type-select box"
+              ref={selectRef}
+            >
+              <p>{activeSelect?activeSelect:langState==="hy"?"Ընտրեք Տեսակը՝":langState==="ru"?"Выберите тип:":"Select type:"}{" "}</p>
+              {openSelect ? <GoTriangleUp style={{ fontSize: "20px" }} /> : <GoTriangleDown style={{ fontSize: "20px" }} />}
+              <div className={`options-list ${openSelect ? "open" : ""}`}>
+              {serviceFormSiteTypes.map(({ id, site_type_hy, site_type_ru, site_type_en, services_items }) => (
+                  services_items === activeItem ? (
+                    <div
+                      className="option"
                       key={id}
                       onClick={() => {
                         setCheckedbudget(budget_hy);
@@ -588,6 +611,12 @@ const ServiceForm = ({ open, setOpen, logo }) => {
         theme="dark"
         autoClose={3000} // Close after 5 seconds
       />
+      {/* Toast container to display notifications */}
+    </div>
+    <ToastContainer 
+      theme="dark"
+      autoClose={3000} // Close after 5 seconds
+    />
     </>
   );
 };

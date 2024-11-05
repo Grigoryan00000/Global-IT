@@ -552,6 +552,156 @@
     }
 }
 
+
+
+
+
+
+@media (max-width: 1250px) {
+    .service-form > .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .service-form-type {
+        display: block;
+    }
+    .service-form-budjet {
+        // margin: 0;
+        display: block;
+    }
+    .serivce-form-budjet-items {
+        flex-direction: column;
+    }
+    .send-form {
+        flex-direction: column;
+    }
+    .service-form .box {
+        width: 240px;
+        height: 50px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    form {
+        input {
+            min-width: 340px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .service-form {
+        overflow-y: auto;
+    }
+    .service-form .box {
+        width: 300px;
+        height: 50px;
+        font-size: 14px;
+        // margin-top: 10px;
+    }
+    .serivce-form-budjet {
+        margin: 20px 0;
+    }
+    .serivce-form-budjet-items {
+        flex-wrap: wrap;
+        margin: auto;
+        flex-direction: row;
+        text-align: center;
+        // justify-content: space-between;
+    }
+    form {
+        input {
+            min-width: 280px;
+        }
+    }
+    .service-form > .container {
+        flex-direction: column;
+        display: flex;
+    }
+
+    .training-form {
+        max-width: 90%;
+        padding: 15px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label,
+    .message {
+        font-size: 14px;
+    }
+
+    .btn button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .serivce-form-budjet-items {
+        flex-wrap: wrap;
+        margin: auto;
+        // flex-direction: column;
+        // justify-content: center;
+        text-align: center;
+    }
+    .service-form .box {
+        width: 300px;
+        height: 50px;
+        font-size: 14px;
+        // margin-top: 10px;
+    }
+
+    .training-form {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        top: 10%;
+        transform: none;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input,
+    .btn button {
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .close-window {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .training-form {
+        padding: 10px 15px;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 16px;
+        max-width: 100%;
+    }
+}
+
 @media screen and (max-width: 1350px) {
     .service-info-page {
         // padding: 0 80px;
@@ -633,6 +783,8 @@
         }
     }
 }
+
+
 
 @media screen and (max-width: 500px) {
     .icon-side {
