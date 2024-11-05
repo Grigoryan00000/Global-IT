@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './TrainingForm.scss';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType }) => {
@@ -14,22 +13,20 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
     const [loading, setLoading] = useState(false);
     
     const treaningType = useSelector((state) => state.homeFaculties.facultiesItemName);
+    const langState = useSelector((state) => state.lang.lang);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
+        e.preventDefault(); // Prevents page reload
         setMessage(''); // Clear previous message
-    
-    const treaningType = useSelector((state) => state.homeFaculties.facultiesItemName)
-    const langState = useSelector((state) => state.lang.lang)
-
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Предотвращает перезагрузку страницы
 
         if (!name || !email || !phone) {
-            toast.error(langState==="hy"?"Լրացրեք բոլոր դաշտերը":langState==="ru"?"Заполните все поля":"Fill in all fields");
+            toast.error(
+                langState === 'hy' ? "Լրացրեք բոլոր դաշտերը" :
+                langState === 'ru' ? "Заполните все поля" :
+                "Fill in all fields"
+            );
             return;
-          }
+        }
 
         const requestData = {
             name,
@@ -42,126 +39,89 @@ const TrainingForm = ({ openForm, setOpenForm, groupType, language, sessionType 
         };
 
         try {
-            const response = await axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData);
-            setMessage('The request has been successfully sent!');
-            sessionType ,
-            treaningType
-        };
-
-        
-
-        console.log(requestData);
-        
-
-        try {
-            toast.promise(
+            setLoading(true);
+            await toast.promise(
                 axios.post("https://globalitacademy.am/GIAcademyApi/treaning_request/", requestData),
                 {
-                    pending: langState==="hy"?"Դիմումը ուղարկվում է...":langState==="ru"?"Заявка отправляется...":"Request sending...",
-                    success: langState==="hy"?"Դիմումը ուղղարկված է!":langState==="ru"?"Заявка отправлено!":"Request sent!",
-                    error: langState==="hy"?"Խնդիր, դիմումն ուղղարկելիս. Խնդրում ենք կրկին փորձեք.":langState==="ru"?"Ошибка при отправлении заявки. Пожалуйста, попробуйте еще раз.":"Error sending request. Please try again."
+                    pending: langState === 'hy' ? "Դիմումը ուղարկվում է..." :
+                            langState === 'ru' ? "Заявка отправляется..." :
+                            "Request sending...",
+                    success: langState === 'hy' ? "Դիմումը ուղարկված է!" :
+                             langState === 'ru' ? "Заявка отправлено!" :
+                             "Request sent!",
+                    error: langState === 'hy' ? "Խնդիր, դիմումն ուղղարկելիս. Խնդրում ենք կրկին փորձեք." :
+                            langState === 'ru' ? "Ошибка при отправлении заявки. Пожалуйста, попробуйте еще раз." :
+                            "Error sending request. Please try again."
                 }
-            )
+            );
             setName('');
             setEmail('');
             setPhone('');
         } catch (error) {
-            if (error.response) {
-                // Server responded with a status other than 200 range
-                if (error.response.status === 400) {
-                    setMessage('Invalid data provided. Please check the form fields and try again.');
-                } else if (error.response.status === 500) {
-                    setMessage('Server error. Please try again later.');
-                } else {
-                    setMessage(`Unexpected error: ${error.response.status}. Please try again.`);
-                }
-            } else if (error.request) {
-                // No response was received from the server
-                setMessage('Network error. Please check your internet connection and try again.');
-            } else {
-                // Something else went wrong in setting up the request
-                setMessage(`An error occurred: ${error.message}`);
-            }
             console.error(error);
+            setMessage(
+                error.response?.status === 400
+                    ? 'Invalid data provided. Please check the form fields and try again.'
+                    : error.response?.status === 500
+                    ? 'Server error. Please try again later.'
+                    : `An error occurred: ${error.message}`
+            );
         } finally {
             setLoading(false);
-            console.error(error);
         }
     };
 
     return (
         <>
-
-        <div className='training-form' style={{ display: openForm ? "block" : "none" }}>
-            <h1>Contact Us</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-=======
-            <h2>{langState==="hy"?"Գրանցվել Դասընթացին":langState==="ru"?"Зарегистрироваться на курс":"Register for the course"}</h2>
-            <form onSubmit={handleSubmit}>
-
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Your name"
-                        required
-                    />
-                </label>
-                <label>
-                    Email:
-                        placeholder={langState==="hy"?"Անուն":langState==="ru"?"Имя":"Name"}
+            <div className="training-form" style={{ display: openForm ? "block" : "none" }}>
+                <h2>{langState === 'hy' ? "Գրանցվել Դասընթացին" : langState === 'ru' ? "Зарегистрироваться на курс" : "Register for the course"}</h2>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        {langState === 'hy' ? "Անուն" : langState === 'ru' ? "Имя" : "Name"}:
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder={langState === 'hy' ? "Անուն" : langState === 'ru' ? "Имя" : "Name"}
+                            required
                         />
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Your email"
-                        required
-                    />
-                </label>
-                <label>
-                    Phone:
-                        placeholder={langState==="hy"?"Էլ․ փոստ":langState==="ru"?"Эл. почта":"Email"}
+                    </label>
+                    <label>
+                        {langState === 'hy' ? "Էլ․ փոստ" : langState === 'ru' ? "Эл. почта" : "Email"}:
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder={langState === 'hy' ? "Էլ․ փոստ" : langState === 'ru' ? "Эл. почта" : "Email"}
+                            required
                         />
-
-                    <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="Your phone"
-                        required
-                    />
-                </label>
-                <div className='btn'>
-                    <button type="submit" disabled={loading}>
-                        {loading ? 'Sending...' : 'Send'}
-
-                        placeholder={langState==="hy"?"Հեռախոսահամար":langState==="ru"?"Номер телефона":"Phone number"}
+                    </label>
+                    <label>
+                        {langState === 'hy' ? "Հեռախոսահամար" : langState === 'ru' ? "Номер телефона" : "Phone number"}:
+                        <input
+                            type="tel"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            placeholder={langState === 'hy' ? "Հեռախոսահամար" : langState === 'ru' ? "Номер телефона" : "Phone number"}
+                            required
                         />
-                <div className='btn'>
-                    <button type="submit">
-                    {langState==="hy"?"Ուղղարկել":langState==="ru"?"Отправить":"Send"}
-
-                    </button>
-                </div>
-            </form>
-
-
-            {message && <p className='message'>{message}</p>}
-
-
-
-            <div className='close-window' onClick={() => setOpenForm(false)}>
-                <div className="close-reg">
-                    <p>x</p>
+                    </label>
+                    <div className="btn">
+                        <button type="submit" disabled={loading}>
+                            {loading ? 
+                                (langState === 'hy' ? "Ուղարկվում է..." : langState === 'ru' ? "Отправляется..." : "Sending...") :
+                                (langState === 'hy' ? "Ուղղարկել" : langState === 'ru' ? "Отправить" : "Send")}
+                        </button>
+                    </div>
+                </form>
+                {message && <p className="message">{message}</p>}
+                <div className="close-window" onClick={() => setOpenForm(false)}>
+                    <div className="close-reg">
+                        <p>x</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <ToastContainer 
-            theme='dark'
-            autoClose={3000}/>
+            <ToastContainer theme="dark" autoClose={3000} />
         </>
     );
 };
