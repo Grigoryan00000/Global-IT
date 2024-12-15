@@ -15,7 +15,7 @@
     margin: auto;
 }
 body, html {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* overflow-y: hidden; */
 }
 body{

@@ -28,31 +28,36 @@ const HomeFaculties = ({facultiesData, facultiesItemData}) => {
                                 </div>
                                 <h3>{langState==="hy"?item.fac_name_hy:langState==="en"?item.fac_name_en:item.fac_name_ru}</h3>
                             </div>
-                            <div className="home-faculties-items-item-bottom">
-                                {facultiesItemData.map(({id,item_name_hy, item_name_ru,item_name_en, faculties}) => {
-                                    if(faculties === item.id){
-                                        return(
-                                            <div className="home-faculties-items-item-bottom-item" 
-                                                key={id} 
-                                                onClick={() => {
-                                                    dispatch(setFacultiesItemId(id));
-                                                    dispatch(setFacultiesItemName(item_name_hy));
-                                                    navigate(`training/${item_name_en}`);
-                                                }}>
-                                                <h4>{langState === "hy" ? item_name_hy : langState === "en" ? item_name_en : item_name_ru}</h4>
-                                                <button>{langState === "hy" ? "Ընդունելություն" : langState === "en" ? "Reception" : "Прием"}</button>
-                                                <img src={homeFacultiesItemBottomImg} alt="" />
-                                            </div>
+                            <div className="global-item-div">
 
-                                        )
-                                    } else {
-                                       return <div></div>
-                                    }
-                                })}
-                            <button className="home-faculties-items-item-bottom-button" onClick={() => {
-                                dispatch(setFacultiesId(item.id))
-                                navigate(`/facultet`)
-                            }}>{langState==="hy"?item.but_name_hy:langState==="en"?item.but_name_en:item.but_name_ru}</button>
+                                <div className="home-faculties-items-item-bottom">
+                                    {facultiesItemData.map(({id,item_name_hy, item_name_ru,item_name_en, faculties}) => {
+                                        if(faculties === item.id){
+                                            return(
+                                                <div className="home-faculties-items-item-bottom-item" 
+                                                    key={id} 
+                                                    onClick={() => {
+                                                        dispatch(setFacultiesItemId(id));
+                                                        dispatch(setFacultiesItemName(item_name_hy));
+                                                        navigate(`training/${item_name_en}`);
+                                                    }}>
+                                                    <h4>{langState === "hy" ? item_name_hy : langState === "en" ? item_name_en : item_name_ru}</h4>
+                                                    <button>{langState === "hy" ? "Ընդունելություն" : langState === "en" ? "Reception" : "Прием"}</button>
+                                                    <img src={homeFacultiesItemBottomImg} alt="" />
+                                                </div>
+
+                                            )
+                                        } else {
+                                        return null
+                                        }
+                                    })}
+                                </div>
+                                <div className="btn">
+                                    <button className="home-faculties-items-item-bottom-button" onClick={() => {
+                                        dispatch(setFacultiesId(item.id))
+                                        navigate(`/facultet`)
+                                    }}>{langState==="hy"?item.but_name_hy:langState==="en"?item.but_name_en:item.but_name_ru}</button>
+                                </div>
                             </div>
                         </div>
                     )

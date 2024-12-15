@@ -5,11 +5,11 @@ import homeServicesItemIcon from "../../../assets/home/home-services/home-servic
 import homeServicesItemBottomItemImg from "../../../assets/home/home-services/home-services-item-bottom-item-img.png"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
-import { changeActiveItem } from "../../../redux/slices/ServiceSlice"
+import { changeActiveItem, changeActiveItemName } from "../../../redux/slices/ServiceSlice"
 
 
 
-const HomeServices = ({serviceData, otherServiceData}) => {
+const HomeServices = ({serviceData, serviceItems}) => {
 
     const langState = useSelector((state) => state.lang.lang);
 
@@ -24,6 +24,7 @@ const HomeServices = ({serviceData, otherServiceData}) => {
             <h2 className="home-services-title">{langState === "hy"? "Ծառայություններ": langState === "ru" ? "Услуги" : "Services"}</h2>
             <div className="home-services-items">
                 {serviceData.map(({id, ser_name_hy, ser_name_ru, ser_name_en, ser_img, but_name_hy, but_name_ru, but_name_en}) => {
+                    
                     return(
                         <div className="home-services-items-item" key={id}>
                             <div className="home-services-items-item-img">
@@ -48,13 +49,18 @@ const HomeServices = ({serviceData, otherServiceData}) => {
                         <h3>{langState === "hy"? "Վեբ Ծրագրավորման Ֆակուլտետ": langState === "ru" ? "Факультет веб-программирования" : "Faculty of Web Programming"}</h3>
                     </div>
                     <div className="home-services-items-item-bottom">
-                        {otherServiceData.map(({id, logo, name_hy, name_ru, name_en, text_hy, text_en, text_ru}) => {
-                            return(
-                                <div className="home-services-items-item-bottom-item" key={id}>
-                                    <h4>{langState === "hy"? text_hy: langState === "ru" ? text_ru : text_en}</h4>
-                                    <img src={homeServicesItemBottomItemImg} alt="" />
-                                </div>
-                            )
+                        {serviceItems.map(({id, ser_name_hy, }) => {
+                         
+                                return(
+                                    <div className="home-services-items-item-bottom-item" key={id}>
+                                        <p onClick={() => {
+                                            console.log(id)
+                                            dispatch(changeActiveItem(id)) 
+                                            dispatch(changeActiveItemName(ser_name_hy))
+                                            // navigate("/service-info")
+                                        }}>{ser_name_hy}</p>
+                                    </div>
+                                )
                         })}
                     </div>
                 </div> */}

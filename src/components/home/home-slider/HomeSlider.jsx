@@ -14,11 +14,14 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import contact from "../../../assets/home/home-slider/phone.png"
+import { SliderContact } from "./slider-contact/SliderContact";
 
 const HomeSlider = ({ sliderData }) => {
 
   const langState = useSelector((state) => state.lang.lang);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false)
 
   // let homeTyper = sliderData;
   
@@ -77,18 +80,16 @@ const HomeSlider = ({ sliderData }) => {
             delaySpeed={1000}
           />
         </h1>
-        <div className="home-slider-title-button">
-            <button onClick={() => {
-              navigate("/facultet")
-            }}>{a}</button>
-            <button onClick={() => {
-              navigate("/service")
-            }}>{b}</button>
+        <div className="home-slider-title-contact" onClick={() => {
+          setOpen((prev) => !prev)
+        }}>
+            <img src={contact} alt="phone" />
         </div>
       </div>
       <div className="home-slider-img">
 
       </div>
+      <SliderContact open = {open} setOpen = {setOpen}/>
     </div>
   );
 };

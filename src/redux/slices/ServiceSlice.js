@@ -44,6 +44,7 @@ export const fetchServiceFormBudjet = createAsyncThunk(
 const ServiceSlice = createSlice({
     name: "service",
     initialState : {
+        open: false,
         items: [],
         websiteTypes: [],
         websiteInfo: [],

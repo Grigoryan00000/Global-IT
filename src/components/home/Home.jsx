@@ -15,7 +15,7 @@ const Home = () => {
   const [facultiesData, setFacultiesData] = useState([]);
   const [facultiesItemData, setFacultiesItemData] = useState([]);
   const [serviceData, setServiceData] = useState([]);
-  const [otherServiceData, setOtherServiceData] = useState([]);
+  const [serviceItems, setServiceItems] = useState([]);
   const [teamData, setTeamData] = useState([]);
   const [friendData, setFriendData] = useState([]);
   const [workData, setWorkData] = useState([]);
@@ -30,7 +30,7 @@ const Home = () => {
         const [
           sliderRes,
           serviceRes,
-          otherServiceRes,
+          serviceItems,
           facultiesRes,
           facultiesItemRes,
           teamRes,
@@ -41,7 +41,7 @@ const Home = () => {
         ] = await Promise.all([
           axios.get('https://globalitacademy.am/GIAcademyApi/slayder/'),
           axios.get('https://globalitacademy.am/GIAcademyApi/service/'),
-          axios.get('https://globalitacademy.am/GIAcademyApi/other_service/'),
+          axios.get('https://globalitacademy.am/GIAcademyApi/service_items/'),
           axios.get('https://globalitacademy.am/GIAcademyApi/faculties/'),
           axios.get('https://globalitacademy.am/GIAcademyApi/faculties_Items/'),
           axios.get('https://globalitacademy.am/GIAcademyApi/team/'),
@@ -54,7 +54,7 @@ const Home = () => {
         // Set data in state
         setSliderData(sliderRes.data);
         setServiceData(serviceRes.data);
-        setOtherServiceData(otherServiceRes.data);
+        setServiceItems(serviceItems.data);
         setFacultiesData(facultiesRes.data);
         setFacultiesItemData(facultiesItemRes.data);
         setTeamData(teamRes.data);
@@ -85,7 +85,7 @@ const Home = () => {
     <div className='home' style={{ backgroundColor: 'var(--global-homePage-color)' }}>
       <HomeSlider sliderData={sliderData} />
       <HomeFaculties facultiesData={facultiesData} facultiesItemData={facultiesItemData} />
-      <HomeServices serviceData={serviceData} otherServiceData={otherServiceData} />
+      <HomeServices serviceData={serviceData} serviceItems={serviceItems} />
       <HomeTeam teamData={teamData} />
       <HomeWorks workData={workData} />
       {/* <HomeAbout aboutData={aboutData} aboutItemData={aboutItemData} /> */}

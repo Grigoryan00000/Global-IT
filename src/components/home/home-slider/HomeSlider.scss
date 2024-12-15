@@ -1,5 +1,5 @@
 .home-slider {
-    padding: 100px 80px;
+    padding: 100px 0 80px 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -204,6 +204,9 @@
 
 @media screen and (max-width: 1010px) {
     .home-slider {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        
         .container {
             // display: block;
             width: 100%;
@@ -234,8 +237,6 @@
 }
 @media screen and (max-width: 950px) {
     .home-slider{
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
         
     }
     .home-slider-img{

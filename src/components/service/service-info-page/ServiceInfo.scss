@@ -1,3 +1,9 @@
+.no-scroll {
+    overflow-x: hidden;
+
+}
+
+
 .service-info-page {
     min-height: 100vh;
     background:
@@ -5,7 +11,9 @@
         #252525 0px 0px / 100% 100% no-repeat;
     .service-info {
         // padding: 0 80px;
-
+        ::-webkit-scrollbar {
+            display: none;
+        }
         &-description {
             display: flex;
             justify-content: space-between;

@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+// ServiceInfoDescription.js
+import React, { useEffect, useState } from 'react';
 import Container from '../../../common/container/Container';
-import "../ServiceInfo.scss";
 import ServiceForm from './service-form/ServiceForm';
+import "../ServiceInfo.scss";
 
-const ServiceInfoDescription = ({items, activeItem}) => {
-
-  
-  const [open, setOpen] = useState(false);
+const ServiceInfoDescription = ({ items, activeItem, open, setOpen }) => {
   const [logo, setLogo] = useState("");
 
-  console.log(logo);
-  
-
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+    return () => document.body.classList.remove('no-scroll');
+  }, [open]);
 
   return (
     <div>
-      { items ? (
+      {items ? (
         items.map(({ id, name, text, but_name1, logo }) =>
           activeItem === id ? (
             <div className="service-info" key={id}>
@@ -45,7 +48,7 @@ const ServiceInfoDescription = ({items, activeItem}) => {
           ) : null
         )
       ) : (
-        <div>Нет доступных данных</div>
+        <div>No available data</div>
       )}
       <ServiceForm open={open} setOpen={setOpen} logo={logo} />
     </div>

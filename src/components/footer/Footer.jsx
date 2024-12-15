@@ -1,5 +1,6 @@
 import Container from '../common/container/Container'
-import footerLogo from "../../assets/footer/img.png"
+import footerLogo from "../../assets/header/logowhite.png"
+
 import "./Footer.scss"
 import { CONFIG } from '../../config'
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -29,7 +30,7 @@ const Footer = () => {
             <div className="footer-top">
                 <div className="footer-top-about">
                     <img src={footerLogo} alt="" />
-                    <p>{langState==="hy"?"ԳԼՈԲԱԼ ԻՏ» ՍՊԸ-ն հիմնադրվել է 2017թ.-ին: Մենք առաջարկում ենք ծրագրային տարատեսակ լուծումներ` վեբ կայքերի պատրաստումից մինչև մոբայլ հավելվածներ, խաղեր,արհեստական բանականություն, ավտոմատացման համակարգեր և այլն: Իրականացնում ենք նաև աշխատաշուկայի պահանջներին համապատասխան ՏՏ ոլորտի դասընթացներ:":langState==="en"?"GLOBAL IT LLC was founded in 2017. We offer a variety of software solutions, from website development to mobile applications, games, artificial intelligence, automation systems, and more. We also conduct IT courses in accordance with the requirements of the labor market.":"ООО «ГЛОБАЛ ИТ» основано в 2017 году. Мы предлагаем различные программные решения: от разработки веб-сайтов до мобильных приложений, игр, искусственного интеллекта, систем автоматизации и многого другого. Также мы проводим IT-курсы в соответствии с требованиями рынка труда."}</p>
+                    <p>{langState==="hy"?"Առաջարկում ենք ծրագրային տարատեսակ լուծումներ։ Իրականացնում ենք աշխատաշուկայի պահանջներին համապատասխան ՏՏ ոլորտի դասընթացներ:":langState==="en"?"We offer various software solutions. We conduct IT training courses in line with the demands of the labor market.":"Мы предлагаем различные программные решения. Мы проводим IT-курсы в соответствии с требованиями рынка труда."}</p>
                 </div>
                 <div className="footer-top-firstList" >
                     {CONFIG.footerFirstListConfig.map(({id,title,title_ru, title_en,text,text_ru,text_en}) => {
@@ -57,9 +58,9 @@ const Footer = () => {
                     {CONFIG.footerThirdListConfig.map(({id, text1,text1_ru,text1_en, text2, text3}) => {
                         return(
                             <div className="footer-top-thirdList-item" key={id}>
-                                <p>{langState==="hy"?"Հասցե՝ ":langState==="en"?"Address:   ":"Адрес: "}   {langState==="hy"?text1:langState==="en"?text1_en:text1_ru}</p>
-                                <p>{langState==="hy"?"Հեռախոսահամար՝ ":langState==="en"?"Phone number:  ":"Номер телефона:  "} {text2}</p>
-                                <p>{langState==="hy"?"Էլ. փոստ : ":langState==="en"?"Address:  ":"Эл. почта:  "} {text3}</p>
+                                <p>{langState==="hy"?"Հասցե՝ ":langState==="en"?"Address:   ":"Адрес: "}   </p>
+                                <p>{langState==="hy"?"Հեռախոսահամար՝ ":langState==="en"?"Phone number:  ":"Номер телефона:  "} <a href="tel:+79001111111">{text2}</a></p>
+                                <p>{langState==="hy"?"Էլ. փոստ : ":langState==="en"?"Address:  ":"Эл. почта:  "} <a href="mailto:mail@htmlacademy.ru">{langState==="hy"?text1:langState==="en"?text1_en:text1_ru}</a></p>
                             </div> 
                         )
                     })}
