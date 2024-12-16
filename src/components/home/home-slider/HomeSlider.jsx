@@ -80,10 +80,10 @@ const HomeSlider = ({ sliderData }) => {
             delaySpeed={1000}
           />
         </h1>
-        <div className="home-slider-title-contact" onClick={() => {
-          setOpen((prev) => !prev)
-        }}>
-            <img src={contact} alt="phone" />
+        <div className="home-slider-title-contact" >
+            <img src={contact} alt="phone" style={{cursor: 'pointer'}} onClick={() => {
+              setOpen((prev) => !prev)
+        }}/>
         </div>
       </div>
       <div className="home-slider-img">
