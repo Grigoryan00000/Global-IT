@@ -33,7 +33,7 @@ export const DropDown = ({ options,setLang }) => {
   }, []);
 
   return (
-    <div className="dropdown" ref={dropdownRef} style={{background: isOpen ? "#40404099": "none", backdropFilter: isOpen ? "blur(24px)": "blur(0)"}}>
+    <div className="dropdown" ref={dropdownRef} style={{background: isOpen ? "#40404099": "none",}}>
       <div className="dropdown-header" onClick={handleToggleDropdown}>
         {selectedOption ? (
           <>

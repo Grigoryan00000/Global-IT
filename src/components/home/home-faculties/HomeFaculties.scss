@@ -153,6 +153,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 // @keyframes appearItem {
 //     0%{
@@ -181,11 +182,13 @@
     
 }
 @media screen and (max-width: 450px){
+    .home-faculties{
+        margin-top: 40px;
+    }
     .home-faculties-title{
         font-size: 30px;
     }
     .home-faculties-items-item{
-            height: auto;
             width: 330px;
     }
     .home-faculties-items-item-top{
