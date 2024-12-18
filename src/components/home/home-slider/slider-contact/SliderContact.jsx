@@ -173,7 +173,7 @@ export const SliderContact = ({ open, setOpen }) => {
                                             : "Date/time"
                                     }
                                     className="custom-date-picker" // Кастомный класс для стилизации
-                                    popperPlacement="right-start" // Можно использовать top, bottom, left, right и другие
+                                    popperPlacement="top-center" // Можно использовать top, bottom, left, right и другие
                                     name="date"
                                 />
                                 <FaCalendarAlt className="date-picker-icon" />
