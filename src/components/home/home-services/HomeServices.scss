@@ -145,6 +145,30 @@
         }  
     }
 
+    .btn{
+        width: 300px;
+        margin:  0 auto;
+        padding: 15px 0;
+        // font-family: Arian AMU;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: 0.055em;
+        background-color: transparent;
+        background: var(--blueviolet);
+        border: 2px solid var(--blueviolet);
+        border-radius: 15px;
+        // margin-top: 50px;
+        transform: translateY(50px);
+        color: var(--white);
+        box-shadow: 3px 3px 3px rgb(24, 24, 24);
+        cursor: pointer;
+        transition: all 200ms ease;
+        &:hover{
+            background: #894CD9;
+        }
+    }
+    
+
     @keyframes appearItem {
         0%{
             opacity: 0;

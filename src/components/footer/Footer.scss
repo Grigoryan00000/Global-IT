@@ -33,10 +33,16 @@ footer{
                 }
                 p{
                     // font-family: Arian AMU;
+                    cursor: pointer;
                     font-weight: 400;
                     line-height: 34px;
                     letter-spacing: 0.055em;
                     color: var(--white);
+                    transition: 0.2s ease;
+                    &:hover{
+                        color: var(--blueviolet);
+
+                    }
                 }
             }
         }
@@ -45,11 +51,16 @@ footer{
 
             &-item{
                 p{
+                    cursor: pointer;
                     // font-family: Arian AMU;
                     font-weight: 400;
                     line-height: 34px;
                     letter-spacing: 0.055em;
                     color: var(--white);
+                    transition: 0.2s ease;
+                    &:hover{
+                        color: var(--blueviolet);
+                    }
                 }
             }
         }
@@ -63,6 +74,12 @@ footer{
                     line-height: 34px;
                     letter-spacing: 0.055em;
                     color: var(--white);
+                    a{
+                        outline: none;
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: var(--blueviolet);
+                    }
                 }
             }
         }

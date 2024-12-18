@@ -19,9 +19,6 @@ import { DropDown } from './dropdown/DropDown'
 const Header = () => {
     
     const navigate = useNavigate()
-    const closeAuth = useSelector((state) => state.auth.closeAuth)
-    const closeAuthWindow = useSelector((state) => state.auth.closeAuthWindow)
-    const closeReg = useSelector((state) => state.auth.closeReg)
 
     const location = useLocation();
     const path = location.pathname
@@ -78,30 +75,30 @@ const Header = () => {
     setLang(event.target.value)
   }
 
-//   useEffect(() => {
-//     // Adding the scroll listener
-//     window.addEventListener('scroll', handleScroll, { passive: true });
+  useEffect(() => {
+    // Adding the scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
-//     return () => {
-//         // Removing listener
-//         window.removeEventListener('scroll', handleScroll);
-//     };
-// }, []);
+    return () => {
+        // Removing listener
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
 
-// const [isScrolled, setScrolled] = useState(false);
+const [isScrolled, setScrolled] = useState(false);
 
-// // Handler when page is scrolled
-// const handleScroll = () => {
-//   if(window.pageYOffset > 0) {
-//     setScrolled(true)
-//   } else {
-//     setScrolled(false)
-//   }
-// }
+// Handler when page is scrolled
+const handleScroll = () => {
+  if(window.pageYOffset > 0) {
+    setScrolled(true)
+  } else {
+    setScrolled(false)
+  }
+}
 
   
   return (
-    <header class="header"style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"rgba(0, 0, 0, 0.5)"}}>
+    <header class="header header-scrolled"style={{backgroundColor: path==="/service"||path==="/service-info"?"#2f2f2f":"rgba(0, 0, 0, 0.5)"}}>
         <Container>
             {headerData.map(({id, logo, page1_hy, page1_ru, page1_en, page2_hy, page2_ru, page2_en, page3_hy, page3_ru, page3_en, page4_hy, page4_ru, page4_en, page5_hy, page5_ru, page5_en, login_hy, login_ru, login_en}) => {
                 return(

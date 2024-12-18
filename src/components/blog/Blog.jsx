@@ -7,6 +7,7 @@ import { useSelector } from "react-redux"
 import BlogRating from './BlogRating'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import img from ".././../assets/blog/blog-img1.png"
 
 
 
@@ -62,7 +63,7 @@ const Blog = ({show, setShow}) => {
         {blogData.map(({id, news_img, news_name_hy, news_name_ru, news_name_en, news_text_hy, news_text_ru, news_text_en}) => {
           return(
             <div className="blog-items-item" key={id}>
-              <img src={news_img} alt=""/>
+              <img src={img} alt=""/>
               <div className="blog-items-item-desc" >
                 <h3>{langState === "hy"? news_name_hy: langState === "ru" ? news_name_ru : news_name_en}</h3>
                 <p>{langState === "hy"? news_text_hy: langState === "ru" ? news_text_ru : news_text_en}</p>

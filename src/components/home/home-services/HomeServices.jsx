@@ -65,6 +65,9 @@ const HomeServices = ({serviceData, serviceItems}) => {
                     </div>
                 </div> */}
             </div>
+            <button className="btn" onClick={() => {
+                navigate("/service")
+            }}>Դիտել բոլորը</button>
         </Container>
     </div>
   )

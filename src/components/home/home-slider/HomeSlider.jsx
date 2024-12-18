@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomeSlider.scss";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -53,6 +53,14 @@ const HomeSlider = ({ sliderData }) => {
     });
   }
   console.log(titlesArr);
+  useEffect(() => {
+      if (open) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+      return () => document.body.classList.remove('no-scroll');
+    }, [open]);
   
 
   

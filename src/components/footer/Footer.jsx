@@ -68,9 +68,9 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <p>{langState === "hy"? `Copyright ©${year} Բոլոր հեղինակային իրավունքները պաշտպանված են: 
-                Կայքը պատրաստված է "ԳԼՈԲԱԼ ԻՏ" (ՍՊԸ)-ի կողմից, որը հանդիսանում է ընկերության Պաշտոնական կայքէջը: Կայքից նույթ տեղադրելիս հղումը globalitc.am-ին պարտադիր է:`:langState ==="ru" ? `© 2024. Все права защищены.
-                Сайт создан компанией «ГЛОБАЛ ИТ» (ООО), которая является официальным сайтом компании. Ссылка на globalitc.am обязательна при размещении материала с сайта.`: `Copyright ©2024 All rights reserved.
-                The website is made by "GLOBAL IT" (LLC), which is the official website of the company. A link to globalitc.am is mandatory when posting an item from the site.`}</p>
+                Կայքը պատրաստված է "ԳԼՈԲԱԼ ԱՅ ԹԻԱ"-ի կողմից, որը հանդիսանում է ընկերության Պաշտոնական կայքէջը: Կայքից նույթ տեղադրելիս հղումը globalitacademy.am-ին պարտադիր է:`:langState ==="ru" ? `© 2024. Все права защищены.
+                Сайт создан компанией «ГЛОБАЛ ИТ» (ООО), которая является официальным сайтом компании. Ссылка на globalitacademy.am обязательна при размещении материала с сайта.`: `Copyright ©2024 All rights reserved.
+                The website is made by "GLOBAL IT" (LLC), which is the official website of the company. A link to globalitacademy.am is mandatory when posting an item from the site.`}</p>
                 <p className='responsive-text'>Copyright ©2023 Կայքից նույթ տեղադրելիս հղումը globalitc.am-ին պարտադիր է:</p>
             </div>
         </Container>

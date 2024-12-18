@@ -4,20 +4,20 @@
   position: fixed;
   width: 100%;
   z-index: 30;
-  // &-scrolled{
+  &-scrolled{
 
-  //   transition: 0.7s ease;
-  //   padding: 10px 65px;
-  //   -webkit-backdrop-filter: blur(10px); /* For WebKit browsers */
-  //   backdrop-filter: blur(10px); /* Standard syntax */
-  //   li{
+    transition: 0.7s ease;
+    padding: 10px 65px;
+    -webkit-backdrop-filter: blur(10px); /* For WebKit browsers */
+    backdrop-filter: blur(10px); /* Standard syntax */
+    li{
 
-  //     font-size:20px;
-  //   }
-  //   img{
-  //     width: 220px;
-  //   }
-  // }
+      // font-size:20px;
+    }
+    img{
+      // width: 220px;
+    }
+  }
 }
 
 .row {
